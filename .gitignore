@@ -1,0 +1,7 @@
+.venv/
+.claude/
+.impeccable/
+istibaq/
+istibaq.zip
+__pycache__/
+*.pyc

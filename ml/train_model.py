@@ -26,15 +26,17 @@ norm = wm[wm.month < TEST_FROM].groupby("cal")[["tmax", "hot", "rain"]].mean(); 
 
 # ---------- السمات ----------
 dcodes = {d: i for i, d in enumerate(sorted(A.district.unique()))}; ccodes = {c: i for i, c in enumerate(["tertiary", "secondary", "primary", "trunk", "motorway"])}
+mcodes = {"تقليدية (60/70)": 0, "سوبربيف": 1, "معدّلة بالبوليمر (PMB)": 2}; bcodes = {"حصى مدرّج": 0, "أساس مثبت بالإسمنت": 1}
 def build(df, cal):
     X = df.merge(A, on="asset_id"); X["cal"] = cal if np.isscalar(cal) else cal.values
-    X = X.join(norm, on="cal"); X["district_code"] = X.district.map(dcodes); X["cls_code"] = X.cls.map(ccodes); return X
-FEATS = ["cls_code", "district_code", "length_m", "age", "gw_depth", "traffic", "material_test", "compaction_test", "pci_obs", "pci_drop_6m",
+    X = X.join(norm, on="cal"); X["district_code"] = X.district.map(dcodes); X["cls_code"] = X.cls.map(ccodes)
+    X["mix_code"] = X.mix.map(mcodes); X["base_code"] = X.base_mat.map(bcodes); return X
+FEATS = ["cls_code", "district_code", "length_m", "rel_elev", "age", "gw_depth", "traffic", "material_test", "mix_code", "base_code", "compaction_test", "pci_obs", "pci_drop_6m",
          "fails_3m", "fails_12m", "months_since_repair", "last_repair_surface", "contractor_return_rate", "tmax_norm", "hot_norm", "rain_norm"]
 GROUPS = {"حالة الرصف (PCI)": ["pci_obs", "pci_drop_6m"], "سجل الأعطال السابقة": ["fails_3m", "fails_12m", "months_since_repair"],
           "المعالجة السطحية السابقة": ["last_repair_surface"], "أداء المقاول": ["contractor_return_rate"], "منسوب المياه الجوفية": ["gw_depth"],
-          "الحمل المروري": ["traffic", "cls_code"], "ضعف دمك طبقة الأساس": ["compaction_test"], "جودة الخلطة الأسفلتية": ["material_test"],
-          "الإجهاد الحراري": ["tmax_norm", "hot_norm"], "الأمطار": ["rain_norm"], "عمر الطريق": ["age"], "الموقع": ["district_code"]}
+          "الحمل المروري": ["traffic", "cls_code"], "ضعف دمك طبقة الأساس": ["compaction_test"], "جودة الخلطة الأسفلتية": ["material_test", "mix_code", "base_code"],
+          "الإجهاد الحراري": ["tmax_norm", "hot_norm"], "الأمطار وانخفاض الموقع": ["rain_norm", "rel_elev"], "عمر الطريق": ["age"], "الموقع": ["district_code"]}
 PHYS = ["منسوب المياه الجوفية", "الحمل المروري", "ضعف دمك طبقة الأساس", "جودة الخلطة الأسفلتية", "الإجهاد الحراري"]
 
 X = build(P, P.month.str[5:7].astype(int)); X = X[X.month >= "2023-07"]
@@ -102,7 +104,7 @@ for i, r in cand.iterrows():
     c = ex.loc[i].sort_values(ascending=False); c = [g for g in c.index if c[g] > .004][:2] or ["سجل الأعطال السابقة"]
     phys = ex.loc[i, PHYS].idxmax(); p = float(r.p)
     hist = f"{int(r.fails_12m)} أعطال خلال 12 شهراً" + ("، وآخر معالجة كانت سطحية" if r.last_repair_surface and r.fails_12m else "")
-    alerts.append({"id": r.asset_id, "t": r["name"], "ty": "طرق", "cls": r.cls_ar, "d": r.district, "len": int(r.length_m), "p": pct(r.p3), "p30": pct(p),
+    alerts.append({"id": r.asset_id, "t": r["name"], "ty": "طرق", "cls": r.cls_ar, "d": r.district, "h": r.area, "elev": (None if pd.isna(r.elev) else int(r.elev)), "rel": float(r.rel_elev), "len": int(r.length_m), "p": pct(r.p3), "p30": pct(p),
                    "days": int(min(90, max(4, round(30 * math.log(2) / -math.log(1 - min(p, .98)))))), "pci": int(round(r.pci_obs)), "pci6": int(round(r.pci6)), "pci12": int(round(r.pci12)),
                    "issue": ISSUE.get(phys, ISSUE["_"]), "cause": "أبرز العوامل حسب النموذج: " + " ثم ".join(c) + f". العامل الفيزيائي الأبرز: {phys}. السجل: {hist}.",
                    "k": r.last_contractor, "act": ACT[phys], "pc": int(r.pc), "rc": int(r.rc), "ll": [float(r.lat), float(r.lon)]})
@@ -113,6 +115,17 @@ for d in mp.index:
     idx = [i for i in exd.index if Xn.district[i] == d]
     districts.append({"n": d, "a": int(g.size()[d]), "km": int(round(g.length_m.sum()[d] / 1000)), "risk": int(round(22 + 66 * (mp[d] - lo) / (hi - lo))),
                       "p": int(round(g.p.sum()[d])), "pci": int(round(g.pci_obs.mean()[d])), "c": exd.loc[idx].mean().idxmax() if idx else "عمر الطريق"})
+
+# ---------- الأحياء (أسماء حقيقية) ----------
+hoods = []
+for h, d in Xn[Xn.hood.notna()].groupby("hood"):
+    if len(d) >= 8: hoods.append({"n": h, "segs": int(len(d)), "km": round(float(d.length_m.sum() / 1000), 1), "mp": float(d.p3.mean()), "pci": int(round(d.pci_obs.mean())), "hi": int((d.lv >= 2).sum())})
+if hoods:
+    lo_, hi_ = min(h["mp"] for h in hoods), max(h["mp"] for h in hoods)
+    for h in hoods: h["risk"] = int(round(20 + 70 * (h["mp"] - lo_) / (hi_ - lo_ or 1))); del h["mp"]
+    hoods.sort(key=lambda h: -h["risk"])
+geo = {"hoods_named": int(Xn.hood.nunique()), "segs_with_hood": pct(Xn.hood.notna().mean()), "elev_n": int(Xn.elev.notna().sum()),
+       "elev_min": (None if Xn.elev.isna().all() else int(Xn.elev.min())), "elev_max": (None if Xn.elev.isna().all() else int(Xn.elev.max())), "low_spots": int((Xn.rel_elev <= -3).sum())}
 
 # ---------- تحليل البقاء: صمود الإصلاح ----------
 M["ym"] = M.date.str[:7]; mo = sorted(P.month.unique()); mi = {m: i for i, m in enumerate(mo)}; Tn = len(mo)
@@ -135,6 +148,21 @@ surv = {"type": [{"n": k, "s": km(d), "jobs": int(len(d))} for k, d in M.groupby
         "contractor": [{"n": "المقاول " + k, "s": km(d), "jobs": int(len(d))} for k, d in M.groupby("contractor")]}
 for grp in surv.values():
     for c in grp: c["med"] = medsurv(c["s"]); c["s12"] = pct(c["s"][12])
+
+# ---------- المواد (نموذج افتراضي) ----------
+yrs = Tn / 12; fcount = M.groupby("asset_id").size(); A["nf"] = A.asset_id.map(fcount).fillna(0)
+NOWA = NOW.merge(A, on="asset_id")
+def matgroup(col):
+    out = []
+    for k, d in A.groupby(col):
+        km_ = d.length_m.sum() / 1000
+        out.append({"n": k, "km": int(round(km_)), "share": pct(km_ / (A.length_m.sum() / 1000)), "rate": round(float(d.nf.sum() / km_ / yrs * 100), 1),
+                    "drop": round(float(NOWA[NOWA[col] == k].pci_drop_12m.mean()), 1), "test": pct(d.material_test.mean())})
+    return sorted(out, key=lambda r: r["rate"])
+rep_s = [{"n": k, "s": km(d), "jobs": int(len(d))} for k, d in M.groupby("repair_material")]
+for c in rep_s: c["med"] = medsurv(c["s"]); c["s12"] = pct(c["s"][12])
+cm = [{"n": "المقاول " + c, **{k: pct((d.repair_material == k).mean()) for k in ["ترقيع بارد", "خلطة ساخنة", "خلطة معدّلة بالبوليمر"]}} for c, d in M.groupby("contractor")]
+materials = {"mix": matgroup("mix"), "base": matgroup("base_mat"), "supplier": matgroup("supplier"), "repair": sorted(rep_s, key=lambda c: -c["s12"]), "contractor": cm}
 
 # ---------- المقاولون ----------
 Mk = M[M.ym <= mo[-4]]; contractors = []
@@ -183,16 +211,16 @@ out = {"roads": True, "sev": SEV,
        "meta": {"weather_source": W.source.iloc[0], "weather_days": int(len(W)), "n_assets": int(len(A)), "n_reports": int(len(R)), "n_maint": int(len(M)), "period": [mo[0], mo[-1]],
                 "train_rows": int(len(tr)), "test_rows": int(len(te)), "test_from": TEST_FROM, "algo": "Gradient Boosting (scikit-learn HistGradientBoosting)", "n_features": len(FEATS)},
        "metrics": metrics, "importance": importance, "weeks": weeks, "districts": districts, "alerts": alerts, "causes": causes, "contractors": contractors,
-       "recs": recs, "optim": optim, "surv": surv, "network": network, "kpi": kpi}
+       "recs": recs, "optim": optim, "surv": surv, "materials": materials, "hoods": hoods, "geo": geo, "network": network, "kpi": kpi}
 js = json.dumps(out, ensure_ascii=False)
 open(os.path.join(DATA, "model_output.json"), "w", encoding="utf-8").write(js)
 open(os.path.join(DATA, "model_output.js"), "w", encoding="utf-8").write("window.MODEL=" + js + ";")
 # المقاطع للخريطة: [الإحداثيات، المستوى، الاحتمالية%، PCI، فهرس الاسم، الطول]
-names = sorted(Xn.road.unique()); ni = {n: i for i, n in enumerate(names)}
-segs = [[GEOM[r.asset_id], int(r.lv), pct(r.p3), int(round(r.pci_obs)), ni[r.road], int(r.length_m)] for r in Xn.itertuples()]
-open(os.path.join(DATA, "segments.js"), "w", encoding="utf-8").write("window.SEGS=" + json.dumps({"names": names, "rows": segs}, ensure_ascii=False, separators=(",", ":")) + ";")
+names = sorted(Xn.road.unique()); ni = {n: i for i, n in enumerate(names)}; hn = sorted(Xn.area.unique()); hi2 = {n: i for i, n in enumerate(hn)}
+segs = [[GEOM[r.asset_id], int(r.lv), pct(r.p3), int(round(r.pci_obs)), ni[r.road], int(r.length_m), hi2[r.area], (None if pd.isna(r.elev) else int(r.elev))] for r in Xn.itertuples()]
+open(os.path.join(DATA, "segments.js"), "w", encoding="utf-8").write("window.SEGS=" + json.dumps({"names": names, "areas": hn, "rows": segs}, ensure_ascii=False, separators=(",", ":")) + ";")
 print(json.dumps({"metrics": metrics, "kpi": kpi, "weeks": weeks, "importance": importance, "sev": SEV, "optim": optim, "network": network}, ensure_ascii=False))
 print([(a["p"], a["p30"], a["pci"], a["pci12"], a["pc"], a["rc"]) for a in alerts])
 print([(c["n"], c["med"], c["s12"]) for g in surv.values() for c in g]); print([(k["n"], k["s"], k["ret"]) for k in contractors])
 for r in recs[:10]: print(round(r["s"] / r["c"], 1), r["n"], r["km"], r["c"], r["f"], r["t"][:60], r["d"])
-print(districts)
+print(json.dumps(hoods[:8], ensure_ascii=False)); print(geo)

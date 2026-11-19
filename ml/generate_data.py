@@ -68,8 +68,29 @@ A = pd.DataFrame(rows, columns=["asset_id", "way_id", "osm_name", "cls", "distri
 N = len(A)
 A["cls_ar"] = A.cls.map(lambda c: CLS[c][0])
 A["road"] = [n if isinstance(n, str) else f"{c} بدون اسم" for n, c in zip(A.osm_name, A.cls_ar)]
-seq = A.groupby(["road", "district"]).cumcount() + 1
-A["name"] = [f"{r}، {d} (مقطع {k})" for r, d, k in zip(A.road, A.district, seq)]
+# --- الأحياء (حقيقية): أقرب حي أو بلدة مسماة في OpenStreetMap ضمن 2.5 كم ---
+hp = os.path.join(DATA, "neighbourhoods_raw.json"); A["hood"] = None
+if os.path.exists(hp):
+    H = [(e["tags"].get("name:ar") or e["tags"].get("name"), e["lat"], e["lon"], e["tags"]["place"]) for e in json.load(open(hp, encoding="utf-8"))["elements"] if e.get("lat")]
+    H = [h for h in H if h[0]]
+    hl = np.radians([[h[1], h[2]] for h in H]); al = np.radians(A[["lat", "lon"]].values)
+    dlat = al[:, None, 0] - hl[None, :, 0]; dlon = (al[:, None, 1] - hl[None, :, 1]) * np.cos(al[:, None, 0])
+    dist = 6371000 * np.sqrt(dlat ** 2 + dlon ** 2) * np.array([1.0 if h[3] == "neighbourhood" else 1.6 for h in H])[None, :]   # الحي يُفضَّل على مركز المدينة
+    j = dist.argmin(1); A["hood"] = [H[k][0] if dist[i, k] <= 2500 else None for i, k in enumerate(j)]
+A["area"] = [h if isinstance(h, str) else d for h, d in zip(A.hood, A.district)]
+seq = A.groupby(["road", "area"]).cumcount() + 1
+A["name"] = [f"{r}، {a} (مقطع {k})" for r, a, k in zip(A.road, A.area, seq)]
+# --- الارتفاع (حقيقي، SRTM): انخفاض المقطع عن محيطه ضمن 800 م يدل على تجمّع مياه الأمطار ---
+ep = os.path.join(DATA, "elevation.csv"); A["elev"] = np.nan; A["rel_elev"] = 0.0
+if os.path.exists(ep):
+    A["elev"] = A.asset_id.map(pd.read_csv(ep).set_index("asset_id").elev)
+    ok = A.elev.notna().values
+    if ok.sum() > 100:
+        al = np.radians(A[["lat", "lon"]].values); ev = A.elev.fillna(A.elev.median()).values; rel = np.zeros(len(A))
+        for s0 in range(0, len(A), 500):
+            b = al[s0:s0 + 500]; d2 = 6371000 * np.sqrt((b[:, None, 0] - al[None, :, 0]) ** 2 + ((b[:, None, 1] - al[None, :, 1]) * np.cos(b[:, None, 0])) ** 2)
+            m = (d2 <= 800) & ok[None, :]; rel[s0:s0 + 500] = ev[s0:s0 + 500] - (m * ev[None, :]).sum(1) / np.maximum(m.sum(1), 1)
+        A["rel_elev"] = np.where(ok, rel, 0).round(1)
 json.dump({k: geoms[k] for k in A.asset_id}, open(os.path.join(DATA, "segments.json"), "w"), separators=(",", ":"))
 
 # ---------------- 3) خصائص اصطناعية للمقاطع ----------------
@@ -84,13 +105,25 @@ A["material_test"] = np.clip(q_true + rng.normal(0, .12, N), 0, 1).round(2)
 A["compaction_test"] = np.clip(c_true + rng.normal(0, .12, N), 0, 1).round(2)
 A["installer"] = [rng.choice(ZONE[d]) for d in A.district]
 hidden = rng.normal(0, .5, N)
+# --- المواد: نموذج افتراضي (غير حقيقي) يوضّح ما سيحلله النظام عند توفر سجلات المواد ---
+MIX = {"تقليدية (60/70)": (1.00, 1.00), "سوبربيف": (.84, .75), "معدّلة بالبوليمر (PMB)": (.72, .50)}      # (معامل التدهور، الحساسية للحرارة)
+BASE = {"حصى مدرّج": 1.0, "أساس مثبت بالإسمنت": .6}                                                    # أثر المياه الجوفية
+SUPP = {"المورّد 1": .04, "المورّد 2": 0.0, "المورّد 3": -.14, "المورّد 4": .02}                          # فرق جودة التوريد
+hi = A.cls.isin(["motorway", "trunk", "primary"]).values
+A["mix"] = [rng.choice(list(MIX), p=[.40, .25, .35] if h else [.65, .20, .15]) for h in hi]
+A["base_mat"] = rng.choice(list(BASE), N, p=[.7, .3])
+A["supplier"] = rng.choice(list(SUPP), N, p=[.3, .3, .2, .2])
+q_true = np.clip(q_true + A.supplier.map(SUPP).values, .1, 1)
+A["material_test"] = np.clip(q_true + rng.normal(0, .12, N), 0, 1).round(2)
+dm = A.mix.map(lambda m: MIX[m][0]).values; hs = A.mix.map(lambda m: MIX[m][1]).values; bm = A.base_mat.map(BASE).values
 
 # ---------------- 4) المحاكاة الشهرية: PCI ثم الأعطال ثم الإصلاح ----------------
 sig = lambda x: 1 / (1 + np.exp(-x))
 age, gw, tr = A.age.values, A.gw_depth.values, A.traffic.values
 gwx = np.clip(2.2 - gw, 0, None)
+low = np.clip(-A.rel_elev.values / 3, 0, 2)                                # افتراض المحاكاة: المقطع المنخفض عن محيطه أكثر عرضة لأثر المطر
 pci = np.clip(97 - age * 1.7 * (1 + .8 * (1 - c_true)) + rng.normal(0, 7, N), 22, 100)
-last_fail = np.full(N, -99); last_surface = np.zeros(N, int); last_cq = np.full(N, .75); last_c = list(A.installer.values)
+last_fail = np.full(N, -99); last_cold = np.zeros(N, int); last_surface = np.zeros(N, int); last_cq = np.full(N, .75); last_c = list(A.installer.values)
 hist = [[] for _ in range(N)]; cstats = {c: {"jobs": 0, "returned": 0} for c in CONTR}
 OBS = np.zeros((T, N)); reports, maint, panel = [], [], []
 for t, m in enumerate(months):
@@ -104,8 +137,8 @@ for t, m in enumerate(months):
     snap["fails_3m"], snap["fails_12m"], snap["months_since_repair"], snap["last_repair_surface"] = f3, f12, since, last_surface
     snap["contractor_return_rate"] = [round(ret[c], 3) for c in last_c]
     recent = since <= 6
-    z = -7.35 + .058 * (100 - pci) + .45 * gwx + .7 * tr * heat + .3 * rain * (gw < 1.8) + hidden
-    z += recent * last_surface * (1.1 + 1.7 * (1 - last_cq)) - recent * (1 - last_surface) * .9
+    z = -7.35 + .058 * (100 - pci) + .45 * gwx * bm + .7 * tr * heat * hs + .3 * rain * (gw < 1.8) + .45 * rain * low + hidden
+    z += recent * last_surface * (.85 + 1.7 * (1 - last_cq) + .75 * last_cold) - recent * (1 - last_surface) * .9
     fail = rng.random(N) < sig(z)
     snap["failed"] = fail.astype(int); panel.append(snap)
     for i in np.where(fail)[0]:
@@ -118,17 +151,19 @@ for t, m in enumerate(months):
         rid = f"R-{len(reports)+1:06d}"
         reports.append((rid, A.asset_id[i], date, d, rng.choice(["بلدي", "940", "جولة ميدانية"], p=[.55, .3, .15]),
                         rng.choice(["حفرة", "هبوط", "تشققات", "تخدد"], p=[.4, .2, .25, .15])))
-        maint.append((f"M-{len(maint)+1:06d}", rid, A.asset_id[i], date, c, "سطحية" if surface else "جذرية", round(max(2, rng.normal(rh, rh * .3)), 1), cost,
+        cold = int(surface and rng.random() < np.clip(1.15 - q, .2, .8))
+        rmat = "ترقيع بارد" if cold else ("خلطة معدّلة بالبوليمر" if (not surface and rng.random() < q * .5) else "خلطة ساخنة")
+        maint.append((f"M-{len(maint)+1:06d}", rid, A.asset_id[i], date, c, "سطحية" if surface else "جذرية", rmat, round(max(2, rng.normal(rh, rh * .3)), 1), cost,
                       int(np.clip(rng.normal(q * 100, 9), 20, 100))))
         if surface: pci[i] = min(100, pci[i] + 6 * q)                      # الترقيع يرفع المؤشر قليلاً ولا يعالج السبب
         else: pci[i] = max(pci[i], 84 + 10 * q); c_true[i] = max(c_true[i], .8)
-        hist[i].append(t); last_fail[i] = t; last_surface[i] = surface; last_cq[i] = q; last_c[i] = c
-    decay = .10 + .30 * tr * (.6 + heat) + .32 * gwx + .42 * (1 - c_true) + .22 * (1 - q_true) + .12 * heat
+        hist[i].append(t); last_fail[i] = t; last_cold[i] = cold; last_surface[i] = surface; last_cq[i] = q; last_c[i] = c
+    decay = (.10 + .30 * tr * (.6 + heat * hs) + .32 * gwx * bm + .42 * (1 - c_true) + .22 * (1 - q_true) + .12 * heat * hs + .05 * low) * dm
     pci = np.clip(pci - decay * rng.uniform(.6, 1.4, N), 5, 100)
 
 A.to_csv(os.path.join(DATA, "assets.csv"), index=False, encoding="utf-8-sig")
 pd.DataFrame(reports, columns=["report_id", "asset_id", "date", "district", "channel", "defect"]).to_csv(os.path.join(DATA, "reports.csv"), index=False, encoding="utf-8-sig")
-pd.DataFrame(maint, columns=["maint_id", "report_id", "asset_id", "date", "contractor", "repair_type", "response_hours", "cost_sar", "inspection_score"]).to_csv(os.path.join(DATA, "maintenance.csv"), index=False, encoding="utf-8-sig")
+pd.DataFrame(maint, columns=["maint_id", "report_id", "asset_id", "date", "contractor", "repair_type", "repair_material", "response_hours", "cost_sar", "inspection_score"]).to_csv(os.path.join(DATA, "maintenance.csv"), index=False, encoding="utf-8-sig")
 P = pd.concat(panel); P.to_csv(os.path.join(DATA, "panel.csv"), index=False, encoding="utf-8-sig")
 obs = np.clip(pci + rng.normal(0, 4, N), 0, 100)
 ret = {c: (v["returned"] / v["jobs"] if v["jobs"] >= 15 else .2) for c, v in cstats.items()}

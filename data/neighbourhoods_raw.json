@@ -1,0 +1,1510 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-11-19T17:14:15Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 208501048,
+  "lat": 25.3696585,
+  "lon": 49.5865224,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3091837",
+    "alt_name": "Hofuf;Hofūf;Hufuf;Hufūf",
+    "alt_name:en": "Al-Hofuf",
+    "alt_name:eo": "Al-Hofuf",
+    "int_name": "Al-Hofuf",
+    "name": "الهفوف",
+    "name:ar": "الهفوف",
+    "name:bg": "Ал Хофуф",
+    "name:ckb": "ھوفووف",
+    "name:cs": "Al-Hofuf",
+    "name:de": "Al-Hofuf",
+    "name:en": "Al-Hofuf",
+    "name:eo": "Hofufo",
+    "name:es": "Hofuf",
+    "name:et": "Al-Hofuf",
+    "name:eu": "Hufuf",
+    "name:fa": "هفوف",
+    "name:fi": "Al-Hofuf",
+    "name:fr": "Al-Hofuf",
+    "name:he": "אל חופוף",
+    "name:hi": "अल हॉफुफ",
+    "name:hr": "Hufuf",
+    "name:kn": "ಹುಫೂಫ್",
+    "name:ko": "후푸프",
+    "name:ku": "Hufûf",
+    "name:ml": "ഹുഫൂഫ്",
+    "name:pl": "Al-Hofuf",
+    "name:pt": "Al-Hofuf",
+    "name:ru": "Эль-Хуфуф",
+    "name:sr": "Хуфуф",
+    "name:tr": "Hüfuf",
+    "name:uk": "Ель-Хуфуф",
+    "place": "city",
+    "population": "660788",
+    "population:date": "2010",
+    "source:population": "stats.gov.sa",
+    "wikidata": "Q27136",
+    "wikipedia": "en:Hofuf"
+  }
+},
+{
+  "type": "node",
+  "id": 1236714096,
+  "lat": 25.4076820,
+  "lon": 49.5902840,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3092309",
+    "int_name": "Al Mubarraz",
+    "name": "المبرز",
+    "name:ar": "المبرز",
+    "name:de": "Al Mubarraz",
+    "name:en": "Al Mubarraz",
+    "name:fr": "Al Mubarraz",
+    "place": "village",
+    "source:name": "GNS"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339348,
+  "lat": 25.4196284,
+  "lon": 49.6818446,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3092454",
+    "int_name": "Al Qārah",
+    "name": "القارة",
+    "name:ar": "القارة",
+    "name:de": "Al Qarah",
+    "name:en": "Al Qarah",
+    "name:fr": "Al Qarah",
+    "name:ml": "അൽ ഖാറ",
+    "place": "neighbourhood",
+    "population": "9702",
+    "population:date": "2010",
+    "source:population": "stats.gov.sa"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339349,
+  "lat": 25.4196128,
+  "lon": 49.6903711,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3100209",
+    "int_name": "Tuwaythīr",
+    "name": "التويثير",
+    "name:ar": "التويثير",
+    "name:de": "Tuwaythir",
+    "name:en": "Tuwaythir",
+    "name:fr": "Tuwaythir",
+    "place": "neighbourhood",
+    "population": "9259",
+    "population:date": "2010",
+    "source:population": "stats.gov.sa"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339353,
+  "lat": 25.4217659,
+  "lon": 49.7161902,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3092579",
+    "int_name": "Al ‘Umrān",
+    "name": "العمران",
+    "name:ar": "العمران",
+    "name:de": "Al `Umran",
+    "name:en": "Al `Umran",
+    "name:fr": "Al `Umran",
+    "name:ml": "അൽ ഉംറാൻ",
+    "place": "neighbourhood",
+    "population": "17410",
+    "population:date": "2010",
+    "source:name": "GNS",
+    "source:population": "stats.gov.sa"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339354,
+  "lat": 25.3999467,
+  "lon": 49.6728492,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3093500",
+    "int_name": "At Turbaibil",
+    "name": "الطريبيل",
+    "name:ar": "الطريبيل",
+    "name:de": "At Turbaibil",
+    "name:en": "At Turbaibil",
+    "name:fr": "At Turbaibil",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339355,
+  "lat": 25.3952112,
+  "lon": 49.7316314,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3092244",
+    "int_name": "Al Markaz",
+    "name": "المركز",
+    "name:ar": "المركز",
+    "name:de": "Al Markaz",
+    "name:en": "Al Markaz",
+    "name:fr": "Al Markaz",
+    "name:ml": "അൽ മർക്കസ്",
+    "place": "neighbourhood",
+    "population": "7014",
+    "population:date": "2010",
+    "source:population": "stats.gov.sa"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339358,
+  "lat": 25.4100012,
+  "lon": 49.5808330,
+  "tags": {
+    "alt_name": "المبرز",
+    "int_name": "Al Mubarraz",
+    "is_in:country": "Saudi Arabia",
+    "is_in:country_code": "SA",
+    "name": "المبرز",
+    "name:ar": "المبرز",
+    "name:en": "Al Mubarraz",
+    "name:es": "Al-Mubarraz",
+    "name:fr": "Al-Mubarraz",
+    "place": "neighbourhood",
+    "wikidata": "Q794958"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339359,
+  "lat": 25.3540742,
+  "lon": 49.5633354,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "204060",
+    "alt_name": "Al Ḩafīrah District",
+    "int_name": "Al Ḩafīrah",
+    "name": "حي الحفيرة",
+    "name:ar": "حي الحفيرة",
+    "name:en": "Al Hufayrah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339361,
+  "lat": 25.3592542,
+  "lon": 49.5706957,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3093035",
+    "alt_name": "Ar Ruqayyiqah",
+    "int_name": "Ar Ruqayyiqah",
+    "name": "حي الرقيقة",
+    "name:en": "Ar Ruqaiqah District",
+    "name:fr": "Ar Ruqayyiqah",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339363,
+  "lat": 25.3623200,
+  "lon": 49.7275720,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3093466",
+    "alt_name": "Al-Taraf",
+    "int_name": "Aţ Ţaraf",
+    "name": "الطرف",
+    "name:ar": "الطرف",
+    "name:de": "At Taraf",
+    "name:en": "At Taraf",
+    "name:fr": "At Taraf",
+    "name:ml": "അത്തറഫ്",
+    "place": "neighbourhood",
+    "population": "23543",
+    "population:date": "2010",
+    "source:name": "GNS",
+    "source:population": "stats.gov.sa"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339368,
+  "lat": 25.4438781,
+  "lon": 49.5758891,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "203747",
+    "int_name": "Al Khars",
+    "name": "الخرس",
+    "name:ar": "الخرس",
+    "name:de": "Al Khars",
+    "name:en": "Al Khars",
+    "name:fr": "Al Khars",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339369,
+  "lat": 25.5930579,
+  "lon": 49.5824801,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3092237",
+    "int_name": "Al Marāḩ",
+    "name": "المراح",
+    "name:ar": "المراح",
+    "name:de": "Al Marah",
+    "name:en": "Al Marah",
+    "name:fr": "Al Marah",
+    "place": "town",
+    "population": "5633",
+    "population:date": "2010",
+    "source:population": "stats.gov.sa"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339378,
+  "lat": 25.3773580,
+  "lon": 49.7215400,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3091907",
+    "alt_name": "Bab-al-Jafar;Bāb-al-Jafar;Djafar;Jafar;Jafr",
+    "int_name": "Al Jafr",
+    "name": "الجفر",
+    "name:ar": "الجفر",
+    "name:de": "Al Jafr",
+    "name:en": "Al Jafr",
+    "name:fr": "Al Jafr",
+    "name:ml": "അൽ ജഫർ",
+    "place": "neighbourhood",
+    "population": "9707",
+    "population:date": "2010",
+    "source:name": "GNS",
+    "source:population": "stats.gov.sa",
+    "wikidata": "Q31873138"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339379,
+  "lat": 25.5133720,
+  "lon": 49.6209110,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3092467",
+    "alt_name": "Qaran;القرن;Al Qarn",
+    "int_name": "Al Jarn",
+    "name": "الجرن",
+    "name:ar": "الجرن",
+    "name:de": "Al Jarn",
+    "name:en": "Al Jarn",
+    "name:fr": "Al Jarn",
+    "name:ml": "അൽ ജർൺ",
+    "place": "neighbourhood",
+    "population": "8592",
+    "population:date": "2010",
+    "source:name": "GNS",
+    "source:population": "stats.gov.sa"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339383,
+  "lat": 25.4736580,
+  "lon": 49.6175520,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3093139",
+    "alt_name": "Al-Sha`bah; Al-Sha‘bah; Ash Sha`bah; Ash Sha‘bah; Sha'abah; Sha`aba; Sha`bah; Sha‘aba; Sha‘bah; Sha’abah",
+    "int_name": "Ash Shi‘bah",
+    "name": "الشعبة",
+    "name:ar": "الشعبة",
+    "name:de": "Ash Shi`bah",
+    "name:en": "Ash Shi`bah",
+    "name:fr": "Ash Shi`bah",
+    "place": "neighbourhood",
+    "source:name": "GNS"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339392,
+  "lat": 25.4079520,
+  "lon": 49.6616357,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3091973",
+    "name": "الجبيل",
+    "name:ar": "الجبيل",
+    "name:de": "Dschubail",
+    "name:en": "Al Jubayl",
+    "name:es": "Yubeil",
+    "name:fr": "Al Jubayl",
+    "name:ml": "അൽ ജുബൈൽ",
+    "place": "neighbourhood",
+    "population": "10241",
+    "population:date": "2010",
+    "source:population": "stats.gov.sa",
+    "wikidata": "Q12185424",
+    "wikipedia": "ar:الجبيل (الأحساء)"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339396,
+  "lat": 25.5030213,
+  "lon": 49.6000858,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3096201",
+    "int_name": "Julayjilah",
+    "name": "جليجلة",
+    "name:ar": "جليجلة",
+    "name:de": "Julayjilah",
+    "name:en": "Julayjilah",
+    "name:fr": "Julayjilah",
+    "place": "neighbourhood",
+    "population": "5906",
+    "population:date": "2010",
+    "source:population": "stats.gov.sa",
+    "wikidata": "Q32130900"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339399,
+  "lat": 25.5032140,
+  "lon": 49.5478110,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "203736",
+    "int_name": "Al Wazīyah",
+    "name": "الوزية",
+    "name:ar": "الوزية",
+    "name:de": "Al Waziyah",
+    "name:en": "Al Waziyah",
+    "name:fr": "Al Waziyah",
+    "place": "neighbourhood",
+    "source:name": "GNS"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339401,
+  "lat": 25.3875920,
+  "lon": 49.7525280,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3096059",
+    "alt_name": "Al-Jishshan;Jashshah;Jishsha;Jishshah",
+    "int_name": "Al Jishshah",
+    "name": "الجشة",
+    "name:ar": "الجشة",
+    "name:de": "Al Jishshah",
+    "name:en": "Al Jishshah",
+    "name:fr": "Al Jishshah",
+    "name:ml": "അൽ ജിഷ്ഷ",
+    "place": "neighbourhood",
+    "population": "12024",
+    "population:date": "2010",
+    "source:name": "GNS",
+    "source:population": "stats.gov.sa"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339402,
+  "lat": 25.4790667,
+  "lon": 49.5581553,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3092403",
+    "alt_name": "Al Mutairifi;Matairafi;Muteirfeh;Umm Terfi",
+    "int_name": "Al Muţayrifī",
+    "name": "المطيرفي",
+    "name:ar": "المطيرفي",
+    "name:de": "Al Mutayrifi",
+    "name:en": "Al Mutayrifi",
+    "name:fr": "Al Mutayrifi",
+    "name:ml": "അൽ മുത്തൈറിഫി",
+    "place": "neighbourhood",
+    "population": "6371",
+    "population:date": "2010",
+    "source:population": "stats.gov.sa",
+    "wikidata": "Q12193329"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339405,
+  "lat": 25.3788289,
+  "lon": 49.6694240,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3092351",
+    "int_name": "Al Munayzilah",
+    "name": "المدينة المنورة",
+    "name:en": "Al Madinah Al Munawwarah",
+    "place": "neighbourhood",
+    "population": "17913",
+    "population:date": "2010",
+    "source:name": "https://umaps.balady.gov.sa/",
+    "source:population": "stats.gov.sa",
+    "wikidata": "Q31875344"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339406,
+  "lat": 25.4829828,
+  "lon": 49.5974359,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3092522",
+    "int_name": "Al Qurayn",
+    "name": "القرين",
+    "name:ar": "القرين",
+    "name:de": "Al Qurayn",
+    "name:en": "Al Qurayn",
+    "name:fr": "Al Qurayn",
+    "name:ml": "അൽ ഖുറൈൻ",
+    "place": "neighbourhood",
+    "population": "13296",
+    "population:date": "2010",
+    "source:population": "stats.gov.sa",
+    "wikidata": "Q31875811"
+  }
+},
+{
+  "type": "node",
+  "id": 1237339408,
+  "lat": 25.4829456,
+  "lon": 49.5757957,
+  "tags": {
+    "GNS:dsg_code": "PPL",
+    "GNS:dsg_name": "populated place",
+    "GNS:id": "-3093223",
+    "int_name": "Ash Shuqayq",
+    "name": "الشقيق",
+    "name:ar": "الشقيق",
+    "name:de": "Ash Shuqayq",
+    "name:en": "Ash Shuqayq",
+    "name:fr": "Ash Shuqayq",
+    "place": "neighbourhood",
+    "population": "5640",
+    "population:date": "2010",
+    "source:population": "stats.gov.sa"
+  }
+},
+{
+  "type": "node",
+  "id": 2535499103,
+  "lat": 25.4496069,
+  "lon": 49.5193878,
+  "tags": {
+    "name": "اسكان الحرس الوطني بالاحساء",
+    "name:en": "Al Ahsa National Guard Housing Estate",
+    "name:fr": "Iskan al Haras Al Watani",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 3166202532,
+  "lat": 25.4020795,
+  "lon": 49.6833637,
+  "tags": {
+    "name": "الدالوة",
+    "name:fr": "Al Dalwah",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 5889592085,
+  "lat": 25.3868790,
+  "lon": 49.6379744,
+  "tags": {
+    "name": "قرية بني معن",
+    "place": "neighbourhood",
+    "wikipedia": "ar:بني معن"
+  }
+},
+{
+  "type": "node",
+  "id": 6407458177,
+  "lat": 25.3937843,
+  "lon": 49.6677321,
+  "tags": {
+    "name": "المنصورة",
+    "name:en": "Al Mansourah",
+    "name:ml": "അൽ മൻസൂറ",
+    "place": "neighbourhood",
+    "population": "8864",
+    "population:date": "2010",
+    "source:population": "stats.gov.sa"
+  }
+},
+{
+  "type": "node",
+  "id": 6407458178,
+  "lat": 25.4024029,
+  "lon": 49.6919815,
+  "tags": {
+    "name": "التهيمية",
+    "name:fr": "Al Tahimia",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 7699092296,
+  "lat": 25.4166096,
+  "lon": 49.7218895,
+  "tags": {
+    "name": "الحوطة",
+    "name:ar": "الحوطة",
+    "name:en": "Al Haoutah",
+    "name:ml": "അൽ ഹൗത്ത",
+    "place": "neighbourhood",
+    "population": "6547",
+    "population:date": "2010",
+    "source:population": "stats.gov.sa"
+  }
+},
+{
+  "type": "node",
+  "id": 7699092297,
+  "lat": 25.4138187,
+  "lon": 49.7283268,
+  "tags": {
+    "name": "الرميلة",
+    "name:ar": "الرميلة",
+    "name:en": "Ar Rumailah",
+    "name:ml": "അർ-റുമൈല",
+    "place": "neighbourhood",
+    "population": "9068",
+    "population:date": "2010",
+    "source:population": "stats.gov.sa",
+    "wikidata": "Q7379131",
+    "wikipedia": "ar:الرميلة_(السعودية)"
+  }
+},
+{
+  "type": "node",
+  "id": 8441772028,
+  "lat": 25.3709083,
+  "lon": 49.5548442,
+  "tags": {
+    "int_name": "Al Salmaniyah First District",
+    "name": "حي السلمانية الأول",
+    "name:ar": "حي السلمانية الأول",
+    "name:en": "Al Salmaniyah First District",
+    "official_name": "حي السلمانية الأول",
+    "old_name": "حي السلمانية الشمالية",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8441777951,
+  "lat": 25.3839000,
+  "lon": 49.5507109,
+  "tags": {
+    "name": "حي عين نجم",
+    "name:ar": "حي عين نجم",
+    "name:en": "Ayn Najm District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8441777952,
+  "lat": 25.3481250,
+  "lon": 49.5381126,
+  "tags": {
+    "name": "حي السلمانية الرابع",
+    "name:ar": "حي السلمانية الرابع",
+    "name:en": "Al Salmaniyah Forth District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8441777953,
+  "lat": 25.3511029,
+  "lon": 49.5547919,
+  "tags": {
+    "name": "حي السلمانية الثالث",
+    "name:ar": "حي السلمانية الثالث",
+    "name:en": "Al Salmaniyah Third District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8441777954,
+  "lat": 25.3623457,
+  "lon": 49.5432651,
+  "tags": {
+    "name": "حي السلمانية الثاني",
+    "name:ar": "حي السلمانية الثاني",
+    "name:en": "Al Salmaniyah Second District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8442747275,
+  "lat": 25.3302178,
+  "lon": 49.5469665,
+  "tags": {
+    "name": "حي غرناطة",
+    "name:ar": "حي غرناطة",
+    "name:en": "Ghirnatah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8442747291,
+  "lat": 25.3375512,
+  "lon": 49.5290118,
+  "tags": {
+    "name": "حي الربوه",
+    "name:ar": "حي الربوه",
+    "name:en": "Ar Rabwah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8443632308,
+  "lat": 25.3518603,
+  "lon": 49.5750976,
+  "tags": {
+    "name": "حي منيفة",
+    "name:ar": "حي منيفة",
+    "name:en": "Munifah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8443681021,
+  "lat": 25.3556222,
+  "lon": 49.5766626,
+  "tags": {
+    "int_name": "As Sunaidah District",
+    "name": "حي السنيدية",
+    "name:ar": "حي السنيدية",
+    "name:en": "As Sunaidah District",
+    "official_name": "حي السنيدية",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8443681024,
+  "lat": 25.3611750,
+  "lon": 49.5765647,
+  "tags": {
+    "int_name": "Ar Rafiah District",
+    "name": "حي الرفيعة",
+    "name:ar": "حي الرفيعة",
+    "name:en": "Ar Rafiah District",
+    "official_name": "حي الرفيعة",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8443698328,
+  "lat": 25.3436188,
+  "lon": 49.5751297,
+  "tags": {
+    "name": "حي البندرية",
+    "name:ar": "حي البندرية",
+    "name:en": "Al Bandariyah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8443807106,
+  "lat": 25.3496812,
+  "lon": 49.5895936,
+  "tags": {
+    "name": "حي لذه",
+    "name:ar": "حي لذه",
+    "name:en": "Ladhah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8443807112,
+  "lat": 25.3506775,
+  "lon": 49.5847240,
+  "tags": {
+    "name": "حي المرقاب",
+    "name:ar": "حي المرقاب",
+    "name:en": "Al Mirqab District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8443815317,
+  "lat": 25.3469433,
+  "lon": 49.5850472,
+  "tags": {
+    "name": "حي جوبا",
+    "name:ar": "حي جوبا",
+    "name:en": "Juba District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8443815323,
+  "lat": 25.3382494,
+  "lon": 49.5871380,
+  "tags": {
+    "name": "حي الخالدية",
+    "name:ar": "حي الخالدية",
+    "name:en": "Al Khalidiyah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8443815337,
+  "lat": 25.3251012,
+  "lon": 49.5855890,
+  "tags": {
+    "name": "حي الزهرة",
+    "name:ar": "حي الزهرة",
+    "name:en": "Az Zahrah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8443815345,
+  "lat": 25.3295778,
+  "lon": 49.5716912,
+  "tags": {
+    "name": "حي العزيزية الأول",
+    "name:ar": "حي العزيزية الأول",
+    "name:en": "Al Aziziyah 1st District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8443815347,
+  "lat": 25.3348337,
+  "lon": 49.5591143,
+  "tags": {
+    "name": "حي النايفية",
+    "name:ar": "حي النايفية",
+    "name:en": "An Nayfiyah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8443815358,
+  "lat": 25.3437206,
+  "lon": 49.5650312,
+  "tags": {
+    "name": "حي العزيزية الثاني",
+    "name:ar": "حي العزيزية الثاني",
+    "name:en": "Al Aziziyah 2nd District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8443945132,
+  "lat": 25.3614125,
+  "lon": 49.5863575,
+  "tags": {
+    "name": "حي الثليثية",
+    "name:ar": "حي الثليثية",
+    "name:en": "Al Thulaythiyah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8443945134,
+  "lat": 25.3615919,
+  "lon": 49.5822725,
+  "tags": {
+    "name": "حي الوسيطة",
+    "name:ar": "حي الوسيطة",
+    "name:en": "Al Wasitah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8443945137,
+  "lat": 25.3547762,
+  "lon": 49.5827767,
+  "tags": {
+    "name": "حي المربدية",
+    "name:ar": "حي المربدية",
+    "name:en": "Al Marbidia District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8443945140,
+  "lat": 25.3555228,
+  "lon": 49.5888667,
+  "tags": {
+    "name": "حي العويمرية",
+    "name:ar": "حي العويمرية",
+    "name:en": "Al Uwaimiriyah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8454195947,
+  "lat": 25.3687671,
+  "lon": 49.5929570,
+  "tags": {
+    "name": "حي الصالحية",
+    "name:ar": "حي الصالحية",
+    "name:en": "As Salhiyah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8454195961,
+  "lat": 25.3592191,
+  "lon": 49.5961194,
+  "tags": {
+    "name": "حي العليا",
+    "name:ar": "حي العليا",
+    "name:en": "Al Olaya District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8454195970,
+  "lat": 25.3702382,
+  "lon": 49.5806873,
+  "tags": {
+    "name": "حي الشغيبية",
+    "name:ar": "حي الشغيبية",
+    "name:en": "Al Shagaibiyah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8454195983,
+  "lat": 25.3697522,
+  "lon": 49.5638497,
+  "tags": {
+    "name": "حي المحمدية",
+    "name:ar": "حي المحمدية",
+    "name:en": "Al Muhammadiyah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8454195995,
+  "lat": 25.3662671,
+  "lon": 49.5740837,
+  "tags": {
+    "int_name": "Al Muallimeen District",
+    "name": "حي المعلمين",
+    "name:ar": "حي المعلمين",
+    "name:en": "Al Muallimeen District",
+    "official_name": "حي المعلمين",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8454285837,
+  "lat": 25.3819614,
+  "lon": 49.5733032,
+  "tags": {
+    "name": "حي السيفة",
+    "name:ar": "حي السيفة",
+    "name:en": "As Saifa District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8454285846,
+  "lat": 25.3748743,
+  "lon": 49.5885274,
+  "tags": {
+    "name": "حي وسط الهفوف التاريخي",
+    "name:ar": "حي وسط الهفوف التاريخي",
+    "name:en": "Historical Center Hafuf District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8454305067,
+  "lat": 25.3172542,
+  "lon": 49.5504963,
+  "tags": {
+    "name": "حي الجوهرة",
+    "name:ar": "حي الجوهرة",
+    "name:en": "Al Jawharah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8454680837,
+  "lat": 25.3033411,
+  "lon": 49.5109874,
+  "tags": {
+    "name": "جامعة الامام محمد بن سعود الاسلامية",
+    "name:ar": "جامعة الامام محمد بن سعود الاسلامية",
+    "name:en": "Imam Muhammed Ibn Saud Islamic University District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8454680861,
+  "lat": 25.3146114,
+  "lon": 49.5155713,
+  "tags": {
+    "name": "حي البدرية",
+    "name:ar": "حي البدرية",
+    "name:en": "Al Badriyah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8454680863,
+  "lat": 25.3044808,
+  "lon": 49.5309618,
+  "tags": {
+    "name": "حي القدس",
+    "name:ar": "حي القدس",
+    "name:en": "Al Quds District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8454680883,
+  "lat": 25.3095559,
+  "lon": 49.5510422,
+  "tags": {
+    "name": "حي العاصمة",
+    "name:ar": "حي العاصمة",
+    "name:en": "Al Asimah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8454680893,
+  "lat": 25.3259218,
+  "lon": 49.5239317,
+  "tags": {
+    "name": "حي المجيدية",
+    "name:ar": "حي المجيدية",
+    "name:en": "Al Majidiyah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8454680898,
+  "lat": 25.3194315,
+  "lon": 49.5398453,
+  "tags": {
+    "name": "حي المهندسين",
+    "name:ar": "حي المهندسين",
+    "name:en": "Al Muhandisin District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8454762890,
+  "lat": 25.2884345,
+  "lon": 49.5188060,
+  "tags": {
+    "name": "حي المطار",
+    "name:ar": "حي المطار",
+    "name:en": "Al Matar District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8455045234,
+  "lat": 25.3231883,
+  "lon": 49.5624845,
+  "tags": {
+    "name": "حي مجمع الدوائر الحكومية الثاني",
+    "name:ar": "حي مجمع الدوائر الحكومية الثاني",
+    "name:en": "Government Departments Complex 2nd District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8455045262,
+  "lat": 25.2900690,
+  "lon": 49.5575398,
+  "tags": {
+    "name": "حي الهدا",
+    "name:ar": "حي الهدا",
+    "name:en": "Al Hada District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8455045273,
+  "lat": 25.2903358,
+  "lon": 49.5423102,
+  "tags": {
+    "name": "حي الصقور",
+    "name:ar": "حي الصقور",
+    "name:en": "As Suqur District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8457601171,
+  "lat": 25.3546078,
+  "lon": 49.6052925,
+  "tags": {
+    "name": "حي الروضة",
+    "name:ar": "حي الروضة",
+    "name:en": "Ar Rawdah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8457601181,
+  "lat": 25.3693633,
+  "lon": 49.6000689,
+  "tags": {
+    "name": "حي عين موسى",
+    "name:ar": "حي عين موسى",
+    "name:en": "Ayn Musa District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8457601189,
+  "lat": 25.3768445,
+  "lon": 49.5940822,
+  "tags": {
+    "name": "حي الناصرية",
+    "name:ar": "حي الناصرية",
+    "name:en": "An Nasriyah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8457796556,
+  "lat": 25.3834904,
+  "lon": 49.6291667,
+  "tags": {
+    "name": "حي اللويمي",
+    "name:ar": "حي اللويمي",
+    "name:en": "Al Luwaymi District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8457796567,
+  "lat": 25.3824568,
+  "lon": 49.6131059,
+  "tags": {
+    "name": "حي الخدود",
+    "name:ar": "حي الخدود",
+    "name:en": "Al Khudud District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8457796597,
+  "lat": 25.3810186,
+  "lon": 49.5996250,
+  "tags": {
+    "name": "حي السليمانية",
+    "name:ar": "حي السليمانية",
+    "name:en": "As Sulaimaniyah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8458070436,
+  "lat": 25.3092957,
+  "lon": 49.6005758,
+  "tags": {
+    "name": "حي منسوبي التعليم الأول",
+    "name:ar": "حي منسوبي التعليم الأول",
+    "name:en": "Mansubi Al Taleem 1st District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8458070443,
+  "lat": 25.3210092,
+  "lon": 49.5969767,
+  "tags": {
+    "name": "حي الإسكان الأول",
+    "name:ar": "حي الإسكان الأول",
+    "name:en": "Al Iskan 1st District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8458070450,
+  "lat": 25.3170134,
+  "lon": 49.5861449,
+  "tags": {
+    "name": "حي الجامعيين",
+    "name:ar": "حي الجامعيين",
+    "name:en": "Al Jamiyin District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8458070452,
+  "lat": 25.3194038,
+  "lon": 49.5731061,
+  "tags": {
+    "name": "حي الحمراء الأول",
+    "name:ar": "حي الحمراء الأول",
+    "name:en": "Al Hamra 1st District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8458070455,
+  "lat": 25.3127723,
+  "lon": 49.5664081,
+  "tags": {
+    "name": "حي الحمراء الثاني",
+    "name:ar": "حي الحمراء الثاني",
+    "name:en": "Al Hamra 2nd District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8458070458,
+  "lat": 25.3082951,
+  "lon": 49.5644795,
+  "tags": {
+    "name": "حي الحمراء الثالث",
+    "name:ar": "حي الحمراء الثالث",
+    "name:en": "Al Hamra 3rd District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8473162980,
+  "lat": 25.3176655,
+  "lon": 49.6233940,
+  "tags": {
+    "name": "حي هجر",
+    "name:ar": "حي هجر",
+    "name:en": "Hajr District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8473163001,
+  "lat": 25.3045522,
+  "lon": 49.6098638,
+  "tags": {
+    "name": "المدينة الرياضية",
+    "name:ar": "المدينة الرياضية",
+    "name:en": "Sports City",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8473163006,
+  "lat": 25.2875938,
+  "lon": 49.5870608,
+  "tags": {
+    "name": "حي الإسكان الثاني",
+    "name:ar": "حي الإسكان الثاني",
+    "name:en": "Al Iskan 2nd District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8473221718,
+  "lat": 25.2881885,
+  "lon": 49.6062624,
+  "tags": {
+    "name": "حي الدانة",
+    "name:ar": "حي الدانة",
+    "name:en": "Al Danah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8473221741,
+  "lat": 25.2969200,
+  "lon": 49.5694930,
+  "tags": {
+    "name": "حي الأمراء",
+    "name:ar": "حي الأمراء",
+    "name:en": "Al Omaraa District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8473221743,
+  "lat": 25.2938733,
+  "lon": 49.5881782,
+  "tags": {
+    "name": "حي الرابية",
+    "name:ar": "حي الرابية",
+    "name:en": "Ar Rabiyah District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8473221755,
+  "lat": 25.2985721,
+  "lon": 49.6051040,
+  "tags": {
+    "name": "حي منسوبي التعليم الثاني",
+    "name:ar": "حي منسوبي التعليم الثاني",
+    "name:en": "Mansubi Al Taleem 2nd District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8473541300,
+  "lat": 25.3221678,
+  "lon": 49.6666753,
+  "tags": {
+    "name": "منطقة الغويبة الزراعية",
+    "name:ar": "منطقة الغويبة الزراعية",
+    "name:en": "Alghawbia Agricultural Area",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8473564740,
+  "lat": 25.3153666,
+  "lon": 49.6125213,
+  "tags": {
+    "name": "جامعة الملك فيصل الثالث",
+    "name:ar": "جامعة الملك فيصل الثالث",
+    "name:en": "King Faisal University 3rd",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8473564751,
+  "lat": 25.3169409,
+  "lon": 49.6385350,
+  "tags": {
+    "name": "حي الحزام الأخضر",
+    "name:ar": "حي الحزام الأخضر",
+    "name:en": "Al Hizam Al Akhdar District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8473564758,
+  "lat": 25.3051729,
+  "lon": 49.6341987,
+  "tags": {
+    "name": "حي الدوحة",
+    "name:ar": "حي الدوحة",
+    "name:en": "Al Doha District",
+    "place": "neighbourhood"
+  }
+},
+{
+  "type": "node",
+  "id": 8487320543,
+  "lat": 25.3877578,
+  "lon": 49.5626628,
+  "tags": {
+    "alt_name": "Al Ahsa;Al Hasa",
+    "int_name": "Al Ahsa",
+    "name": "الأحساء",
+    "name:ar": "الأحساء",
+    "name:bn": "আহসা",
+    "name:ckb": "ئەحسا",
+    "name:de": "Al-Hasa",
+    "name:en": "Al Ahsa",
+    "name:eu": "Ahsa",
+    "name:fa": "احساء",
+    "name:fr": "Al-Hassa",
+    "name:he": "אל אחסה",
+    "name:hi": "अल-अहसा",
+    "name:hr": "Hasa",
+    "name:kn": "ಹಸ್ಸಾ",
+    "name:ko": "하사",
+    "name:ku": "Ehsa",
+    "name:ml": "അൽ അഹ്സ",
+    "name:nn": "Al-Ahsa",
+    "name:pt": "Alhaça",
+    "name:ru": "Эль-Хаса",
+    "name:sr": "Ел Хаса",
+    "name:tl": "Al-Omran",
+    "name:uk": "Ель-Хаса",
+    "name:ur": "محافظہ الاحساء",
+    "name:zh": "胡富夫",
+    "place": "city",
+    "population": "903597",
+    "population:date": "2010",
+    "source:population": "stats.gov.sa",
+    "wikidata": "Q4702167",
+    "wikipedia": "ar:محافظة الأحساء"
+  }
+},
+{
+  "type": "node",
+  "id": 10775271923,
+  "lat": 25.5837304,
+  "lon": 49.5936584,
+  "tags": {
+    "name": "العوضية",
+    "name:ar": "العوضية",
+    "name:en": "Al Awadiyah",
+    "name:ml": "അൽ അവദിയ",
+    "place": "village"
+  }
+},
+{
+  "type": "node",
+  "id": 10775657799,
+  "lat": 25.6076446,
+  "lon": 49.5649495,
+  "tags": {
+    "name": "العيون",
+    "name:ar": "العيون",
+    "name:en": "Al Oyun",
+    "name:fa": "عيون",
+    "name:ko": "오윤",
+    "name:ml": "ഒയൂൺ",
+    "place": "city",
+    "wikidata": "Q66145781"
+  }
+},
+{
+  "type": "node",
+  "id": 11870048176,
+  "lat": 25.3739043,
+  "lon": 49.6837815,
+  "tags": {
+    "alt_name": "Al Fuḑūl;Fudhul;El Fadhul;Fadhūl;Fadhul;Al-Fudhul;Fudhūl",
+    "name": "الفضول",
+    "name:en": "Al Fudul",
+    "place": "neighbourhood",
+    "source:name": "https://umaps.balady.gov.sa/"
+  }
+},
+{
+  "type": "node",
+  "id": 12384563314,
+  "lat": 25.5716702,
+  "lon": 49.5536355,
+  "tags": {
+    "name": "AL RABYYAH",
+    "place": "neighbourhood"
+  }
+}
+
+  ]
+}

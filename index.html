@@ -392,7 +392,7 @@ tbody tr.r:hover td:first-child b{transform:translateX(-6px)}
 .play .fig dd{animation:up .9s var(--ease) both}
 .play .fig:nth-child(2) dd{animation-delay:.12s}.play .fig:nth-child(3) dd{animation-delay:.24s}.play .fig:nth-child(4) dd{animation-delay:.36s}
 .play .hist i{animation:growY .9s var(--spring) both}
-.play .pbar i::after,.play #topDist .fb i::after,.play #mLift .fb i::after,.play #mImp .fb i::after,.play #pciBars .fb i::after{animation:growX 1.3s var(--ease) .4s both}
+.play .pbar i::after,.play #topDist .fb i::after,.play #mLift .fb i::after,.play #mImp .fb i::after,.play #pciBars .fb i::after,.play #matMix .fb i::after,.play #matBase .fb i::after{animation:growX 1.3s var(--ease) .4s both}
 .play .map g.d{animation:pop .85s var(--spring) both;animation-delay:calc(var(--i)*75ms + .4s)}
 .play .map .road{animation-duration:1.4s}
 .pitch.play h2{animation:wipe 1.1s var(--ease) .15s both}
@@ -431,6 +431,15 @@ th button{min-height:32px}
 .clegend{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:6px 16px;margin-top:12px;font-size:13px}
 .clegend i{display:inline-block;width:14px;height:4px;border-radius:2px;margin-inline-end:7px;vertical-align:3px}
 .clegend span{color:var(--ink-2)}
+.synth{display:flex;gap:12px;align-items:flex-start;background:var(--med-soft);color:var(--med);border:1.5px dashed currentColor;border-radius:var(--r);padding:14px 18px;margin-bottom:18px;font-size:14.5px}
+.synth b{font-weight:700;display:block}
+.synth svg{margin-top:3px}
+.srcline{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:16px;font-size:12.5px;color:var(--ink-2)}
+.srcline .s{border-radius:99px;padding:2px 11px;font-weight:500;border:1px solid var(--line);background:var(--surface);color:var(--ink)}
+.srcline .s i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-inline-end:6px}
+.srcline .real i{background:var(--low-f)}.srcline .wait i{background:var(--high-f)}.srcline .fake i{background:var(--med-f)}
+.stackbar{display:flex;height:14px;border-radius:7px;overflow:hidden;min-width:160px;direction:rtl}
+.stackbar i{display:block}
 @media (max-width:1080px){
   .cols,.mapwrap,.pitch{grid-template-columns:minmax(0,1fr)}
   .figs{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -489,7 +498,7 @@ th button{min-height:32px}
       </div>
       <div class="cols">
         <div class="sec"><div class="head-row"><h2>تنبيهات تحتاج قراراً الآن</h2><a class="more" href="#alerts">فتح التنبيهات</a></div><p class="sub">الأعلى احتمالاً ولم يصدر لها أمر عمل وقائي بعد.</p><ul class="rows" id="topAlerts"></ul></div>
-        <div class="sec"><div class="head-row"><h2>المناطق الأعلى خطورة</h2><a class="more" href="#map">فتح الخريطة</a></div><p class="sub">مؤشر الخطورة من 100 يجمع احتمالية العطل وأثره.</p><div class="fbars" id="topDist"></div></div>
+        <div class="sec"><div class="head-row"><h2 id="topDistH">المناطق الأعلى خطورة</h2><a class="more" href="#map">فتح الخريطة</a></div><p class="sub" id="topDistS">مؤشر الخطورة من 100 يجمع احتمالية العطل وأثره.</p><div class="fbars" id="topDist"></div></div>
       </div>
       <div class="sec" id="pciSec" style="margin-top:18px" hidden><h2>حالة الرصف في الشبكة (PCI)</h2><p class="sub" id="pciSub"></p><div class="fbars" id="pciBars"></div></div>
     </section>
@@ -545,6 +554,26 @@ th button{min-height:32px}
       </div>
     </section>
 
+    <!-- ============ MATERIALS ============ -->
+    <section class="view" id="v-materials">
+      <div class="synth" role="note"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 2 20h20L12 3zM12 10v5M12 17.500v.500"/></svg><div><b>نموذج افتراضي: بيانات المواد هنا غير حقيقية</b>وُضعت لتوضيح ما سيحلله النظام عند توفر سجلات المواد من البلدية والمقاولين. أنواع الخلطات معروفة في الصناعة، أما النِّسب والنتائج فمن المحاكاة.</div></div>
+      <div class="cols" style="margin-top:0">
+        <div class="sec"><h2>أي مادة إصلاح تصمد أطول؟</h2><p class="sub">نسبة الإصلاحات التي لم يعد عطلها، حسب المادة المستخدمة في الإصلاح.</p><div id="matSurv"></div></div>
+        <div class="sec"><h2>معدل الأعطال حسب خلطة الرصف الأصلية</h2><p class="sub">عدد الأعطال لكل 100 كم في السنة. الأقل أفضل.</p><div class="fbars" id="matMix"></div>
+          <h2 style="margin-top:22px;font-size:15px">حسب طبقة الأساس</h2><div class="fbars" id="matBase" style="margin-top:10px"></div></div>
+      </div>
+      <div class="cols">
+        <div class="sec"><h2>ماذا يستخدم كل مقاول في الإصلاح؟</h2><p class="sub">توزيع مواد الإصلاح في أعمال كل مقاول.</p>
+          <div class="tw"><table style="min-width:460px"><thead><tr><th>المقاول</th><th>التوزيع</th><th>ترقيع بارد</th><th>خلطة ساخنة</th><th>معدّلة بالبوليمر</th></tr></thead><tbody id="matK"></tbody></table></div>
+          <div class="legend"><span><i style="background:var(--crit-f)"></i>ترقيع بارد</span><span><i style="background:var(--med-f)"></i>خلطة ساخنة</span><span><i style="background:var(--low-f)"></i>معدّلة بالبوليمر</span></div>
+        </div>
+        <div class="sec"><h2>جودة التوريد حسب المورّد</h2><p class="sub">متوسط نتيجة فحص المواد عند الاستلام، ومعدل الأعطال على ما ورّده.</p>
+          <div class="tw"><table style="min-width:420px"><thead><tr><th>المورّد</th><th>نتيجة الفحص</th><th>أعطال لكل 100 كم/سنة</th><th>الطول المورَّد</th></tr></thead><tbody id="matS"></tbody></table></div>
+        </div>
+      </div>
+      <div class="sec" style="margin-top:18px"><h2>ما البيانات الحقيقية المطلوبة لهذه الشاشة؟</h2><p class="sub" style="margin-bottom:0">لكل مشروع رصف أو إصلاح: نوع الخلطة، مادة طبقة الأساس، المورّد، نتائج فحص المختبر عند الاستلام، وتاريخ التنفيذ. القالب جاهز في <span dir="ltr">data/templates/materials.csv</span>.</p></div>
+    </section>
+
     <!-- ============ RECOMMENDATIONS ============ -->
     <section class="view" id="v-recs">
       <p class="lede">ماذا نفعل، وبأي ترتيب؟ حرّك ميزانية الصيانة الوقائية وشاهد أي الإجراءات تُموَّل أولاً وكم عطلاً تمنع.</p>
@@ -580,7 +609,10 @@ th button{min-height:32px}
       <div class="sec" style="margin-top:18px"><h2>جوانب الدعم التقني</h2><p class="sub">الأفكار التي يقوم عليها النظام، وحالة كل واحدة في هذا النموذج الأولي.</p>
         <div class="tw"><table><thead><tr><th>الفكرة</th><th>الحالة</th><th>ما تعرضه المنصة</th></tr></thead><tbody id="mSup"></tbody></table></div>
       </div>
-      <div class="sec" style="margin-top:18px"><h2>مصادر البيانات</h2><p class="sub">ما استُخدم في هذا النموذج الأولي، والجهة التي يُفترض أن تأتي منها البيانات عند التشغيل الفعلي. لم نحصل بعد على بيانات من هذه الجهات.</p>
+      <div class="sec" style="margin-top:18px"><h2>أنواع البيانات الأربعة</h2><p class="sub">ما يقوم عليه النظام، ومن أين يأتي كل نوع، ووضعه في هذا النموذج الأولي.</p>
+        <div class="tw"><table><thead><tr><th>النوع</th><th>المصدر المعتمد</th><th>الوضع الحالي</th><th>ما يلزم للاكتمال</th></tr></thead><tbody id="mFour"></tbody></table></div>
+      </div>
+      <div class="sec" style="margin-top:18px"><h2>تفاصيل المصادر</h2><p class="sub">ما استُخدم في هذا النموذج الأولي، والجهة التي يُفترض أن تأتي منها البيانات عند التشغيل الفعلي. لم نحصل بعد على بيانات من هذه الجهات.</p>
         <div class="tw"><table><thead><tr><th>البيانات</th><th>في النموذج الأولي</th><th>المصدر المستهدف عند التشغيل</th><th>الحجم</th></tr></thead><tbody id="mSrc"></tbody></table></div>
       </div>
     </section>
@@ -638,11 +670,12 @@ const IC={
   causes:'<path d="M6 3v12M6 15a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM18 3a3 3 0 1 0 0 6 3 3 0 0 0 0-6zM18 9c0 5-12 2-12 6"/>',
   contractors:'<path d="M4 20v-1a5 5 0 0 1 10 0v1M9 4a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7zM16 5a3 3 0 0 1 0 6M17 14a5 5 0 0 1 3 5v1"/>',
   recs:'<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-4 10.500c.7.7 1 1.500 1 2.500h6c0-1 .3-1.800 1-2.500A6 6 0 0 0 12 3z"/>',
+  materials:'<path d="M12 3 3 8l9 5 9-5-9-5zM3 12.500l9 5 9-5M3 17l9 5 9-5"/>',
   model:'<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>',
   about:'<circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.500v.500"/>'
 };
 const ic=k=>`<svg class="ic" viewBox="0 0 24 24" aria-hidden="true">${IC[k]}</svg>`;
-const VIEWS=[['overview','نظرة عامة'],['map','خريطة المخاطر'],['alerts','التنبيهات المبكرة'],['causes','الأسباب الجذرية'],['contractors','أداء المقاولين'],['recs','التوصيات الاستباقية'],['model','النموذج والبيانات'],['about','عن المنظومة']];
+const VIEWS=[['overview','نظرة عامة'],['map','خريطة المخاطر'],['alerts','التنبيهات المبكرة'],['causes','الأسباب الجذرية'],['contractors','أداء المقاولين'],['materials','المواد المستخدمة'],['recs','التوصيات الاستباقية'],['model','النموذج والبيانات'],['about','عن المنظومة']];
 
 /* ---------- synthetic demo data ---------- */
 const WEEKS=[14,18,23,31,27,22,19,26,34,29,21,17];
@@ -805,7 +838,9 @@ function overview(){
   figs(); arcade('#arc1'); arcade('#arc2');
   const top=A.filter(a=>!a.done).sort((a,b)=>b.p-a.p).slice(0,5);
   $('#topAlerts').innerHTML=top.length?top.map(a=>`<li><span class="t">${a.t}</span><span class="m">${a.issue} · ${a.d} · خلال ${a.days} يوماً</span><span class="v" style="color:${tcol[sevOf(a.p)[0]]}">${a.p}%<small>احتمالية</small></span></li>`).join(''):'<li class="empty" style="display:block"><b>لا تنبيهات معلّقة</b>صدرت أوامر عمل لكل التنبيهات.</li>';
-  $('#topDist').innerHTML=[...D].sort((a,b)=>b.risk-a.risk).slice(0,6).map(d=>`<div class="fb" style="--w:${d.risk}%;--c:${col[riskLv(d.risk)]}"><span>${d.n}</span><i></i><b>${d.risk}</b></div>`).join('');
+  if(MD&&MD.hoods&&MD.hoods.length){ $('#topDistH').textContent='الأحياء الأعلى خطورة'; $('#topDistS').textContent='أسماء الأحياء حقيقية من OpenStreetMap. المؤشر من 100 ترتيب نسبي بين الأحياء.';
+    $('#topDist').innerHTML=MD.hoods.slice(0,7).map(d=>`<div class="fb" style="--w:${d.risk}%;--c:${col[riskLv(d.risk)]}"><span>${d.n} <span style="color:var(--ink-2);font-size:12.5px">${d.km} كم، مقاطع خطرة: ${d.hi}</span></span><i></i><b>${d.risk}</b></div>`).join('') }
+  else $('#topDist').innerHTML=[...D].sort((a,b)=>b.risk-a.risk).slice(0,6).map(d=>`<div class="fb" style="--w:${d.risk}%;--c:${col[riskLv(d.risk)]}"><span>${d.n}</span><i></i><b>${d.risk}</b></div>`).join('');
 }
 document.addEventListener('click',e=>{
   const b=e.target.closest('.bay'); if(!b) return;
@@ -860,7 +895,7 @@ function leaf(){
     LT=L.tileLayer(tileUrl(),{maxZoom:19,attribution:'&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'}).addTo(LM);
     if(window.SEGS){
       const cv=L.canvas({padding:.4}), hi=L.layerGroup(); LLow=L.layerGroup();
-      const pop=r=>`<b>${SEGS.names[r[4]]}</b>مستوى الخطورة: ${SEGN[r[1]]}<br>احتمالية العطل خلال 90 يوماً ${r[2]}%<br>حالة الرصف PCI ${r[3]} من 100 · الطول ${r[5]} م`;
+      const pop=r=>`<b>${SEGS.names[r[4]]}</b>${SEGS.areas?SEGS.areas[r[6]]+'<br>':''}مستوى الخطورة: ${SEGN[r[1]]}<br>احتمالية العطل خلال 90 يوماً ${r[2]}%<br>حالة الرصف PCI ${r[3]} من 100 · الطول ${r[5]} م${r[7]!=null?'<br>الارتفاع '+r[7]+' م':''}`;
       [...SEGS.rows].sort((a,b)=>a[1]-b[1]).forEach(r=>{
         L.polyline(r[0],{renderer:cv,color:SEGC[r[1]],weight:r[1]>=2?4.5:2.6,opacity:r[1]?.95:.6}).bindPopup(()=>pop(r)).addTo(r[1]>=2?hi:LLow)});
       LLow.addTo(LM); hi.addTo(LM);
@@ -885,12 +920,12 @@ function leaf(){
 /* ---------- alerts ---------- */
 function alerts(){
   const q=$('#q').value.trim(), ty=$('#fType').value, sv=$('#fSev').value;
-  const L=A.filter(a=>(!q||a.t.includes(q)||a.d.includes(q)||a.issue.includes(q))&&(!ty||a.ty===ty)&&(!sv||sevOf(a.p)[0]===sv)&&(!wk||a.w===wk)).sort((a,b)=>b.p-a.p);
+  const L=A.filter(a=>(!q||a.t.includes(q)||a.d.includes(q)||(a.h||'').includes(q)||a.issue.includes(q))&&(!ty||a.ty===ty)&&(!sv||sevOf(a.p)[0]===sv)&&(!wk||a.w===wk)).sort((a,b)=>b.p-a.p);
   $('#wkTag').innerHTML=wk?`<span class="tag">الأسبوع ${wk}<button aria-label="إزالة تصفية الأسبوع" id="wkX">×</button></span>`:'';
   $('#aCnt').textContent=`${L.length} من ${A.length} تنبيهاً`;
   $('#aBody').innerHTML=L.length?L.map(a=>{const [s,l]=sevOf(a.p), o=aOpen===a.id;
-   return `<tr class="r" data-id="${a.id}" tabindex="0" aria-expanded="${o}"><td><b style="font-weight:500">${a.t}</b><br><span class="id">${a.id}</span> <span style="font-size:13px;color:var(--ink-2)">· ${a.d} · ${a.issue}</span></td><td>${a.pci!=null?`<b>${a.pci}</b> <span style="font-size:12.5px;color:var(--ink-2)">من 100</span>`:a.ty}</td><td><div class="pbar" style="--w:${a.p}%;--c:${col[s]}"><b>${a.p}%</b><i></i></div></td><td>${a.days>=90?'بعد نحو 90 يوماً':'خلال '+a.days+' يوماً'}</td><td><span class="sev s-${s}">${l}</span></td><td>${a.done?'<span class="ok">تمت الجدولة</span>':'<span style="color:var(--ink-2);font-size:13px">بانتظار قرار</span>'}</td></tr>`+
-   (o?`<tr class="x"><td colspan="6"><div class="xg"><div><h3>السبب الجذري</h3><p>${a.cause}</p></div><div><h3>الإجراء الوقائي المقترح</h3><p>${a.act}</p></div><div><h3>المقاول المنفّذ سابقاً</h3><p>المقاول ${a.k} <a class="more" href="#contractors" style="margin-inline-start:6px">عرض أدائه</a></p></div>${a.pci!=null?`<div><h3>توقع حالة الرصف دون تدخل</h3><p>الآن <b>${a.pci}</b>، بعد 6 أشهر <b>${a.pci6}</b>، بعد 12 شهراً <b>${a.pci12}</b>. طول المقطع ${a.len} م، ${a.cls}.</p></div>`:''}</div>
+   return `<tr class="r" data-id="${a.id}" tabindex="0" aria-expanded="${o}"><td><b style="font-weight:500">${a.t}</b><br><span class="id">${a.id}</span> <span style="font-size:13px;color:var(--ink-2)">· ${a.h||a.d} · ${a.issue}</span></td><td>${a.pci!=null?`<b>${a.pci}</b> <span style="font-size:12.5px;color:var(--ink-2)">من 100</span>`:a.ty}</td><td><div class="pbar" style="--w:${a.p}%;--c:${col[s]}"><b>${a.p}%</b><i></i></div></td><td>${a.days>=90?'بعد نحو 90 يوماً':'خلال '+a.days+' يوماً'}</td><td><span class="sev s-${s}">${l}</span></td><td>${a.done?'<span class="ok">تمت الجدولة</span>':'<span style="color:var(--ink-2);font-size:13px">بانتظار قرار</span>'}</td></tr>`+
+   (o?`<tr class="x"><td colspan="6"><div class="xg"><div><h3>السبب الجذري</h3><p>${a.cause}</p></div><div><h3>الإجراء الوقائي المقترح</h3><p>${a.act}</p></div><div><h3>المقاول المنفّذ سابقاً</h3><p>المقاول ${a.k} <a class="more" href="#contractors" style="margin-inline-start:6px">عرض أدائه</a></p></div>${a.pci!=null?`<div><h3>توقع حالة الرصف دون تدخل</h3><p>الآن <b>${a.pci}</b>، بعد 6 أشهر <b>${a.pci6}</b>، بعد 12 شهراً <b>${a.pci12}</b>. طول المقطع ${a.len} م، ${a.cls}.${a.elev!=null?` الارتفاع ${a.elev} م${a.rel<=-2?'، منخفض عن محيطه '+Math.abs(a.rel)+' م':''}.`:''}</p></div>`:''}</div>
      <div class="xact"><span class="save">الوقاية ${SAR(a.pc)} مقابل ${SAR(a.rc)} للإصلاح بعد العطل. <b>وفر ${SAR(a.rc-a.pc)}</b></span><button class="btn pri" data-go="${a.id}" ${a.done?'disabled':''}>${a.done?'صدر أمر العمل':'إصدار أمر عمل وقائي'}</button></div></td></tr>`:'');
   }).join(''):`<tr><td colspan="6" class="empty"><b>لا تنبيهات مطابقة</b>غيّر التصفية أو أزل الأسبوع المحدد.</td></tr>`;
 }
@@ -961,7 +996,7 @@ function modelView(){
   const real=mt.weather_source.startsWith('open-meteo'), syn='<span class="sev s-med">اصطناعية</span>';
   $('#mSrc').innerHTML=[
    ['الطقس: الحرارة العظمى والأمطار يومياً',real?'<span class="sev s-low">حقيقية</span> Open-Meteo، أرشيف ERA5 لإحداثيات الهفوف':syn+' معدلات مناخية تقريبية','المركز الوطني للأرصاد، محطة الأحساء',N(mt.weather_days)+' يوماً'],
-   ...(ROADS?[['شبكة الطرق ومقاطعها','<span class="sev s-low">حقيقية</span> OpenStreetMap، سُحبت في '+MD.network.osm_time,'نظم المعلومات الجغرافية (GIS) في الأمانة',N(MD.network.segments)+' مقطعاً، '+N(MD.network.km)+' كم'],['مؤشر حالة الرصف PCI',syn+' محاكاة تدهور','مسح حالة الرصف في الأمانة، ثم رؤية حاسوبية من مركبات البلدية','قراءة شهرية لكل مقطع']]:[]),
+   ...(ROADS?[['شبكة الطرق ومقاطعها','<span class="sev s-low">حقيقية</span> OpenStreetMap، سُحبت في '+MD.network.osm_time,'نظم المعلومات الجغرافية (GIS) في الأمانة',N(MD.network.segments)+' مقطعاً، '+N(MD.network.km)+' كم'],...(MD.geo?[['أسماء الأحياء والبلدات','<span class="sev s-low">حقيقية</span> OpenStreetMap','خرائط قوقل أو نظم المعلومات الجغرافية في الأمانة',MD.geo.hoods_named+' حياً، تغطي '+MD.geo.segs_with_hood+'% من المقاطع'],['ارتفاع كل مقطع عن سطح البحر','<span class="sev s-low">حقيقية</span> نموذج Copernicus DEM 90m عبر Open-Meteo','المسح الطبوغرافي في الأمانة',N(MD.geo.elev_n)+' مقطعاً من '+N(MD.network.segments)]]:[]),['مؤشر حالة الرصف PCI',syn+' محاكاة تدهور','مسح حالة الرصف في الأمانة، ثم رؤية حاسوبية من مركبات البلدية','قراءة شهرية لكل مقطع']]:[]),
    ['البلاغات',syn+' محاكاة شهرية','أمانة الأحساء: تطبيق بلدي ومركز البلاغات 940',N(mt.n_reports)+' بلاغاً'],
    ['سجلات الصيانة وأوامر العمل',syn,'أمانة الأحساء: إدارة التشغيل والصيانة',N(mt.n_maint)+' سجلاً'],
    ['عقود وأداء المقاولين',syn,'أمانة الأحساء: إدارة العقود والمشتريات',MD.contractors.length+' مقاولين'],
@@ -973,6 +1008,7 @@ function modelView(){
   const ok='<span class="sev s-low">منفَّذ</span>', sim='<span class="sev s-low">منفَّذ</span> <span class="sev s-med">على بيانات محاكاة</span>', plan='<span class="sev s-high">مخطط</span>', nw=MD.network, sv=MD.surv, op=MD.optim;
   $('#mSup').innerHTML=(ROADS?[
    ['شبكة الطرق الحقيقية',ok,`${N(nw.segments)} مقطعاً بطول ${N(nw.km)} كم من OpenStreetMap، كل مقطع ملوّن بخطورته على <a class="more" href="#map">الخريطة</a>.`],
+   ...(MD.geo?[['أسماء الأحياء الحقيقية',ok,`${MD.geo.hoods_named} حياً وبلدة، وترتيب الأحياء الأعلى خطورة في <a class="more" href="#overview">النظرة العامة</a>.`],['ارتفاعات حقيقية لكل مقطع',ok,`${N(MD.geo.low_spots)} مقطعاً منخفضاً عن محيطه 3 م فأكثر، وهي نقاط تجمّع مياه الأمطار. يدخل الانخفاض في التنبؤ.`]]:[]),
    ['طقس الأحساء الحقيقي',ok,`${N(mt.weather_days)} يوماً من الحرارة والأمطار تدخل في التنبؤ.`],
    ['نموذج التنبؤ ومقارنته بخط الأساس',sim,`يلتقط ${P(x.model.rec)}% من الأعطال ضمن أعلى 5% خطورة، مقابل ${P(x.baseline.rec)}% للقاعدة البسيطة.`],
    ['مؤشر حالة الرصف PCI (معيار ASTM D6433)',sim,`توزيع الشبكة على فئات المؤشر في <a class="more" href="#overview">النظرة العامة</a>، وإسقاط 6 و12 شهراً لكل تنبيه.`],
@@ -986,9 +1022,9 @@ function modelView(){
 }
 
 /* ---------- roads extras: PCI, survival, optimisation ---------- */
-function curves(el,series){
+function curves(el,series,pal){
   const Wd=520,H=250,l=34,r=10,t=10,b=26,n=series[0].s.length-1, X=i=>l+i/n*(Wd-l-r), Y=v=>t+(1-v)*(H-t-b);
-  const col=['#1e9a66','#d2413a','#0c7d72','#e8a02c','#5b8def','#b36bd4'];
+  const col=pal||['#1e9a66','#d2413a','#0c7d72','#e8a02c','#5b8def','#b36bd4'];
   $(el).className='curve';
   $(el).innerHTML=`<svg viewBox="0 0 ${Wd} ${H}" role="img" aria-label="منحنيات صمود الإصلاح">
    ${[0,.25,.5,.75,1].map(v=>`<line class="grid" x1="${l}" x2="${Wd-r}" y1="${Y(v)}" y2="${Y(v)}"/><text x="${l-6}" y="${Y(v)+4}" text-anchor="end">${v*100}%</text>`).join('')}
@@ -1008,11 +1044,35 @@ function roadsExtras(){
   $('#fType').hidden=true;
 }
 
+/* ---------- materials + data-source chips ---------- */
+function materialsView(){
+  const mt=MD&&MD.materials; if(!mt){ $('#v-materials').innerHTML='<div class="sec empty"><b>لا بيانات مواد</b>أعد تشغيل ml/train_model.py.</div>'; return }
+  curves('#matSurv',mt.repair,['#1e9a66','#e8a02c','#d2413a']);
+  const bars=(el,rows)=>{const mx=Math.max(...rows.map(r=>r.rate)); $(el).innerHTML=rows.map((r,i)=>`<div class="fb" style="--w:${r.rate/mx*100}%;--c:${i===rows.length-1?'var(--crit-f)':i?'var(--high-f)':'var(--low-f)'}"><span>${r.n} <span style="color:var(--ink-2);font-size:12.5px">${r.share}% من الشبكة</span></span><i></i><b>${r.rate}</b></div>`).join('')};
+  bars('#matMix',mt.mix); bars('#matBase',mt.base);
+  const KM=['ترقيع بارد','خلطة ساخنة','خلطة معدّلة بالبوليمر'], C=['var(--crit-f)','var(--med-f)','var(--low-f)'];
+  $('#matK').innerHTML=mt.contractor.map(c=>`<tr><td><b style="font-weight:500">${c.n}</b></td><td><div class="stackbar" role="img" aria-label="توزيع مواد الإصلاح">${KM.map((k,i)=>`<i style="width:${c[k]}%;background:${C[i]}"></i>`).join('')}</div></td>${KM.map(k=>`<td>${c[k]}%</td>`).join('')}</tr>`).join('');
+  $('#matS').innerHTML=[...mt.supplier].sort((a,b)=>b.test-a.test).map(r=>`<tr><td><b style="font-weight:500">${r.n}</b></td><td><div class="pbar" style="--w:${r.test}%;--c:${r.test>=65?'var(--low-f)':'var(--crit-f)'}"><b>${r.test}%</b><i></i></div></td><td>${r.rate}</td><td>${N(r.km)} كم</td></tr>`).join('');
+}
+function fourTypes(){
+  if(!MD||!MD.roads) return;
+  const real='<span class="sev s-low">حقيقية</span>', wait='<span class="sev s-high">بانتظار الاستلام</span>', fake='<span class="sev s-med">نموذج افتراضي</span>', nw=MD.network;
+  $('#mFour').innerHTML=[
+   ['1. الجغرافية: الشوارع والأحياء','خرائط قوقل',real+` خطوط الطرق وأسماء الشوارع والأحياء من OpenStreetMap (${N(nw.segments)} مقطعاً${MD.geo?'، '+MD.geo.hoods_named+' حياً':''}). الربط بقوقل لم يُفعَّل بعد.`,'مفتاح Google Maps Platform لعرض خريطة قوقل. الأسماء متوفرة الآن بدونه.'],
+   ['2. البلاغات على الشوارع','البلدية',wait+' المعروض الآن محاكاة.','ملف البلاغات من البلدية حسب القالب <span dir="ltr">data/templates/reports.csv</span>.'],
+   ['3. شركات المقاولات ومشاريعها','البلدية',wait+' الأسماء مرمّزة والأعمال محاكاة.','ملف المشاريع والمقاولين حسب القالب <span dir="ltr">data/templates/contractors.csv</span>.'],
+   ['4. المواد المستخدمة','نموذج افتراضي',fake+' غير حقيقية، وموسومة بذلك في شاشتها.','تبقى افتراضية في العرض، وقالبها <span dir="ltr">data/templates/materials.csv</span> لما بعد.']
+  ].map(r=>`<tr><td><b style="font-weight:500">${r[0]}</b></td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join('');
+  const T={geo:['real','الجغرافية: حقيقية (OpenStreetMap)'],rep:['wait','البلاغات: محاكاة بانتظار بيانات البلدية'],con:['wait','المقاولون: محاكاة بانتظار بيانات البلدية'],mat:['fake','المواد: نموذج افتراضي']};
+  const V={overview:['geo','rep'],map:['geo','rep'],alerts:['geo','rep','con'],causes:['rep','mat'],contractors:['con','rep'],materials:['mat','con'],recs:['geo','rep']};
+  Object.entries(V).forEach(([v,ks])=>{const d=document.createElement('div'); d.className='srcline'; d.innerHTML='<span>مصدر بيانات هذه الشاشة:</span>'+ks.map(k=>`<span class="s ${T[k][0]}"><i></i>${T[k][1]}</span>`).join(''); $('#v-'+v).prepend(d)});
+}
+
 /* ---------- about ---------- */
-$('#caps').innerHTML=[['map','خريطة مخاطر تنبؤية','الأصول الأكثر عرضة للتلف في كل منطقة قبل وقوع العطل.'],['alerts','تنبيهات مبكرة','احتمالية العطل، مدته المتوقعة، والإجراء الوقائي المقترح.'],['causes','تحليل الأسباب الجذرية','هل السبب المناخ، جودة المواد، أم أداء المقاول؟'],['contractors','تحليل أداء المقاولين','تكرار المشكلات، جودة المعالجة، سرعة الاستجابة، وعودة الأعطال.'],['recs','توصيات استباقية','تحديد الأولويات وتوزيع الموارد حسب العائد.'],['model','نموذج مُقيَّم وشفاف','أداء النموذج على بيانات لم يرها، ومصادر البيانات.']].map(([k,t,s])=>`<a href="#${k}">${ic(k)}<b>${t}</b><span>${s}</span></a>`).join('');
+$('#caps').innerHTML=[['map','خريطة مخاطر تنبؤية','الأصول الأكثر عرضة للتلف في كل منطقة قبل وقوع العطل.'],['alerts','تنبيهات مبكرة','احتمالية العطل، مدته المتوقعة، والإجراء الوقائي المقترح.'],['causes','تحليل الأسباب الجذرية','هل السبب المناخ، جودة المواد، أم أداء المقاول؟'],['materials','تحليل المواد المستخدمة','أي خلطة وأي مادة إصلاح تصمد أطول (نموذج افتراضي).'],['contractors','تحليل أداء المقاولين','تكرار المشكلات، جودة المعالجة، سرعة الاستجابة، وعودة الأعطال.'],['recs','توصيات استباقية','تحديد الأولويات وتوزيع الموارد حسب العائد.'],['model','نموذج مُقيَّم وشفاف','أداء النموذج على بيانات لم يرها، ومصادر البيانات.']].map(([k,t,s])=>`<a href="#${k}">${ic(k)}<b>${t}</b><span>${s}</span></a>`).join('');
 
 document.querySelectorAll('.shift div').forEach((d,i)=>d.style.setProperty('--i',i));
-overview(); map(); alerts(); causes(); contractors(); recs(); modelView(); roadsExtras(); nav();
+overview(); map(); alerts(); causes(); contractors(); recs(); modelView(); roadsExtras(); materialsView(); fourTypes(); nav();
 new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target)}}),{threshold:.3}).observe($('.flow'));
 document.fonts&&document.fonts.ready.then(pill);
 const SUN='M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.500 1.500M17.500 17.500 19 19M19 5l-1.500 1.500M6.500 17.500 5 19', MOON='M20 14.500A8 8 0 0 1 9.500 4a8 8 0 1 0 10.500 10.500z';
