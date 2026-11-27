@@ -1,0 +1,400 @@
+/* Interface typeface chosen by the owner: Thmanyah Serif Text Medium (one weight). Logo artwork is untouched.
+   Licence: the font file must not be hosted or redistributed, so it stays local (brand/fonts is git-ignored);
+   where it is absent the stack falls back to the guideline fonts. Declared for weights 100-900 so the browser
+   never fakes a bold: hierarchy comes from size. */
+@font-face{font-family:"Thmanyah Serif Text";src:local("thmanyah serif text Medium"),local("thmanyahseriftext-Medium"),url("fonts/thmanyahseriftext-Medium.otf") format("opentype");font-weight:100 900;font-style:normal;font-display:swap}
+/* ==========================================================================
+   SAHOOD / صاهود — design tokens
+   Source: "دليل الهوية البصرية 2026" — two editions of the same 25-page guide:
+     light = SAHOOD-Guidelines-Light-Desert-Beige  (cited as "light p.N")
+     dark  = SAHOOD-Guidelines-Dark-Qasr-Brown     (cited as "dark p.N")
+   Both PDFs are raster-only (one 1600px-wide JPEG per page, no text layer,
+   no vectors). Mock-up pages are drawn at 1 image px = 1 CSS px (verified:
+   p.10 states "24px grid / 4px corner" and both measure 24 / 4 image px).
+
+   Comment legend
+     light p.N / dark p.N   value printed on that page (hex or number in type)
+     sampled: …             not printed; measured from the page pixels
+                            (JPEG, so colours are +/-2 per channel, sizes +/-1px)
+     inferred: …            reconstructed from a printed statement (e.g. a
+                            contrast ratio) plus sampling
+     derived: …             the guide is silent; value chosen here, with reason
+
+   Fonts are NOT imported here. The <link> tag is in sahood-rules.md.
+   Motion: the guide's only motion spec is recorded in a comment at the end;
+   no motion variables are defined (site motion is frozen).
+   ========================================================================== */
+
+:root {
+  /* ---------------------------------------------------------------------
+     1. BRAND PALETTE — constants, identical in both modes (names as printed)
+     --------------------------------------------------------------------- */
+  --sh-desert-beige: #E4D5BA;   /* light p.8 — بيج الصحراء / Desert Beige: page background, light mode */
+  --sh-light-sand:   #F1E8D7;   /* light p.8, dark p.8 — رمل فاتح / Light Sand: cards, surfaces, paper (light); text and buttons (dark) */
+  --sh-qasr-brown:   #2A1F17;   /* light p.8, dark p.8 — بنّي القصر / Qasr Brown: wordmark, text, buttons (light); page background (dark) */
+  --sh-adobe:        #6F4E33;   /* light p.8 — الطين / Adobe: qasr elements (crenellations, lighting) in light mode */
+  --sh-stone:        #CDBB9B;   /* light p.8 — الحجر / Stone: borders and dividers, light mode */
+  --sh-light-brown:  #35281E;   /* dark p.8 — بنّي فاتح / Light Brown: cards and surfaces, dark mode */
+  --sh-poster-sand:  #DFC7A2;   /* dark p.8 — رمل الملصق / Poster Sand: wordmark and qasr elements, dark mode */
+  --sh-dark-stone:   #524032;   /* dark p.8 — حجر داكن / Dark Stone: borders and dividers, dark mode */
+  --sh-oasis-signal: #19C37D;   /* light p.8, dark p.8 — إشارة الواحة / Oasis Signal: forecast ONLY (dots and areas; in dark also lines and text) */
+  --sh-signal-deep:  #086339;   /* light p.8, dark p.8 — الإشارة الداكنة / Signal Deep: forecast text and lines on light backgrounds and on paper */
+  --sh-paper-white:  #FFFFFF;   /* light p.8 footnote — print paper white, both modes; also one-colour logo ground (p.25) */
+  --sh-black:        #000000;   /* light p.25 — one-colour logo, black on white / reversed. sampled: pure black panel */
+
+  /* Risk levels as printed — the SAME four hexes in both editions */
+  --sh-risk-critical: #E5484D;  /* light p.8, dark p.8 — حرج    | shape: filled diamond (p.11) */
+  --sh-risk-high:     #F08A3C;  /* light p.8, dark p.8 — مرتفع  | shape: filled triangle (p.11) */
+  --sh-risk-watch:    #E8B931;  /* light p.8, dark p.8 — مراقبة | shape: filled circle (p.11) */
+  --sh-risk-stable:   #B8AFA3;  /* light p.8, dark p.8 — مستقر  | shape: hollow ring (p.11) */
+
+  /* Data series 3 is the same in both modes */
+  --sh-data-3: #A99A6E;         /* light p.8, dark p.8 — سلسلة 3 */
+
+  /* ---------------------------------------------------------------------
+     2. SEMANTIC ROLES — LIGHT MODE "Desert Beige"
+     --------------------------------------------------------------------- */
+  --sh-bg:              #E4D5BA; /* light p.8 — "الخلفية الأساسية في الوضع الفاتح" */
+  --sh-surface:         #F1E8D7; /* light p.8 — "البطاقات والأسطح والورق" */
+  --sh-surface-raised:  #F1E8D7; /* sampled: light p.19 floating forecast card = Light Sand + shadow (see --sh-shadow-raised) */
+  --sh-surface-sunken:  #DCCBAD; /* sampled: light p.20-23 sidebar rail fill; no printed hex */
+  --sh-fill-selected:   #B9A783; /* sampled: light p.20-23 active nav item, active filter chip, segmented control, bar track, "off" confidence segment; no printed hex */
+  --sh-popup-bg:        #E4D5BA; /* sampled: light p.22 map popup, legend and map controls use the page background + border + shadow */
+  --sh-border:          #CDBB9B; /* light p.8 — Stone "الحدود والفواصل"; 1px on cards/inputs/tables (light p.20) */
+  --sh-border-strong:   #5B5141; /* sampled: light p.20 "بيانات توضيحية" notice chip and «مستقر» badge outline use the secondary-text tone */
+  --sh-text:            #2A1F17; /* light p.8 — "الكلمة والنصوص والأزرار"; 11.1:1 on --sh-bg (light p.8) */
+  --sh-text-secondary:  #5B5141; /* inferred: light p.8 prints only "نص ثانوي على السطح 6.4:1"; this hue (sampled p.8/p.20) gives exactly 6.4:1 on #F1E8D7 and 5.4:1 on #E4D5BA */
+  --sh-text-muted:      #665947; /* derived: guide defines two text levels only; third level kept >= 4.5:1 on both --sh-bg (4.7) and --sh-surface (5.6) */
+  --sh-brand:           #2A1F17; /* light p.5, p.8 — wordmark «صَاهُود» colour in light mode */
+  --sh-qasr:            #6F4E33; /* light p.8 — Adobe "عناصر القصر: الشرفات والإضاءة" */
+  --sh-primary:         #2A1F17; /* light p.10 "زر أساسي", light p.20 — primary button fill */
+  --sh-on-primary:      #F1E8D7; /* sampled: light p.19/p.20 button label = Light Sand (13.2:1). NOTE light p.8 prints "نص على الزر 14.4:1", which no palette pair produces — see rules sheet */
+  --sh-link:            #2A1F17; /* derived: guide shows no inline link style; text colour + underline (green is reserved, so no coloured links) */
+  --sh-focus-ring:      #2A1F17; /* derived: guide shows no focus state; 11.1:1 against --sh-bg */
+
+  /* Forecast / predicted values — green is used for NOTHING else (light p.8 "إشارة التنبؤ — للقيم المتوقعة فقط") */
+  --sh-forecast:        #19C37D; /* light p.8 — Oasis Signal "النقاط والمساحات": end dots, sight-line dot, area base */
+  --sh-forecast-ink:    #086339; /* light p.8 — Signal Deep "النص والخطوط": dashed forecast line, forecast numbers and labels; 5.1:1 on --sh-bg (light p.8) */
+  --sh-forecast-band:   rgba(25, 195, 125, 0.16); /* sampled: light p.11 confidence band #CEE0C8 on #F1E8D7 = Oasis Signal at ~16% */
+  --sh-forecast-wedge:  rgba(25, 195, 125, 0.14); /* sampled: light p.10 sight-line wedge #D5E2CA on #F1E8D7 */
+
+  /* Risk marks as actually drawn in UI (icon, pill outline, bar fill, map pin).
+     The colour page prints one hex per level for both modes, but the light
+     mock-ups draw «مرتفع» and «مراقبة» darker so the mark reaches 3:1 on sand. */
+  --sh-risk-critical-mark: #E5484D; /* light p.8 printed; sampled light p.11 diamond #E04B53 (same colour); 3.2:1 on --sh-surface */
+  --sh-risk-high-mark:     #C8600F; /* sampled: light p.11 triangle #BE5E1E, p.20 bar #CB5E0F, p.22 pin #C25F18; 3.4:1 on --sh-surface. Printed #F08A3C is only 2.1:1 */
+  --sh-risk-watch-mark:    #AD7A05; /* sampled: light p.11 dot #A97A09, p.20 bar #AF7A01; 3.1:1 on --sh-surface. Printed #E8B931 is only 1.5:1 */
+  --sh-risk-stable-mark:   #8B8070; /* sampled: light p.20 «مستقر» bar fill; ring/outline uses --sh-border-strong. Printed #B8AFA3 is 1.8:1 */
+  --sh-risk-critical-area: rgba(229, 72, 77, 0.22);  /* derived: map/matrix tint from printed hex; light p.22 legend swatch shows a soft ramp, no numbers */
+  --sh-risk-high-area:     rgba(240, 138, 60, 0.28); /* derived: as above (sampled light p.22 area ~#D5B68A on map ground) */
+  --sh-risk-watch-area:    rgba(232, 185, 49, 0.30); /* derived: as above */
+  --sh-risk-stable-area:   rgba(184, 175, 163, 0.25);/* derived: as above */
+
+  /* Data visualisation (light p.8 "ألوان البيانات — المحايد للفعلي، والأخضر للمتوقع") */
+  --sh-data-actual:     #2A1F17; /* light p.8 — فعلي */
+  --sh-data-2:          #6F4E33; /* light p.8 — سلسلة 2 */
+  --sh-data-forecast:   #19C37D; /* light p.8 — متوقَّع (fills, dots); lines/labels use --sh-forecast-ink */
+  --sh-data-grid:       #CDBB9B; /* sampled: light p.11 gridlines = 1px Stone */
+  --sh-data-axis-text:  #5B5141; /* sampled: light p.11 axis labels = secondary text */
+  --sh-data-threshold:  #E5484D; /* sampled: light p.11 "حد التدخل 70" 1px dashed line in the critical red */
+  --sh-data-today:      #5B5141; /* sampled: light p.11 "اليوم" 1px dotted vertical marker, neutral */
+  --sh-conf-on:         #6F4E33; /* sampled: light p.11 confidence segments "on" = Adobe */
+  --sh-conf-off:        #B9A783; /* sampled: light p.11 confidence segments "off" */
+  --sh-bar-track:       #B9A783; /* sampled: light p.20/p.21 bar track */
+  --sh-map-bg:          #E9DDC5; /* sampled: light p.22 map ground */
+  --sh-map-water:       #4F7575; /* sampled: light p.22 "شبكة التصريف" line — a teal that is NOT in the printed palette */
+
+  /* Status. The guide defines no success/info/warning set; its do/don't marks are a red x and a NEUTRAL outlined check (light p.6, p.7) */
+  --sh-status-error:    #E5484D; /* light p.6 — "forbidden" badge uses the critical red (sampled) */
+  --sh-status-warning:  #C8600F; /* derived: reuse «مرتفع» mark */
+  --sh-status-success:  #2A1F17; /* derived: green is forecast-only, so success = neutral ink + check icon (light p.7 check mark is neutral) */
+  --sh-status-info:     #5B5141; /* derived: neutral secondary ink */
+
+  /* Elevation */
+  --sh-shadow-none:     none;                                        /* light p.20-23 — cards are flat: 1px border, no shadow (sampled) */
+  --sh-shadow-raised:   0 18px 40px -12px rgba(42, 31, 23, 0.35);    /* sampled: light p.19 floating card, p.22 map popup, p.4 poster; approximation of a soft warm drop shadow */
+
+  /* Logo ground used by the favicon / app icon */
+  --sh-icon-ground:     #E4D5BA; /* light p.16 — "رمز المرقب بالبنّي على بيج الصحراء … خلفية واحدة: بيج الصحراء فقط" */
+  --sh-icon-symbol:     #2A1F17; /* light p.16 */
+
+  /* ---------------------------------------------------------------------
+     3. TYPOGRAPHY (identical in both modes — light p.9 = dark p.9)
+     --------------------------------------------------------------------- */
+  --sh-font-arabic: "Thmanyah Serif Text", "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif; /* light p.9 — "للعربية IBM Plex Sans Arabic"; weights shown: 400, 500, 600 */
+  --sh-font-latin:  "Thmanyah Serif Text", "Inter", "Segoe UI", Arial, sans-serif;                 /* light p.9 — "للإنجليزية والأرقام Inter"; weights shown: 400, 600 */
+  --sh-font-mono:   "Thmanyah Serif Text", "IBM Plex Mono", Consolas, "Courier New", monospace;    /* light p.9 — "للمعرّفات IBM Plex Mono"; no weight printed, drawn regular -> 400 */
+  --sh-font-ui:     "Thmanyah Serif Text", "Inter", "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif; /* derived: Inter first so digits and Latin come from Inter, Arabic falls through to Plex (Inter has no Arabic glyphs) — implements light p.9 "أرقام … من خط Inter في كل مكان" */
+  /* The Thuluth wordmark is artwork, never a font: light p.9 "الثلث للشعار وحده" / "الخط العربي الزخرفي لا يدخل الواجهات ولا التقارير" */
+
+  --sh-weight-regular:  400;  /* light p.9 — body, caption, Latin body */
+  --sh-weight-medium:   500;  /* light p.9 — heading 2 */
+  --sh-weight-semibold: 600;  /* light p.9 — display, heading 1, Latin display */
+
+  /* Scale: size / line-height / weight / letter-spacing */
+  --sh-display-size: 56px;  --sh-display-lh: 1.25; --sh-display-weight: 600; --sh-display-ls: 0;       /* light p.9 — عرض: Plex Arabic 600 · 56/1.25 */
+  --sh-h1-size:      34px;  --sh-h1-lh:      1.3;  --sh-h1-weight:      600; --sh-h1-ls:      0;       /* light p.9 — عنوان 1: Plex Arabic 600 · 34/1.3 */
+  --sh-h2-size:      22px;  --sh-h2-lh:      1.4;  --sh-h2-weight:      500; --sh-h2-ls:      0;       /* light p.9 — عنوان 2: Plex Arabic 500 · 22/1.4 */
+  --sh-h3-size:      18px;  --sh-h3-lh:      1.5;  --sh-h3-weight:      500; --sh-h3-ls:      0;       /* derived: no heading 3 in the guide; sampled light p.20 card titles ~18px medium */
+  --sh-body-size:    16px;  --sh-body-lh:    1.9;  --sh-body-weight:    400; --sh-body-ls:    0;       /* light p.9 — نص: Plex Arabic 400 · 16/1.9 */
+  --sh-small-size:   14px;  --sh-small-lh:   1.6;  --sh-small-weight:   400; --sh-small-ls:   0;       /* derived: no 14px step in the guide; sampled light p.20 KPI labels/units ~14-15px */
+  --sh-caption-size: 13px;  --sh-caption-lh: 1.6;  --sh-caption-weight: 400; --sh-caption-ls: 0;       /* light p.9 — تعليق: Plex Arabic 400 · 13/1.6 */
+  --sh-label-size:   12px;  --sh-label-lh:   1.4;  --sh-label-weight:   400; --sh-label-ls:   0.18em;  /* sampled: Latin uppercase eyebrow (e.g. "COLOUR SYSTEM", light p.8) Inter ~12px, wide tracking; not in the printed scale */
+  --sh-mono-size:    14px;  --sh-mono-lh:    1.6;  --sh-mono-weight:    400; --sh-mono-ls:    0;       /* sampled: light p.20 asset IDs/dates in tables ~14px; light p.9 sample "AST-MBZ-0412 · 25.4125N" is larger (~18px) */
+  --sh-display-latin-size: 48px; --sh-display-latin-lh: 1.1; --sh-display-latin-weight: 600; --sh-display-latin-ls: -0.01em; /* light p.9 — عرض لاتيني: Inter 600 · 48/1.1 · -1% */
+  --sh-body-latin-size:    16px; --sh-body-latin-lh:    1.6; --sh-body-latin-weight:    400; --sh-body-latin-ls: 0;          /* light p.9 — نص لاتيني: Inter 400 · 16/1.6 */
+  --sh-kpi-size:     40px;  --sh-kpi-lh:     1.1;  --sh-kpi-weight:     600;                           /* sampled: light p.20 KPI figures (Inter semibold, digit height 29px) */
+  --sh-latin-follow-scale: 0.85;  /* light p.9 — "الإنجليزية تتبعها بحجم 85% ولون ثانوي" */
+  --sh-wordmark-latin-ls:  0.5em; /* light p.4 — "SAHOOD بخط Inter وتباعد 0.5em تحت خط رفيع" */
+  --sh-numeric:      tabular-nums lining-nums; /* light p.9 — "أرقام غربية (من 0 إلى 9) جدولية من خط Inter في كل مكان"; use with font-variant-numeric */
+
+  /* ---------------------------------------------------------------------
+     4. SPACING, GRID, RADII, BORDERS
+     --------------------------------------------------------------------- */
+  --sh-unit:     8px;   /* light p.10 — "وحدة المسافات 8px" */
+  --sh-space-1:  4px;   /* derived: half unit */
+  --sh-space-2:  8px;   /* light p.10 — unit */
+  --sh-space-3:  12px;  /* derived: 1.5 unit; sampled table cell inline padding light p.20 */
+  --sh-space-4:  16px;  /* derived: 2 units; sampled KPI-row gap light p.20 */
+  --sh-space-5:  20px;  /* sampled: light p.20 gap between card rows, KPI card padding (off the 8px grid) */
+  --sh-space-6:  24px;  /* derived: 3 units; sampled section-card padding light p.20 */
+  --sh-space-8:  32px;  /* derived: 4 units; sampled page padding light p.20 (33-34px) */
+  --sh-space-10: 40px;  /* derived: 5 units */
+  --sh-space-12: 48px;  /* derived: 6 units */
+  --sh-space-16: 64px;  /* derived: 8 units */
+
+  --sh-page-padding:   32px;   /* sampled: light p.20 (content starts 33px from the edge, 34px from the sidebar) */
+  --sh-gap-cards:      16px;   /* sampled: light p.20 KPI tiles (16-17px) */
+  --sh-gap-rows:       20px;   /* sampled: light p.20/p.19 (19-20px) */
+  --sh-sidebar-width:  280px;  /* sampled: light p.20 rail = 278px of a 1600px frame; rail sits at the inline-start (right) edge */
+  --sh-container-max:  1424px; /* sampled: light p.19 website content band 89px..1511px of 1600 */
+  --sh-guide-margin:   4.5%;   /* sampled: guide pages keep a 72px margin on a 1600px sheet (light p.2-11) */
+
+  --sh-radius-card:   4px;    /* light p.10 — "بطاقة · زاوية 4px" */
+  --sh-radius-button: 4px;    /* sampled: light p.10 "زر أساسي" swatch and p.20 buttons match the 4px card corner */
+  --sh-radius-input:  4px;    /* sampled: light p.20 select, p.22 search field */
+  --sh-radius-nav:    4px;    /* sampled: light p.20 active nav item */
+  --sh-radius-table:  0;      /* sampled: light p.20 tables are rule-separated rows inside a 4px card */
+  --sh-radius-badge:  999px;  /* light p.10 "حالة" pill swatch; light p.11 risk pills */
+  --sh-radius-chip:   999px;  /* sampled: light p.21 filter chips, p.20 notice chip */
+  --sh-radius-bar:    999px;  /* sampled: light p.11 risk bar and confidence segments have round ends */
+
+  --sh-border-width:        1px;   /* sampled: light p.20 cards, inputs, pills, table rules */
+  --sh-border-width-table-head: 2px; /* sampled: light p.20 rule under the table header reads ~2px; rows 1px */
+  --sh-border-width-accent: 3px;   /* sampled: light p.13 report pull-quote bar (3-4px, Qasr Brown) */
+
+  /* ---------------------------------------------------------------------
+     5. ICONS
+     --------------------------------------------------------------------- */
+  --sh-icon-grid:   24px;   /* light p.10 — "شبكة 24px" */
+  --sh-icon-stroke: 1.6px;  /* light p.10 — "خط 1.6px بنهايات مدوّرة" (round caps and joins, outline only) */
+  --sh-icon-sm:     16px;   /* derived: guide gives only the 24px grid; 16px is the smallest logo-symbol step (light p.5) */
+  --sh-icon-md:     20px;   /* derived */
+  --sh-icon-lg:     24px;   /* light p.10 */
+  --sh-icon-xl:     32px;   /* derived */
+
+  /* ---------------------------------------------------------------------
+     6. COMPONENT METRICS (the guide prints almost none of these; all are
+        measured from the dashboard boards, light p.19-23 = dark p.19-23)
+     --------------------------------------------------------------------- */
+  --sh-control-height:      48px;  /* sampled: light p.20 primary button, ghost button, select; p.21 chips; p.22 search; p.23 segmented control */
+  --sh-btn-height:          48px;  /* sampled: light p.19 nav button (22..70), p.20 (36..83) */
+  --sh-btn-padding-x:       20px;  /* sampled: light p.20 "تصدير التقرير" */
+  --sh-btn-height-lg:       54px;  /* sampled: light p.19 hero button (513..566), p.22 panel button (966..1019) */
+  --sh-btn-padding-x-lg:    28px;  /* sampled: light p.19 hero button */
+  --sh-btn-height-sm:       36px;  /* derived: no small button in the guide */
+  --sh-btn-padding-x-sm:    14px;  /* derived */
+  --sh-btn-font-size:       16px;  /* sampled: light p.20 */
+  --sh-btn-font-weight:     500;   /* sampled: label reads medium; not printed */
+  --sh-input-height:        48px;  /* sampled: light p.20 select, p.22 search field */
+  --sh-input-padding-x:     16px;  /* sampled: light p.20 select */
+  --sh-table-row-height:    54px;  /* sampled: light p.20 (row pitch 54px) */
+  --sh-table-head-height:   40px;  /* sampled: light p.20 (approx.) */
+  --sh-table-cell-padding-x:12px;  /* sampled: light p.20 */
+  --sh-table-head-size:     13px;  /* sampled: light p.20 header labels = caption size, secondary colour, regular weight */
+  --sh-badge-height:        26px;  /* sampled: light p.11, p.20 risk pill (edges 967..993) */
+  --sh-badge-padding-x:     10px;  /* sampled: light p.20 */
+  --sh-badge-gap:           6px;   /* sampled: space between shape and word */
+  --sh-badge-icon:          10px;  /* sampled: shape size inside the pill */
+  --sh-badge-font-size:     13px;  /* sampled: = caption */
+  --sh-tag-height:          20px;  /* sampled: light p.20 "متوقَّع" tag (forecast-ink outline and text) */
+  --sh-chip-height:         30px;  /* sampled: light p.20 "بيانات توضيحية — ليست نتائج فعلية" notice chip */
+  --sh-card-padding:        24px;  /* sampled: light p.20 section cards */
+  --sh-card-padding-kpi:    20px;  /* sampled: light p.20 KPI tiles */
+  --sh-nav-item-height:     48px;  /* sampled: light p.20 */
+  --sh-bar-height:          8px;   /* sampled: light p.11/p.20 risk bar, p.21 "now" bar */
+  --sh-slider-track:        4px;   /* sampled: light p.22 forecast-horizon slider */
+  --sh-slider-thumb:        18px;  /* sampled: light p.22 */
+  --sh-conf-seg-width:      14px;  /* sampled: light p.11 confidence segment 14 x 5px, 3px gap, three segments */
+  --sh-conf-seg-height:     5px;   /* sampled: light p.11 */
+  --sh-conf-seg-gap:        3px;   /* sampled: light p.11 */
+  --sh-chart-line:          2px;   /* sampled: light p.11 actual line (solid) and forecast line (dashed) */
+  --sh-chart-dash:          7px 5px; /* sampled: light p.11 forecast dash pattern (approx.) */
+  --sh-chart-dot:           12px;  /* sampled: light p.11 forecast end dot */
+
+  --sh-focus-width:  2px;  /* derived: guide shows no focus state */
+  --sh-focus-offset: 2px;  /* derived */
+
+  /* ---------------------------------------------------------------------
+     7. QASR ELEMENTS (light p.10 = dark p.10; geometry measured, colours printed)
+     --------------------------------------------------------------------- */
+  /* 7a. شرفات السور / Crenellation band — a single zig-zag stroke, three drawn scales */
+  --sh-cren-color:      #6F4E33;  /* light p.8 — Adobe "الشرفات" */
+  --sh-cren-stroke:     1.5px;    /* sampled: light p.10 */
+  --sh-cren-period:     12px;     /* sampled: light p.10 line 1 — tooth pitch 12px */
+  --sh-cren-height:     5px;      /* sampled: light p.10 line 1 — peak-to-valley 5px */
+  --sh-cren-period-sm:  8px;      /* sampled: light p.10 line 2 */
+  --sh-cren-height-sm:  3px;      /* sampled: light p.10 line 2 */
+  --sh-cren-period-lg:  16px;     /* sampled: light p.10 line 3 (drawn in Qasr Brown) */
+  --sh-cren-height-lg:  7px;      /* sampled: light p.10 line 3 */
+
+  /* 7b. إيقاع الإضاءة / Uplight rhythm — upright tapers fading out towards the top */
+  --sh-uplight-color:      #6F4E33; /* light p.8 — Adobe "الإضاءة" */
+  --sh-uplight-alpha:      0.8;     /* sampled: light p.10 tall row, base tone #896D54 on #F1E8D7 */
+  --sh-uplight-alpha-sm:   0.55;    /* sampled: light p.10 short row */
+  --sh-uplight-base:       17px;    /* sampled: light p.10 tall taper base width */
+  --sh-uplight-top:        7px;     /* sampled: light p.10 tall taper top width */
+  --sh-uplight-height:     58px;    /* sampled: light p.10 tall taper */
+  --sh-uplight-pitch:      44px;    /* sampled: light p.10 tall row, 6 units */
+  --sh-uplight-base-sm:    16px;    /* sampled: light p.10 short row */
+  --sh-uplight-height-sm:  26px;    /* sampled: light p.10 short row */
+  --sh-uplight-pitch-sm:   30px;    /* sampled: light p.10 short row, 10 units */
+
+  /* 7c. خط الرؤية / Sight line — hairline from the tower window to one green dot */
+  --sh-sight-line:        #6F4E33;  /* sampled: light p.10/p.3 thin brown hairline; guide prints no hex for it */
+  --sh-sight-stroke:      1px;      /* sampled: light p.10 (1-1.5px) */
+  --sh-sight-dot:         #19C37D;  /* light p.10 — "نقطة خضراء: علامة «المتوقَّع»" */
+  --sh-sight-dot-size:    14px;     /* sampled: light p.10 diagram; 18px in the p.19 hero, 12px as a chart end dot */
+  --sh-sight-window-w:    5px;      /* sampled: light p.10 window tick 5 x 9px, 2px radius, Adobe */
+  --sh-sight-window-h:    9px;      /* sampled: light p.10 */
+  --sh-sight-taper-angle: 20deg;    /* sampled: light p.10 tower wall lean, which the guide makes the opening angle of every confidence band */
+
+  /* ---------------------------------------------------------------------
+     8. SITE ADDITIONS — needed by index.html, not present in the guide.
+        Every value is repeated in the dark block below.
+     --------------------------------------------------------------------- */
+  --sh-hover:          #E1D8C8; /* derived: rules sheet gap 7 — hover = 8% of --sh-text over --sh-surface */
+  --sh-hover-overlay:  rgba(42, 31, 23, 0.08); /* derived: same 8% as an overlay, for hover on the sunken rail */
+  --sh-primary-hover:  #423830; /* derived: gap 7 applied to the primary fill — 12% of --sh-on-primary over --sh-primary */
+  --sh-shadow-tint:    rgba(42, 31, 23, 0.38); /* derived: warm shadow colour (as --sh-shadow-raised) for the site's existing hover shadows, which are kept for motion */
+  --sh-glow:           rgba(111, 78, 51, 0.10); /* derived: Adobe at 10% — colour of the existing pointer glow on the about hero (motion kept) */
+  --sh-qasr-ground:    #E4D4BA; /* sampled: assets README — page colour measured around the qasr photograph (guide prints #E4D5BA) */
+  --sh-data-3-line:    #8F8052; /* derived: series 3 (#A99A6E) is 2.3:1 on --sh-surface, so thin chart lines use this darker tone (3.2:1), the same practice as the -mark risk colours (gap 4); fills keep the printed hex */
+  --sh-data-4:         #5B5141; /* derived: gap 20 — 4th neutral series = secondary ink; the survival charts cannot use dash patterns (draw animation owns stroke-dash) */
+  --sh-data-5:         #8B8070; /* derived: 5th neutral series = «مستقر» mark tone, 3.3:1 on --sh-surface */
+  --sh-data-6:         #9A7450; /* derived: 6th neutral series = Adobe lightened towards sand, 3.4:1 on --sh-surface */
+  --sh-map-tile-filter: grayscale(1) sepia(0.38) brightness(1.01) contrast(0.92); /* derived: OpenStreetMap tiles greyed first (so parks and farms carry no green: green is forecast-only), then warmed towards Desert Beige; street names stay dark on light */
+  /* crenellation as a repeatable tile: 12px pitch, 5px peak-to-valley, 1.5px stroke, sharp corners (light p.10) */
+  --sh-cren-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M-6 1.5 0 6.5 6 1.5 12 6.5 18 1.5' fill='none' stroke='%236F4E33' stroke-width='1.5'/%3E%3C/svg%3E");
+  /* risk shapes, 10px (light p.11): filled diamond / filled triangle / filled circle / hollow ring, in the -mark colours */
+  --sh-shape-critical: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M5 0 10 5 5 10 0 5z' fill='%23E5484D'/%3E%3C/svg%3E");
+  --sh-shape-high:     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M5 .6 9.9 9.2H.1z' fill='%23C8600F'/%3E%3C/svg%3E");
+  --sh-shape-watch:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Ccircle cx='5' cy='5' r='4.4' fill='%23AD7A05'/%3E%3C/svg%3E");
+  --sh-shape-stable:   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Ccircle cx='5' cy='5' r='3.7' fill='none' stroke='%235B5141' stroke-width='1.5'/%3E%3C/svg%3E");
+}
+
+/* =========================================================================
+   DARK MODE "Qasr Brown" — same variable names
+   ========================================================================= */
+[data-theme=dark] {
+  --sh-bg:              #2A1F17; /* dark p.8 — "الخلفية الأساسية في الوضع الداكن" */
+  --sh-surface:         #35281E; /* dark p.8 — Light Brown "البطاقات والأسطح" */
+  --sh-surface-raised:  #35281E; /* sampled: dark p.19 floating card = Light Brown + shadow */
+  --sh-surface-sunken:  #231812; /* sampled: dark p.20-23 sidebar rail; no printed hex */
+  --sh-fill-selected:   #6B5645; /* sampled: dark p.20-23 active nav item, active chip, bar track, "off" confidence segment; no printed hex */
+  --sh-popup-bg:        #2A1F17; /* sampled: dark p.22 map popup, legend, controls */
+  --sh-border:          #524032; /* dark p.8 — Dark Stone "الحدود والفواصل" */
+  --sh-border-strong:   #BDB1A6; /* sampled: dark p.20 notice chip and «مستقر» badge outline */
+  --sh-text:            #F1E8D7; /* dark p.8 — Light Sand "النصوص والأزرار"; 13.2:1 on --sh-bg (dark p.8) */
+  --sh-text-secondary:  #BDB1A6; /* inferred: dark p.8 prints only "نص ثانوي على السطح 6.8:1"; this hue (sampled p.8/p.20) gives 6.8:1 on #35281E and 7.7:1 on #2A1F17 */
+  --sh-text-muted:      #A99D90; /* derived: third level, 5.4:1 on --sh-surface, 6.1:1 on --sh-bg */
+  --sh-brand:           #DFC7A2; /* dark p.8 — Poster Sand "الكلمة وعناصر القصر"; dark p.24 "الكلمة بلون الرمل" */
+  --sh-qasr:            #DFC7A2; /* dark p.8 — Poster Sand */
+  --sh-primary:         #F1E8D7; /* dark p.8, dark p.10 "زر أساسي" — Light Sand button */
+  --sh-on-primary:      #2A1F17; /* dark p.8 — "نص على الزر 13.2:1" = Qasr Brown on Light Sand (matches) */
+  --sh-link:            #F1E8D7; /* derived: text colour + underline */
+  --sh-focus-ring:      #F1E8D7; /* derived: 13.2:1 against --sh-bg */
+
+  --sh-forecast:        #19C37D; /* dark p.8 — Oasis Signal "النقاط والخطوط والنص"; 7.0:1 on --sh-bg (dark p.8) */
+  --sh-forecast-ink:    #19C37D; /* dark p.8 — in dark mode lines and text use Oasis Signal; Signal Deep is "على الورق والوضع الفاتح" only */
+  --sh-forecast-band:   rgba(25, 195, 125, 0.16); /* sampled: dark p.11 band #31402D on #35281E */
+  --sh-forecast-wedge:  rgba(25, 195, 125, 0.14); /* sampled: dark p.10 */
+
+  --sh-risk-critical-mark: #E5484D; /* dark p.8 printed; 3.6:1 on --sh-surface */
+  --sh-risk-high-mark:     #F08A3C; /* dark p.8 printed; sampled dark p.20 bar #F28A3C; 5.7:1 */
+  --sh-risk-watch-mark:    #E8B931; /* dark p.8 printed; sampled dark p.20 bar #E8BA2F; 7.8:1 */
+  --sh-risk-stable-mark:   #B8AFA3; /* dark p.8 printed; sampled dark p.20 bar ~#9B9082; 6.6:1 */
+  --sh-risk-critical-area: rgba(229, 72, 77, 0.28);  /* derived: map/matrix tint, dark p.22 legend swatch */
+  --sh-risk-high-area:     rgba(240, 138, 60, 0.28); /* derived */
+  --sh-risk-watch-area:    rgba(232, 185, 49, 0.26); /* derived */
+  --sh-risk-stable-area:   rgba(184, 175, 163, 0.16);/* derived */
+
+  --sh-data-actual:     #F1E8D7; /* dark p.8 — فعلي */
+  --sh-data-2:          #DFC7A2; /* dark p.8 — سلسلة 2 */
+  --sh-data-forecast:   #19C37D; /* dark p.8 — متوقَّع */
+  --sh-data-grid:       #524032; /* sampled: dark p.11 gridlines = Dark Stone */
+  --sh-data-axis-text:  #BDB1A6; /* sampled: dark p.11 */
+  --sh-data-threshold:  #E5484D; /* sampled: dark p.11 */
+  --sh-data-today:      #BDB1A6; /* sampled: dark p.11 */
+  --sh-conf-on:         #DFC7A2; /* sampled: dark p.11 = Poster Sand */
+  --sh-conf-off:        #6B5645; /* sampled: dark p.11 */
+  --sh-bar-track:       #6B5645; /* sampled: dark p.20/p.21 */
+  --sh-map-bg:          #241913; /* sampled: dark p.22 map ground */
+  --sh-map-water:       #4E6E6A; /* sampled: dark p.22 drainage line — not in the printed palette */
+
+  --sh-status-error:    #E5484D; /* dark p.6 (sampled) */
+  --sh-status-warning:  #F08A3C; /* derived: reuse «مرتفع» */
+  --sh-status-success:  #F1E8D7; /* derived: neutral ink + check icon; green stays forecast-only */
+  --sh-status-info:     #BDB1A6; /* derived */
+
+  --sh-shadow-none:     none;                                   /* dark p.20-23 — flat cards (sampled) */
+  --sh-shadow-raised:   0 18px 40px -12px rgba(0, 0, 0, 0.55);  /* sampled: dark p.19 floating card, p.22 popup */
+
+  --sh-icon-ground:     #2A1F17; /* dark p.16 — "رمز المرقب بلون الرمل على بنّي القصر … بنّي القصر فقط" */
+  --sh-icon-symbol:     #DFC7A2; /* dark p.16 / dark p.8 Poster Sand */
+
+  --sh-cren-color:      #DFC7A2; /* dark p.8 — Poster Sand "عناصر القصر" */
+  --sh-uplight-color:   #DFC7A2; /* dark p.8 */
+  --sh-sight-line:      #DFC7A2; /* sampled: dark p.10/p.3 */
+  --sh-sight-dot:       #19C37D; /* dark p.10 */
+
+  /* 8. SITE ADDITIONS — dark values (see the light block for the reasoning) */
+  --sh-hover:          #44372D; /* derived: 8% of --sh-text over --sh-surface */
+  --sh-hover-overlay:  rgba(241, 232, 215, 0.08); /* derived */
+  --sh-primary-hover:  #D9D0C0; /* derived: 12% of --sh-on-primary over --sh-primary */
+  --sh-shadow-tint:    rgba(0, 0, 0, 0.6); /* derived: as --sh-shadow-raised */
+  --sh-glow:           rgba(223, 199, 162, 0.08); /* derived: Poster Sand at 8% */
+  --sh-qasr-ground:    #291F16; /* sampled: assets README (guide prints #2A1F17) */
+  --sh-data-3-line:    #A99A6E; /* dark p.8 printed series 3, 5.1:1 on --sh-surface */
+  --sh-data-4:         #BDB1A6; /* derived: secondary ink */
+  --sh-data-5:         #8F8273; /* derived: 4.0:1 on --sh-surface */
+  --sh-data-6:         #B08D6A; /* derived: Poster Sand darkened towards Adobe, 4.7:1 on --sh-surface */
+  --sh-map-tile-filter: grayscale(1) invert(1) contrast(0.82) sepia(0.75) saturate(0.8) brightness(0.78); /* derived: greyed (no green), inverted, warmed towards Qasr Brown */
+  --sh-cren-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M-6 1.5 0 6.5 6 1.5 12 6.5 18 1.5' fill='none' stroke='%23DFC7A2' stroke-width='1.5'/%3E%3C/svg%3E");
+  --sh-shape-critical: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M5 0 10 5 5 10 0 5z' fill='%23E5484D'/%3E%3C/svg%3E");
+  --sh-shape-high:     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpath d='M5 .6 9.9 9.2H.1z' fill='%23F08A3C'/%3E%3C/svg%3E");
+  --sh-shape-watch:    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Ccircle cx='5' cy='5' r='4.4' fill='%23E8B931'/%3E%3C/svg%3E");
+  --sh-shape-stable:   url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Ccircle cx='5' cy='5' r='3.7' fill='none' stroke='%23BDB1A6' stroke-width='1.5'/%3E%3C/svg%3E");
+}
+
+/* --------------------------------------------------------------------------
+   MOTION — recorded for reference only. Do NOT turn into variables; the site's
+   existing motion is frozen.
+   light p.11 = dark p.11, "الحركة: رصد ثم تثبيت" (sight-line sequence):
+     1 · رصد     0–120ms    the tower window lights up
+     2 · امتداد  120–420ms  the sight line extends
+     3 · تثبيت   420–600ms  the green dot appears once (no loop)
+   "تتوقف عند تفعيل «تقليل الحركة»" — the sequence is skipped under
+   prefers-reduced-motion. No easing curves are printed.
+   -------------------------------------------------------------------------- */
+
+/* Chart series ladder (derived: the guide prints 3 neutral series, the survival charts draw up to 6).
+   Even contrast steps on --sh-surface so neighbouring series stay >=1.3:1 apart; hues alternate brown / olive / grey. */
+:root{
+  --sh-series-1:#2A1F17; /* 13.2:1 */ --sh-series-2:#483221; /* 9.8:1 */ --sh-series-3:#52492F; /* 7.3:1 */
+  --sh-series-4:#655C4D; /* 5.4:1 */ --sh-series-5:#8D6A49; /* 4.0:1 */ --sh-series-6:#8F8575; /* 3.0:1 */
+}
+[data-theme=dark]{
+  --sh-series-1:#F1E8D7; /* 11.7:1 */ --sh-series-2:#E0C9A6; /* 8.9:1 */ --sh-series-3:#BDB190; /* 6.7:1 */
+  --sh-series-4:#A39990; /* 5.1:1 */ --sh-series-5:#A08060; /* 3.9:1 */ --sh-series-6:#7D7164; /* 3.0:1 */
+}

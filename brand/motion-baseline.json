@@ -1,0 +1,3415 @@
+{
+ "advisory": {
+  "css": {
+   "hardcoded_color_counts_css": {
+    "rgba(255,255,255,.3)": 1
+   },
+   "js_var_usages_full": [
+    {
+     "ctx": "",
+     "decl": "animation-delay:calc(var(--i)*55ms + .2s)",
+     "selector": ".nav a"
+    },
+    {
+     "ctx": "",
+     "decl": "animation-delay:calc(var(--i)*42ms + 180ms)",
+     "selector": ".play .bay"
+    },
+    {
+     "ctx": "",
+     "decl": "animation-delay:calc(var(--i)*42ms + 380ms)",
+     "selector": ".play .arch i"
+    },
+    {
+     "ctx": "",
+     "decl": "animation-delay:calc(var(--i)*42ms + 800ms)",
+     "selector": ".play .arch b"
+    },
+    {
+     "ctx": "",
+     "decl": "animation-delay:calc(var(--i)*60ms + .3s)",
+     "selector": ".play .map g.d"
+    },
+    {
+     "ctx": "",
+     "decl": "animation-delay:calc(var(--i)*150ms + .4s)",
+     "selector": ".play .shift div"
+    },
+    {
+     "ctx": "",
+     "decl": "animation-delay:calc(var(--i)*150ms + .8s)",
+     "selector": ".play .shift s"
+    },
+    {
+     "ctx": "",
+     "decl": "animation-delay:calc(var(--i)*150ms + .95s)",
+     "selector": ".play .shift svg"
+    },
+    {
+     "ctx": "",
+     "decl": "animation-delay:calc(var(--i)*150ms + 1.05s)",
+     "selector": ".play .shift b"
+    },
+    {
+     "ctx": "",
+     "decl": "height:var(--h)",
+     "selector": ".arch i"
+    },
+    {
+     "ctx": "",
+     "decl": "background:var(--c)",
+     "selector": ".arch i"
+    },
+    {
+     "ctx": "",
+     "decl": "width:var(--w)",
+     "selector": ".pbar i::after"
+    },
+    {
+     "ctx": "",
+     "decl": "background:var(--c)",
+     "selector": ".pbar i::after"
+    },
+    {
+     "ctx": "",
+     "decl": "width:var(--w)",
+     "selector": ".fb i::after"
+    },
+    {
+     "ctx": "",
+     "decl": "background:var(--c,var(--teal))",
+     "selector": ".fb i::after"
+    },
+    {
+     "ctx": "",
+     "decl": "background:color-mix(in srgb,var(--hc,var(--teal)) 30%,var(--surface))",
+     "selector": ".hist i"
+    },
+    {
+     "ctx": "",
+     "decl": "background:var(--hc,var(--rail))",
+     "selector": ".hist i:last-child"
+    },
+    {
+     "ctx": "",
+     "decl": "animation-delay:calc(var(--i)*130ms)",
+     "selector": ".arch i::after"
+    },
+    {
+     "ctx": "",
+     "decl": "background:radial-gradient(540px 380px at var(--mx,18%) var(--my,12%),var(--sh-glow),transparent 70%),var(--sh-surface)",
+     "selector": ".pitch"
+    },
+    {
+     "ctx": "",
+     "decl": "animation-delay:calc(var(--i)*60ms + 150ms)",
+     "selector": ".play .bay"
+    },
+    {
+     "ctx": "",
+     "decl": "animation-delay:calc(var(--i)*60ms + 500ms)",
+     "selector": ".play .arch i"
+    },
+    {
+     "ctx": "",
+     "decl": "animation-delay:calc(var(--i)*60ms + 1000ms)",
+     "selector": ".play .arch b"
+    },
+    {
+     "ctx": "",
+     "decl": "animation-delay:calc(var(--i)*75ms + .4s)",
+     "selector": ".play .map g.d"
+    },
+    {
+     "ctx": "",
+     "decl": "animation-delay:calc(var(--i)*170ms + 1.05s)",
+     "selector": ".play .shift b"
+    },
+    {
+     "ctx": "",
+     "decl": "animation-delay:calc(var(--i)*170ms + .4s)",
+     "selector": ".play .shift div"
+    },
+    {
+     "ctx": "",
+     "decl": "animation-delay:calc(var(--i)*170ms + .8s)",
+     "selector": ".play .shift s"
+    },
+    {
+     "ctx": "",
+     "decl": "animation-delay:calc(var(--i)*170ms + .95s)",
+     "selector": ".play .shift svg"
+    },
+    {
+     "ctx": "",
+     "decl": "width:var(--s)",
+     "selector": ".pin"
+    },
+    {
+     "ctx": "",
+     "decl": "height:var(--s)",
+     "selector": ".pin"
+    }
+   ],
+   "other_at_rules": [],
+   "token_definitions": {
+    ":root": {
+     "--brand": "var(--sh-text)",
+     "--crit": "var(--sh-text)",
+     "--crit-f": "var(--sh-risk-critical-mark)",
+     "--crit-soft": "transparent",
+     "--date": "var(--sh-text)",
+     "--date-soft": "var(--sh-fill-selected)",
+     "--ease": "cubic-bezier(.16,1,.3,1)",
+     "--glow1": "transparent",
+     "--glow2": "transparent",
+     "--gold": "var(--sh-data-actual)",
+     "--ground": "var(--sh-bg)",
+     "--high": "var(--sh-text)",
+     "--high-f": "var(--sh-risk-high-mark)",
+     "--high-soft": "transparent",
+     "--hover": "var(--sh-hover)",
+     "--ink": "var(--sh-text)",
+     "--ink-2": "var(--sh-text-secondary)",
+     "--line": "var(--sh-border)",
+     "--low": "var(--sh-text)",
+     "--low-f": "var(--sh-risk-stable-mark)",
+     "--low-soft": "var(--sh-fill-selected)",
+     "--map": "var(--sh-map-bg)",
+     "--mapdot": "transparent",
+     "--med": "var(--sh-text)",
+     "--med-f": "var(--sh-risk-watch-mark)",
+     "--med-soft": "transparent",
+     "--off": "var(--sh-text-muted)",
+     "--r": "var(--sh-radius-card)",
+     "--rail": "var(--sh-primary)",
+     "--rail-2": "var(--sh-primary-hover)",
+     "--rail-bg": "var(--sh-surface-sunken)",
+     "--rail-ink": "var(--sh-text-secondary)",
+     "--rail-mute": "var(--sh-text-secondary)",
+     "--road": "var(--sh-border)",
+     "--road2": "var(--sh-text-muted)",
+     "--shadow": "0 16px 34px -26px transparent",
+     "--spring": "cubic-bezier(.34,1.56,.64,1)",
+     "--sunk": "var(--sh-hover)",
+     "--surface": "var(--sh-surface)",
+     "--teal": "var(--sh-data-2)",
+     "--topbg": "var(--sh-bg)",
+     "--xbg": "var(--sh-bg)"
+    }
+   },
+   "token_usage_counts": {
+    "--brand": 6,
+    "--crit": 2,
+    "--crit-f": 10,
+    "--crit-soft": 1,
+    "--date": 6,
+    "--date-soft": 2,
+    "--ease": 55,
+    "--glow1": 1,
+    "--glow2": 1,
+    "--gold": 9,
+    "--ground": 5,
+    "--high": 3,
+    "--high-f": 9,
+    "--high-soft": 1,
+    "--hover": 1,
+    "--ink": 17,
+    "--ink-2": 46,
+    "--line": 26,
+    "--low": 7,
+    "--low-f": 7,
+    "--low-soft": 2,
+    "--map": 4,
+    "--mapdot": 1,
+    "--med": 3,
+    "--med-f": 5,
+    "--med-soft": 2,
+    "--off": 2,
+    "--r": 10,
+    "--rail": 15,
+    "--rail-2": 6,
+    "--rail-bg": 1,
+    "--rail-ink": 4,
+    "--rail-mute": 2,
+    "--road": 2,
+    "--road2": 2,
+    "--shadow": 1,
+    "--spring": 14,
+    "--sunk": 5,
+    "--surface": 12,
+    "--teal": 8,
+    "--topbg": 2,
+    "--xbg": 1
+   },
+   "transition_color_endpoints": [
+    {
+     "ctx": "",
+     "decls": [
+      "color:var(--rail-ink)"
+     ],
+     "selector": ".nav a",
+     "transition_on": ".nav a"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "background:var(--rail-2)"
+     ],
+     "selector": ".nav a:hover",
+     "transition_on": ".nav a"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "color:var(--sh-text)"
+     ],
+     "selector": ".nav a[aria-current=page]",
+     "transition_on": ".nav a"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "background:none"
+     ],
+     "selector": ".nav a[aria-current=page]:hover",
+     "transition_on": ".nav a"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "background:var(--sh-hover-overlay)"
+     ],
+     "selector": ".nav a:hover",
+     "transition_on": ".nav a"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "background:var(--surface)"
+     ],
+     "selector": ".btn",
+     "transition_on": ".btn"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "background:var(--sunk)",
+      "border-color:var(--ink-2)"
+     ],
+     "selector": ".btn:hover",
+     "transition_on": ".btn"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "background:var(--low-soft)",
+      "border-color:transparent"
+     ],
+     "selector": ".btn[disabled]",
+     "transition_on": ".btn"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "background:var(--sh-primary)",
+      "border-color:var(--sh-primary)"
+     ],
+     "selector": ".pitch .btn",
+     "transition_on": ".btn"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "background:var(--sh-primary-hover)"
+     ],
+     "selector": ".pitch .btn:hover",
+     "transition_on": ".btn"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "border-color:var(--sh-border-strong)"
+     ],
+     "selector": ".btn,.chip,select,input[type=search],input[type=text],#q,#fSev,#fType",
+     "transition_on": ".btn"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "background:var(--low-soft)",
+      "color:var(--low)"
+     ],
+     "selector": ".fund",
+     "transition_on": ".fund"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "background:var(--sunk)",
+      "color:var(--ink-2)"
+     ],
+     "selector": "tr.off .fund",
+     "transition_on": ".fund"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "box-shadow:0 6px 14px -8px var(--sh-shadow-tint)"
+     ],
+     "selector": ".bay:hover .arch",
+     "transition_on": ".arch"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "box-shadow:0 0 0 3px var(--date)"
+     ],
+     "selector": ".bay[aria-pressed=true] .arch",
+     "transition_on": ".arch"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "box-shadow:0 14px 20px -12px var(--sh-shadow-tint)"
+     ],
+     "selector": ".bay:hover .arch",
+     "transition_on": ".arch"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "box-shadow:0 0 0 3px var(--gold)"
+     ],
+     "selector": ".bay[aria-pressed=true] .arch",
+     "transition_on": ".arch"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "background:var(--hover)"
+     ],
+     "selector": "tbody tr.r:hover",
+     "transition_on": "tbody tr.r"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "background:var(--sunk)"
+     ],
+     "selector": "tbody tr.r[aria-expanded=true]",
+     "transition_on": "tbody tr.r"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "background:var(--surface)"
+     ],
+     "selector": ".chip",
+     "transition_on": ".chip"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "background:var(--sunk)"
+     ],
+     "selector": ".chip:hover",
+     "transition_on": ".chip"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "background:var(--sh-fill-selected)",
+      "color:var(--sh-text)"
+     ],
+     "selector": ".chip[aria-pressed=true]",
+     "transition_on": ".chip"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "box-shadow:var(--shadow)"
+     ],
+     "selector": ".sec,.figs",
+     "transition_on": ".sec,.figs"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "box-shadow:0 24px 44px -26px var(--sh-shadow-tint)"
+     ],
+     "selector": ".sec:hover",
+     "transition_on": ".sec,.figs"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "background:var(--sh-primary)"
+     ],
+     "selector": ".pitch .btn",
+     "transition_on": ".pitch .btn"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "background:var(--sh-primary-hover)"
+     ],
+     "selector": ".pitch .btn:hover",
+     "transition_on": ".pitch .btn"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "background:var(--sh-hover)"
+     ],
+     "selector": ".shift b",
+     "transition_on": ".shift b"
+    }
+   ]
+  },
+  "html": {
+   "font_stylesheets": [
+    "https://fonts.googleapis.com",
+    "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Inter:wght@400;600&display=swap"
+   ],
+   "header_skeleton": "header.top(h1#title span.demo span button.btn#themeBtn(svg.ic(path) span) button.btn(svg.ic(path)))",
+   "inline_styles_with_color_in_static_html": [
+    "span {font-size:13px;color:var(--ink-2)}",
+    "p {font-size:14px;color:var(--ink-2);margin:0}",
+    "p {font-size:12.5px;color:var(--ink-2);margin-top:12px}",
+    "i {background:var(--gold)}",
+    "i {background:var(--teal)}",
+    "i {background:var(--sh-data-3)}",
+    "p {font-size:13px;color:var(--ink-2);margin-top:12px}"
+   ],
+   "meta_theme_color": [
+    "#E4D4BA",
+    "#291F16"
+   ],
+   "static_class_counts": {
+    "am-cite": 5,
+    "am-h3": 2,
+    "am-hint": 6,
+    "am-phases": 1,
+    "am-pick": 1,
+    "am-steps": 1,
+    "app": 1,
+    "arcade": 2,
+    "arr": 2,
+    "brand": 1,
+    "btn": 4,
+    "caps": 1,
+    "cnt": 1,
+    "col": 3,
+    "cols": 8,
+    "demo": 1,
+    "dp": 1,
+    "fbars": 7,
+    "figs": 2,
+    "filters": 3,
+    "flow": 1,
+    "g": 3,
+    "goal": 1,
+    "head-row": 3,
+    "ic": 5,
+    "lede": 6,
+    "legend": 3,
+    "lockup": 1,
+    "main": 1,
+    "map": 1,
+    "mapwrap": 1,
+    "mid": 1,
+    "mk": 7,
+    "mk-crit": 2,
+    "mk-high": 2,
+    "mk-low": 2,
+    "mk-med": 1,
+    "more": 9,
+    "nav": 1,
+    "pat": 1,
+    "pitch": 1,
+    "qasr": 1,
+    "qasr-img": 1,
+    "rail": 1,
+    "rail-foot": 1,
+    "rows": 2,
+    "s-high": 5,
+    "s-low": 3,
+    "s-med": 1,
+    "sec": 36,
+    "sev": 9,
+    "shift": 1,
+    "sim": 1,
+    "simout": 2,
+    "sub": 31,
+    "synth": 1,
+    "toast": 1,
+    "top": 1,
+    "tw": 15,
+    "view": 9
+   },
+   "static_ids": [
+    "aBody",
+    "aCnt",
+    "arc1",
+    "arc2",
+    "bud",
+    "budOut",
+    "cBars",
+    "cChips",
+    "cPat",
+    "cTitle",
+    "caps",
+    "dp",
+    "eN",
+    "eR",
+    "eX",
+    "fSev",
+    "fType",
+    "figs",
+    "kBody",
+    "kCsv",
+    "kHead",
+    "mCm",
+    "mCmp",
+    "mFigs",
+    "mFour",
+    "mImp",
+    "mLift",
+    "mSrc",
+    "mSub",
+    "mSup",
+    "map",
+    "mapChips",
+    "mapNote",
+    "matBase",
+    "matK",
+    "matMix",
+    "matS",
+    "matSurv",
+    "nav",
+    "optNote",
+    "pciBars",
+    "pciSec",
+    "pciSub",
+    "pilotHood",
+    "q",
+    "rBody",
+    "sF",
+    "sN",
+    "sS",
+    "survK",
+    "survSec",
+    "survType",
+    "themeBtn",
+    "title",
+    "toast",
+    "topAlerts",
+    "topDist",
+    "topDistH",
+    "topDistS",
+    "v-about",
+    "v-alerts",
+    "v-causes",
+    "v-contractors",
+    "v-map",
+    "v-materials",
+    "v-model",
+    "v-overview",
+    "v-recs",
+    "volT",
+    "wkTag"
+   ],
+   "svg_presentation_colors_in_static_html": [
+    "circle fill=#19C37D"
+   ]
+  },
+  "js": {
+   "hardcoded_colors_js": [
+    {
+     "code": "const HEX={crit:'#E5484D',high:'#C8600F',med:'#AD7A05',lo",
+     "color": "#E5484D",
+     "line": 1077
+    },
+    {
+     "code": "const HEX={crit:'#E5484D',high:'#C8600F',med:'#AD7A05',low:'#8B8070'};",
+     "color": "#C8600F",
+     "line": 1077
+    },
+    {
+     "code": "const HEX={crit:'#E5484D',high:'#C8600F',med:'#AD7A05',low:'#8B8070'};",
+     "color": "#AD7A05",
+     "line": 1077
+    },
+    {
+     "code": "{crit:'#E5484D',high:'#C8600F',med:'#AD7A05',low:'#8B8070'};",
+     "color": "#8B8070",
+     "line": 1077
+    },
+    {
+     "code": "const SEGC=['#7A6F60','#AD7A05','#C8600F','#E5484D'],",
+     "color": "#7A6F60",
+     "line": 1079
+    },
+    {
+     "code": "const SEGC=['#7A6F60','#AD7A05','#C8600F','#E5484D'], SEGN=['من",
+     "color": "#AD7A05",
+     "line": 1079
+    },
+    {
+     "code": "const SEGC=['#7A6F60','#AD7A05','#C8600F','#E5484D'], SEGN=['منخفض','متوس",
+     "color": "#C8600F",
+     "line": 1079
+    },
+    {
+     "code": "const SEGC=['#7A6F60','#AD7A05','#C8600F','#E5484D'], SEGN=['منخفض','متوسط','مرتفع'",
+     "color": "#E5484D",
+     "line": 1079
+    },
+    {
+     "code": "ang)*r,g[1]+Math.cos(ang)*r*1.1],{radius:7,color:'#F1E8D7',weight:2,fillColor:HEX[s[0]],fi",
+     "color": "#F1E8D7",
+     "line": 1102
+    },
+    {
+     "code": "const col=pal||['#2A1F17','#6F4E33','#A99A6E','#5B5141','",
+     "color": "#2A1F17",
+     "line": 1219
+    },
+    {
+     "code": "const col=pal||['#2A1F17','#6F4E33','#A99A6E','#5B5141','#8B8070','",
+     "color": "#6F4E33",
+     "line": 1219
+    },
+    {
+     "code": "const col=pal||['#2A1F17','#6F4E33','#A99A6E','#5B5141','#8B8070','#9A7450'];",
+     "color": "#A99A6E",
+     "line": 1219
+    },
+    {
+     "code": "const col=pal||['#2A1F17','#6F4E33','#A99A6E','#5B5141','#8B8070','#9A7450'];",
+     "color": "#5B5141",
+     "line": 1219
+    },
+    {
+     "code": "ol=pal||['#2A1F17','#6F4E33','#A99A6E','#5B5141','#8B8070','#9A7450'];",
+     "color": "#8B8070",
+     "line": 1219
+    },
+    {
+     "code": "#2A1F17','#6F4E33','#A99A6E','#5B5141','#8B8070','#9A7450'];",
+     "color": "#9A7450",
+     "line": 1219
+    },
+    {
+     "code": "curves('#matSurv',mt.repair,['#2A1F17','#6F4E33','#A99A6E']);",
+     "color": "#2A1F17",
+     "line": 1242
+    },
+    {
+     "code": "curves('#matSurv',mt.repair,['#2A1F17','#6F4E33','#A99A6E']);",
+     "color": "#6F4E33",
+     "line": 1242
+    },
+    {
+     "code": "curves('#matSurv',mt.repair,['#2A1F17','#6F4E33','#A99A6E']);",
+     "color": "#A99A6E",
+     "line": 1242
+    },
+    {
+     "code": "دّلة بالبوليمر'], C=['var(--gold)','var(--teal)','#A99A6E'];",
+     "color": "#A99A6E",
+     "line": 1245
+    }
+   ],
+   "icon_constants_sha256": {
+    "IC": "faab47e448ce118816b7f35b6675f7a57c6a7a922b4edf84a0410da401083371",
+    "MOON": "def11eaab82027d9ae13fef365bfb4157d63c6c6d336618287929ec8116d7855",
+    "SUN": "11ae9b48b770d6e94f781e5d3cd80ed76e936b44ed486c6ce20f67142fa42270"
+   },
+   "inline_styles_with_color_in_js_templates": [
+    {
+     "line": 1032,
+     "style": "color:${tcol[sevOf(a.p)[0]]}"
+    },
+    {
+     "line": 1034,
+     "style": "color:var(--ink-2);font-size:12.5px"
+    },
+    {
+     "line": 1060,
+     "style": "color:${d.n===dSel?'var(--brand)':col[riskLv(d.risk)]}"
+    },
+    {
+     "line": 1068,
+     "style": "color:var(--ink-2)"
+    },
+    {
+     "line": 1069,
+     "style": "color:var(--ink-2)"
+    },
+    {
+     "line": 1071,
+     "style": "color:${tcol[sevOf(a.p)[0]]}"
+    },
+    {
+     "line": 1119,
+     "style": "font-size:13px;color:var(--ink-2)"
+    },
+    {
+     "line": 1119,
+     "style": "font-size:12.5px;color:var(--ink-2)"
+    },
+    {
+     "line": 1119,
+     "style": "color:var(--ink-2);font-size:13px"
+    },
+    {
+     "line": 1162,
+     "style": "font-size:13px;color:var(--ink-2)"
+    },
+    {
+     "line": 1181,
+     "style": "color:var(--low)"
+    },
+    {
+     "line": 1187,
+     "style": "color:var(--low)"
+    },
+    {
+     "line": 1225,
+     "style": "background:${col[i%6]}"
+    },
+    {
+     "line": 1226,
+     "style": "font-size:12px;color:var(--ink-2);margin-top:8px"
+    },
+    {
+     "line": 1243,
+     "style": "color:var(--ink-2);font-size:12.5px"
+    },
+    {
+     "line": 1246,
+     "style": "width:${c[k]}%;background:${C[i]}"
+    }
+   ],
+   "other_functions_sha256": {
+    "alerts": "425020480a94db7f1f3fe0ed31aa4d3ff9ec4923a8eeb12730391a2ce13ed475",
+    "contractors": "86974af62867a430852533ff68d65a02c0bf5487780f4101fb5d53166e04ba13",
+    "dCount": "10519fcfdb89dd62030a96f18b1d6199a4a81d61adb908e768f674e53fe52e79",
+    "fourTypes": "a48b7d3b46f8fd3f88e1f390e2ee25ac04d6e5f115f61668f4c2e272d26c667a",
+    "materialsView": "55d94bca1c2989446046a512243f4288faf4a522e20babc4afc4087cda1725bc",
+    "modelView": "2e3413c4eb59d1134a3abd99c230013a53e5ef09026a9fdcda0e5a8500b6182d",
+    "overview": "83d6cf126c86884e30aa302229e689e51ed77a7fbc8452b6f0ffe2950ce6de67",
+    "roadsExtras": "d18872ede08194e75eaf1b51e86a25c2c78c653b45926f04ef34fa71ba037797"
+   },
+   "script_sha256_color_masked": "03e31fa08175c9fa60567c00792629c19ad4f7968b81687cede9a94d73862242"
+  }
+ },
+ "signature_version": 1,
+ "strict": {
+  "css": {
+   "counts": {
+    "animation_declarations": 102,
+    "animation_declarations_outside_reduced_motion": 101,
+    "keyframes_blocks": 20,
+    "keyframes_unique_names": 18,
+    "motion_rules": 143,
+    "reduced_motion_blocks": 1,
+    "transition_declarations": 29,
+    "transition_declarations_outside_reduced_motion": 28,
+    "view_transition_rules": 2
+   },
+   "js_var_usages": [
+    {
+     "ctx": "",
+     "prop": "animation-delay",
+     "selector": ".nav a",
+     "var_refs": [
+      "var(--i)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "animation-delay",
+     "selector": ".play .bay",
+     "var_refs": [
+      "var(--i)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "animation-delay",
+     "selector": ".play .arch i",
+     "var_refs": [
+      "var(--i)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "animation-delay",
+     "selector": ".play .arch b",
+     "var_refs": [
+      "var(--i)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "animation-delay",
+     "selector": ".play .map g.d",
+     "var_refs": [
+      "var(--i)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "animation-delay",
+     "selector": ".play .shift div",
+     "var_refs": [
+      "var(--i)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "animation-delay",
+     "selector": ".play .shift s",
+     "var_refs": [
+      "var(--i)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "animation-delay",
+     "selector": ".play .shift svg",
+     "var_refs": [
+      "var(--i)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "animation-delay",
+     "selector": ".play .shift b",
+     "var_refs": [
+      "var(--i)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "height",
+     "selector": ".arch i",
+     "var_refs": [
+      "var(--h)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "background",
+     "selector": ".arch i",
+     "var_refs": [
+      "var(--c)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "width",
+     "selector": ".pbar i::after",
+     "var_refs": [
+      "var(--w)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "background",
+     "selector": ".pbar i::after",
+     "var_refs": [
+      "var(--c)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "width",
+     "selector": ".fb i::after",
+     "var_refs": [
+      "var(--w)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "background",
+     "selector": ".fb i::after",
+     "var_refs": [
+      "var(--c,var(--teal))"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "background",
+     "selector": ".hist i",
+     "var_refs": [
+      "var(--hc,var(--teal))"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "background",
+     "selector": ".hist i:last-child",
+     "var_refs": [
+      "var(--hc,var(--rail))"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "animation-delay",
+     "selector": ".arch i::after",
+     "var_refs": [
+      "var(--i)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "background",
+     "selector": ".pitch",
+     "var_refs": [
+      "var(--mx,18%)",
+      "var(--my,12%)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "animation-delay",
+     "selector": ".play .bay",
+     "var_refs": [
+      "var(--i)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "animation-delay",
+     "selector": ".play .arch i",
+     "var_refs": [
+      "var(--i)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "animation-delay",
+     "selector": ".play .arch b",
+     "var_refs": [
+      "var(--i)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "animation-delay",
+     "selector": ".play .map g.d",
+     "var_refs": [
+      "var(--i)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "animation-delay",
+     "selector": ".play .shift b",
+     "var_refs": [
+      "var(--i)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "animation-delay",
+     "selector": ".play .shift div",
+     "var_refs": [
+      "var(--i)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "animation-delay",
+     "selector": ".play .shift s",
+     "var_refs": [
+      "var(--i)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "animation-delay",
+     "selector": ".play .shift svg",
+     "var_refs": [
+      "var(--i)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "width",
+     "selector": ".pin",
+     "var_refs": [
+      "var(--s)"
+     ]
+    },
+    {
+     "ctx": "",
+     "prop": "height",
+     "selector": ".pin",
+     "var_refs": [
+      "var(--s)"
+     ]
+    }
+   ],
+   "keyframe_animated_base_values": [
+    {
+     "animated_props": [
+      "background-size"
+     ],
+     "ctx": "",
+     "decls": [
+      "background:linear-gradient(currentColor,currentColor) no-repeat 100% 58%/100% 1px"
+     ],
+     "keyframes": "strike",
+     "selector": ".shift s"
+    },
+    {
+     "animated_props": [
+      "background-position"
+     ],
+     "ctx": "",
+     "decls": [
+      "background:linear-gradient(0deg,transparent 30%,rgba(255,255,255,.3) 50%,transparent 70%) 0 150%/100% 300% no-repeat"
+     ],
+     "keyframes": "sheen",
+     "selector": ".arch i::after"
+    }
+   ],
+   "keyframes": [
+    {
+     "body": "from{opacity:0;transform:translateY(18px)}",
+     "ctx": "",
+     "name": "up"
+    },
+    {
+     "body": "from{opacity:0}",
+     "ctx": "",
+     "name": "fade"
+    },
+    {
+     "body": "from{transform:scaleY(0)}",
+     "ctx": "",
+     "name": "growY"
+    },
+    {
+     "body": "from{transform:scaleX(0)}",
+     "ctx": "",
+     "name": "growX"
+    },
+    {
+     "body": "to{stroke-dashoffset:0}",
+     "ctx": "",
+     "name": "draw"
+    },
+    {
+     "body": "from{opacity:0;transform:scale(.35)}",
+     "ctx": "",
+     "name": "pop"
+    },
+    {
+     "body": "from{transform:scale(1);opacity:.75}to{transform:scale(1.6);opacity:0}",
+     "ctx": "",
+     "name": "ring"
+    },
+    {
+     "body": "from{clip-path:inset(0 0 100% 0);transform:translateY(26px)}to{clip-path:inset(0 0 -12% 0);transform:none}",
+     "ctx": "",
+     "name": "wipe"
+    },
+    {
+     "body": "from{background-size:0 1px}",
+     "ctx": "",
+     "name": "strike"
+    },
+    {
+     "body": "from{opacity:0;transform:translateX(16px)}",
+     "ctx": "",
+     "name": "nudge"
+    },
+    {
+     "body": "from{opacity:0;transform:translateX(20px) scale(.95)}",
+     "ctx": "",
+     "name": "land"
+    },
+    {
+     "body": "from{opacity:0;transform:scale(.92)}",
+     "ctx": "",
+     "name": "midin"
+    },
+    {
+     "body": "from{opacity:0;transform:translateX(14px)}",
+     "ctx": "",
+     "name": "navin"
+    },
+    {
+     "body": "40%{transform:scale(1.35)}",
+     "ctx": "",
+     "name": "bump"
+    },
+    {
+     "body": "50%{transform:scale(1.7);opacity:.45}",
+     "ctx": "",
+     "name": "beat"
+    },
+    {
+     "body": "0%,35%{background-position:0 150%}100%{background-position:0 -150%}",
+     "ctx": "",
+     "name": "sheen"
+    },
+    {
+     "body": "to{stroke-dashoffset:-14}",
+     "ctx": "",
+     "name": "flow"
+    },
+    {
+     "body": "from{opacity:0;transform:translateY(46px) scale(.97);filter:blur(8px)}",
+     "ctx": "",
+     "name": "up"
+    },
+    {
+     "body": "from{opacity:0;transform:translateY(80px)}",
+     "ctx": "",
+     "name": "rise"
+    },
+    {
+     "body": "from{opacity:0;transform:scale(0)}",
+     "ctx": "",
+     "name": "pop"
+    }
+   ],
+   "keyframes_names_in_order": [
+    "up",
+    "fade",
+    "growY",
+    "growX",
+    "draw",
+    "pop",
+    "ring",
+    "wipe",
+    "strike",
+    "nudge",
+    "land",
+    "midin",
+    "navin",
+    "bump",
+    "beat",
+    "sheen",
+    "flow",
+    "up",
+    "rise",
+    "pop"
+   ],
+   "motion_rules": [
+    {
+     "ctx": "",
+     "decls": [
+      "animation:none"
+     ],
+     "selector": "::view-transition-old(root),::view-transition-new(root)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:background .2s var(--ease),color .35s var(--ease)"
+     ],
+     "selector": ".nav a"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:background .2s var(--ease),border-color .2s var(--ease),transform .2s var(--ease)"
+     ],
+     "selector": ".btn"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform:translateY(1px)"
+     ],
+     "selector": ".btn:active"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "stroke-dasharray:1",
+      "stroke-dashoffset:1",
+      "animation:draw 1.1s var(--ease) .15s forwards"
+     ],
+     "selector": ".brand path"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.75s",
+      "animation-duration:.8s"
+     ],
+     "selector": ".brand path+path"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:pop .5s var(--ease) 1.4s both",
+      "transform-box:fill-box",
+      "transform-origin:center"
+     ],
+     "selector": ".brand circle"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:fade .8s .3s both"
+     ],
+     "selector": ".brand div"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:navin .6s var(--ease) both",
+      "animation-delay:calc(var(--i)*55ms + .2s)"
+     ],
+     "selector": ".nav a"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:transform .6s var(--ease),width .6s var(--ease),height .3s var(--ease)",
+      "animation:fade .5s .55s both"
+     ],
+     "selector": ".pill"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:bump .5s var(--ease)"
+     ],
+     "selector": ".nav .n.bump"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "opacity:0"
+     ],
+     "selector": ".js .pre"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:up .95s var(--ease) both"
+     ],
+     "selector": ".play"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:up .95s var(--ease) .16s both"
+     ],
+     "selector": ".cols.play>:nth-child(2)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:up .6s var(--ease) both",
+      "animation-delay:calc(var(--i)*42ms + 180ms)"
+     ],
+     "selector": ".play .bay"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform-origin:bottom"
+     ],
+     "selector": ".arch i"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:growY 1s var(--ease) both",
+      "animation-delay:calc(var(--i)*42ms + 380ms)"
+     ],
+     "selector": ".play .arch i"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:fade .5s both",
+      "animation-delay:calc(var(--i)*42ms + 800ms)"
+     ],
+     "selector": ".play .arch b"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform-origin:bottom"
+     ],
+     "selector": ".hist i"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:growY .7s var(--ease) both"
+     ],
+     "selector": ".play .hist i"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.30s"
+     ],
+     "selector": ".play .hist i:nth-child(1)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.34s"
+     ],
+     "selector": ".play .hist i:nth-child(2)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.38s"
+     ],
+     "selector": ".play .hist i:nth-child(3)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.42s"
+     ],
+     "selector": ".play .hist i:nth-child(4)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.46s"
+     ],
+     "selector": ".play .hist i:nth-child(5)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.50s"
+     ],
+     "selector": ".play .hist i:nth-child(6)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.54s"
+     ],
+     "selector": ".play .hist i:nth-child(7)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.58s"
+     ],
+     "selector": ".play .hist i:nth-child(8)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform-origin:100% 50%"
+     ],
+     "selector": ".pbar i::after,.fb i::after"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:growX 1s var(--ease) .35s both"
+     ],
+     "selector": ".play .pbar i::after,.play #topDist .fb i::after"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:up .55s var(--ease) both"
+     ],
+     "selector": ".play .rows li"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.30s"
+     ],
+     "selector": ".play .rows li:nth-child(1)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.36s"
+     ],
+     "selector": ".play .rows li:nth-child(2)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.42s"
+     ],
+     "selector": ".play .rows li:nth-child(3)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.48s"
+     ],
+     "selector": ".play .rows li:nth-child(4)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.54s"
+     ],
+     "selector": ".play .rows li:nth-child(5)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:fade .6s both"
+     ],
+     "selector": ".play tbody tr.r"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.25s"
+     ],
+     "selector": ".play tbody tr.r:nth-child(1)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.30s"
+     ],
+     "selector": ".play tbody tr.r:nth-child(2)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.35s"
+     ],
+     "selector": ".play tbody tr.r:nth-child(3)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.40s"
+     ],
+     "selector": ".play tbody tr.r:nth-child(4)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.45s"
+     ],
+     "selector": ".play tbody tr.r:nth-child(5)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.50s"
+     ],
+     "selector": ".play tbody tr.r:nth-child(6)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.55s"
+     ],
+     "selector": ".play tbody tr.r:nth-child(n+7)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:up .5s var(--ease) both"
+     ],
+     "selector": ".play .chip"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.06s"
+     ],
+     "selector": ".play .chip:nth-child(2)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.12s"
+     ],
+     "selector": ".play .chip:nth-child(3)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.18s"
+     ],
+     "selector": ".play .chip:nth-child(4)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "stroke-dasharray:1",
+      "stroke-dashoffset:1",
+      "animation:draw 1.1s var(--ease) .15s forwards"
+     ],
+     "selector": ".play .map .road"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:fade .6s .9s both"
+     ],
+     "selector": ".play .map .road2"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform-box:fill-box",
+      "transform-origin:center"
+     ],
+     "selector": ".map g.d"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:pop .65s var(--ease) both",
+      "animation-delay:calc(var(--i)*60ms + .3s)"
+     ],
+     "selector": ".play .map g.d"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform-box:fill-box",
+      "transform-origin:center",
+      "animation:ring 2.4s ease-out infinite"
+     ],
+     "selector": ".map .ring"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:color .45s var(--ease)"
+     ],
+     "selector": "#rBody td"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:background .45s var(--ease),color .45s var(--ease)"
+     ],
+     "selector": ".fund"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:wipe .95s var(--ease) .1s both"
+     ],
+     "selector": ".pitch.play h2"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:up .7s var(--ease) .35s both"
+     ],
+     "selector": ".pitch.play p"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:up .7s var(--ease) .5s both"
+     ],
+     "selector": ".pitch.play .btn"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:fade .5s both",
+      "animation-delay:calc(var(--i)*150ms + .4s)"
+     ],
+     "selector": ".play .shift div"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:strike .5s var(--ease) both",
+      "animation-delay:calc(var(--i)*150ms + .8s)"
+     ],
+     "selector": ".play .shift s"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:nudge .6s var(--ease) both",
+      "animation-delay:calc(var(--i)*150ms + .95s)"
+     ],
+     "selector": ".play .shift svg"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:land .65s var(--ease) both",
+      "animation-delay:calc(var(--i)*150ms + 1.05s)"
+     ],
+     "selector": ".play .shift b"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "opacity:0"
+     ],
+     "selector": ".js .flow:not(.in)>*"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:up .7s var(--ease) both"
+     ],
+     "selector": ".flow.in>*"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:nudge .5s var(--ease) .3s both"
+     ],
+     "selector": ".flow.in>:nth-child(2)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:midin .7s var(--ease) .45s both"
+     ],
+     "selector": ".flow.in>:nth-child(3)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:nudge .5s var(--ease) .8s both"
+     ],
+     "selector": ".flow.in>:nth-child(4)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.95s"
+     ],
+     "selector": ".flow.in>:nth-child(5)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:fade .5s both"
+     ],
+     "selector": ".flow.in li"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.12s"
+     ],
+     "selector": ".flow.in>:nth-child(1) li:nth-child(2)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.2s"
+     ],
+     "selector": ".flow.in>:nth-child(1) li:nth-child(3)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.28s"
+     ],
+     "selector": ".flow.in>:nth-child(1) li:nth-child(4)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.7s"
+     ],
+     "selector": ".flow.in>:nth-child(3) li"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:1.15s"
+     ],
+     "selector": ".flow.in>:nth-child(5) li"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:transform .4s var(--ease)"
+     ],
+     "selector": ".caps a svg"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform:translateY(-3px) scale(1.12)"
+     ],
+     "selector": ".caps a:hover svg"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:transform .4s var(--ease)"
+     ],
+     "selector": ".nav a svg"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform:scale(1.12)"
+     ],
+     "selector": ".nav a:hover svg"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:box-shadow .25s var(--ease),transform .25s var(--ease)"
+     ],
+     "selector": ".arch"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:height .7s var(--ease)"
+     ],
+     "selector": ".arch i"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform:translateY(-3px)"
+     ],
+     "selector": ".bay:hover .arch"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:background .15s"
+     ],
+     "selector": "tbody tr.r"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:background .2s,color .2s"
+     ],
+     "selector": ".chip"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "stroke-dasharray:3 4"
+     ],
+     "selector": ".map .road2"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:r .35s var(--ease),stroke-width .2s"
+     ],
+     "selector": ".map g.d circle.b"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:width .7s var(--ease)"
+     ],
+     "selector": ".fb i::after"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "opacity:0",
+      "transition:opacity .2s"
+     ],
+     "selector": ".caps a b::after"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "opacity:1"
+     ],
+     "selector": ".caps a:hover b::after"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform:translateY(140%)",
+      "transition:transform .45s var(--ease)"
+     ],
+     "selector": ".toast"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform:none"
+     ],
+     "selector": ".toast.on"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "opacity:.12"
+     ],
+     "selector": ".rail::after"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:box-shadow .5s var(--ease)"
+     ],
+     "selector": ".sec,.figs"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:beat 1.8s ease-in-out infinite"
+     ],
+     "selector": ".demo::before"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform:translateY(-1px)"
+     ],
+     "selector": ".btn.pri:hover"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:background .25s,color .25s,transform .35s var(--spring)"
+     ],
+     "selector": ".chip"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform:scale(.94)"
+     ],
+     "selector": ".chip:active"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:box-shadow .3s var(--ease),transform .45s var(--spring)"
+     ],
+     "selector": ".arch"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform:translateX(-50%)",
+      "transition:transform .45s var(--spring)"
+     ],
+     "selector": ".arch b,.arch b.in"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform:translateY(-8px)"
+     ],
+     "selector": ".bay:hover .arch"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform:translateX(-50%) scale(1.15)"
+     ],
+     "selector": ".bay:hover .arch b"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform:translateY(-8px)"
+     ],
+     "selector": ".bay[aria-pressed=true] .arch"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:sheen 3.6s ease-in-out infinite",
+      "animation-delay:calc(var(--i)*130ms)"
+     ],
+     "selector": ".arch i::after"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:transform .4s var(--ease)"
+     ],
+     "selector": "tbody tr.r td:first-child b"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform:translateX(-6px)"
+     ],
+     "selector": "tbody tr.r:hover td:first-child b"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:padding .35s var(--ease)"
+     ],
+     "selector": ".rows li"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:flow 1.4s linear infinite"
+     ],
+     "selector": ".map .road2"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:transform .45s var(--spring)"
+     ],
+     "selector": ".map g.d"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform:scale(1.1)"
+     ],
+     "selector": ".map g.d:hover"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "opacity:.09"
+     ],
+     "selector": ".pitch::after"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:transform .45s var(--spring),background .2s"
+     ],
+     "selector": ".pitch .btn"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform:translateY(-3px) scale(1.04)"
+     ],
+     "selector": ".pitch .btn:hover"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:transform .45s var(--spring),background .3s"
+     ],
+     "selector": ".shift b"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform:translateX(-6px)"
+     ],
+     "selector": ".shift div:hover b"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:padding .4s var(--ease)"
+     ],
+     "selector": ".caps a"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:transform .6s var(--spring)"
+     ],
+     "selector": ".toast"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:up .6s var(--ease) both"
+     ],
+     "selector": ".filters.play .chip"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:transform .7s var(--spring),width .6s var(--ease),height .3s var(--ease)"
+     ],
+     "selector": ".pill"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:rise .85s var(--spring) both",
+      "animation-delay:calc(var(--i)*60ms + 150ms)"
+     ],
+     "selector": ".play .bay"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:growY 1.2s var(--spring) both",
+      "animation-delay:calc(var(--i)*60ms + 500ms)"
+     ],
+     "selector": ".play .arch i"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:fade .5s both",
+      "animation-delay:calc(var(--i)*60ms + 1000ms)"
+     ],
+     "selector": ".play .arch b"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:up .9s var(--ease) both"
+     ],
+     "selector": ".play .fig dd"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.12s"
+     ],
+     "selector": ".play .fig:nth-child(2) dd"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.24s"
+     ],
+     "selector": ".play .fig:nth-child(3) dd"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:.36s"
+     ],
+     "selector": ".play .fig:nth-child(4) dd"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:growY .9s var(--spring) both"
+     ],
+     "selector": ".play .hist i"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:growX 1.3s var(--ease) .4s both"
+     ],
+     "selector": ".play .pbar i::after,.play #topDist .fb i::after,.play #mLift .fb i::after,.play #mImp .fb i::after,.play #pciBars .fb i::after,.play #matMix .fb i::after,.play #matBase .fb i::after"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:pop .85s var(--spring) both",
+      "animation-delay:calc(var(--i)*75ms + .4s)"
+     ],
+     "selector": ".play .map g.d"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-duration:1.4s"
+     ],
+     "selector": ".play .map .road"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:wipe 1.1s var(--ease) .15s both"
+     ],
+     "selector": ".pitch.play h2"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:land .8s var(--spring) both",
+      "animation-delay:calc(var(--i)*170ms + 1.05s)"
+     ],
+     "selector": ".play .shift b"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:calc(var(--i)*170ms + .4s)"
+     ],
+     "selector": ".play .shift div"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:calc(var(--i)*170ms + .8s)"
+     ],
+     "selector": ".play .shift s"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation-delay:calc(var(--i)*170ms + .95s)"
+     ],
+     "selector": ".play .shift svg"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transition:transform .45s var(--spring)"
+     ],
+     "selector": ".pin"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform:scale(1.12)"
+     ],
+     "selector": ".pin:hover"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "transform:translateX(-50%)"
+     ],
+     "selector": ".pin span"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "animation:ring 2.4s ease-out infinite"
+     ],
+     "selector": ".pin.pulse::after"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "stroke-dasharray:1",
+      "stroke-dashoffset:1",
+      "animation:draw 1.6s var(--ease) .3s forwards"
+     ],
+     "selector": ".play .curve path"
+    },
+    {
+     "ctx": "@media (max-width:1080px)",
+     "decls": [
+      "transform:rotate(-90deg)"
+     ],
+     "selector": ".flow .arr"
+    },
+    {
+     "ctx": "@media (prefers-reduced-motion:reduce)",
+     "decls": [
+      "animation:none!important",
+      "transition:none!important"
+     ],
+     "selector": "*,*::after"
+    },
+    {
+     "ctx": "@media (prefers-reduced-motion:reduce)",
+     "decls": [
+      "stroke-dashoffset:0!important"
+     ],
+     "selector": ".brand path,.map .road,.curve path"
+    },
+    {
+     "ctx": "@media (prefers-reduced-motion:reduce)",
+     "decls": [
+      "opacity:1"
+     ],
+     "selector": ".js .flow:not(.in)>*,.js .pre"
+    },
+    {
+     "ctx": "@media print",
+     "decls": [
+      "opacity:1"
+     ],
+     "selector": ".js .flow:not(.in)>*,.js .pre"
+    }
+   ],
+   "motion_selector_attrs": [
+    "[aria-pressed=true]"
+   ],
+   "motion_selector_classes": [
+    "arch",
+    "arr",
+    "b",
+    "bay",
+    "brand",
+    "btn",
+    "bump",
+    "caps",
+    "chip",
+    "cols",
+    "curve",
+    "d",
+    "demo",
+    "fb",
+    "fig",
+    "figs",
+    "filters",
+    "flow",
+    "fund",
+    "hist",
+    "in",
+    "js",
+    "map",
+    "n",
+    "nav",
+    "on",
+    "pbar",
+    "pill",
+    "pin",
+    "pitch",
+    "play",
+    "pre",
+    "pri",
+    "pulse",
+    "r",
+    "rail",
+    "ring",
+    "road",
+    "road2",
+    "rows",
+    "sec",
+    "shift",
+    "toast"
+   ],
+   "motion_selector_ids": [
+    "mImp",
+    "mLift",
+    "matBase",
+    "matMix",
+    "pciBars",
+    "rBody",
+    "topDist"
+   ],
+   "motion_var_definitions": [
+    {
+     "ctx": "",
+     "name": "--ease",
+     "selector": ":root",
+     "value": "cubic-bezier(.16,1,.3,1)"
+    },
+    {
+     "ctx": "",
+     "name": "--spring",
+     "selector": ":root",
+     "value": "cubic-bezier(.34,1.56,.64,1)"
+    }
+   ],
+   "reduced_motion_blocks": [
+    {
+     "body": "*,*::after{animation:none!important;transition:none!important}.brand path,.map .road,.curve path{stroke-dashoffset:0!important}.js .flow:not(.in)>*,.js .pre{opacity:1}",
+     "ctx": "",
+     "query": "@media (prefers-reduced-motion:reduce)"
+    }
+   ],
+   "transition_geometry_endpoints": [
+    {
+     "ctx": "",
+     "decls": [
+      "height:var(--h)"
+     ],
+     "selector": ".arch i",
+     "transition_on": ".arch i"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "stroke-width:2"
+     ],
+     "selector": ".map g.d circle.b",
+     "transition_on": ".map g.d circle.b"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "stroke-width:2.5"
+     ],
+     "selector": ".map g.d:hover circle.b",
+     "transition_on": ".map g.d circle.b"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "stroke-width:4"
+     ],
+     "selector": ".map g.d.sel circle.b",
+     "transition_on": ".map g.d circle.b"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "width:var(--w)"
+     ],
+     "selector": ".fb i::after",
+     "transition_on": ".fb i::after"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "padding:11px 0"
+     ],
+     "selector": ".rows li",
+     "transition_on": ".rows li"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "padding-top:0"
+     ],
+     "selector": ".rows li:first-child",
+     "transition_on": ".rows li"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "padding-inline-start:8px"
+     ],
+     "selector": ".rows li:hover",
+     "transition_on": ".rows li"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "padding:16px 0"
+     ],
+     "selector": ".caps a",
+     "transition_on": ".caps a"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "padding-inline-start:10px"
+     ],
+     "selector": ".caps a:hover",
+     "transition_on": ".caps a"
+    }
+   ],
+   "vars_used_in_motion": [
+    "--ease",
+    "--i",
+    "--spring"
+   ],
+   "view_transition_rules": [
+    {
+     "ctx": "",
+     "decls": [
+      "animation:none",
+      "mix-blend-mode:normal"
+     ],
+     "selector": "::view-transition-old(root),::view-transition-new(root)"
+    },
+    {
+     "ctx": "",
+     "decls": [
+      "z-index:2"
+     ],
+     "selector": "::view-transition-new(root)"
+    }
+   ]
+  },
+  "html": {
+   "external_scripts": [
+    "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js",
+    "data/model_output.js",
+    "data/segments.js"
+   ],
+   "external_stylesheets": [
+    "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+   ],
+   "hook_class_counts_in_static_html": {
+    "arch": 0,
+    "arr": 2,
+    "b": 0,
+    "bay": 0,
+    "brand": 1,
+    "btn": 4,
+    "bump": 0,
+    "caps": 1,
+    "chip": 0,
+    "clegend": 0,
+    "cols": 8,
+    "curve": 0,
+    "d": 0,
+    "delta": 0,
+    "demo": 1,
+    "dk": 0,
+    "empty": 0,
+    "fb": 0,
+    "fig": 0,
+    "figs": 2,
+    "filters": 3,
+    "flow": 1,
+    "fund": 0,
+    "geo": 0,
+    "grid": 0,
+    "head-row": 3,
+    "high": 0,
+    "hist": 0,
+    "ic": 5,
+    "id": 0,
+    "in": 0,
+    "js": 0,
+    "kv": 0,
+    "m": 0,
+    "map": 1,
+    "med": 0,
+    "more": 9,
+    "n": 0,
+    "nav": 1,
+    "note": 0,
+    "num": 0,
+    "off": 0,
+    "ok": 0,
+    "on": 0,
+    "pbar": 0,
+    "pill": 0,
+    "pin": 0,
+    "pitch": 1,
+    "play": 0,
+    "pre": 0,
+    "pri": 0,
+    "pulse": 0,
+    "r": 0,
+    "rail": 1,
+    "ring": 0,
+    "road": 0,
+    "road2": 0,
+    "roi": 0,
+    "rows": 2,
+    "s": 0,
+    "s-": 0,
+    "s-high": 5,
+    "s-low": 3,
+    "s-med": 1,
+    "save": 0,
+    "sec": 36,
+    "sel": 0,
+    "sev": 9,
+    "shift": 1,
+    "srcline": 0,
+    "stackbar": 0,
+    "t": 0,
+    "tag": 0,
+    "toast": 1,
+    "v": 0,
+    "view": 9,
+    "x": 0,
+    "xact": 0,
+    "xg": 0
+   },
+   "hook_ids_in_static_html": {
+    "aBody": "tbody",
+    "aCnt": "span",
+    "arc1": "div",
+    "badge": null,
+    "bud": "input",
+    "budOut": "output",
+    "cBars": "div",
+    "cChips": "div",
+    "cPat": "ul",
+    "cTitle": "h2",
+    "caps": "div",
+    "dp": "div",
+    "eN": "b",
+    "eR": "b",
+    "eX": "b",
+    "fSev": "select",
+    "fType": "select",
+    "figs": "dl",
+    "kBody": "tbody",
+    "kCsv": "button",
+    "kHead": "tr",
+    "mCm": "tbody",
+    "mCmp": "tbody",
+    "mFigs": "dl",
+    "mFour": "tbody",
+    "mImp": "div",
+    "mLift": "div",
+    "mSrc": "tbody",
+    "mSub": "p",
+    "mSup": "tbody",
+    "map": "div",
+    "mapNote": "span",
+    "matBase": "div",
+    "matK": "tbody",
+    "matMix": "div",
+    "matS": "tbody",
+    "nav": "nav",
+    "optNote": "p",
+    "pciBars": "div",
+    "pciSec": "div",
+    "pciSub": "p",
+    "pilotHood": "p",
+    "q": "input",
+    "rBody": "tbody",
+    "sF": "b",
+    "sN": "b",
+    "sS": "b",
+    "survSec": "div",
+    "themeBtn": "button",
+    "title": "h1",
+    "toast": "div",
+    "topAlerts": "ul",
+    "topDist": "div",
+    "topDistH": "h2",
+    "topDistS": "p",
+    "v-": null,
+    "v-alerts": "section",
+    "v-contractors": "section",
+    "v-materials": "section",
+    "v-model": "section",
+    "volT": "ul",
+    "wkTag": "span",
+    "wkX": null
+   },
+   "html_attrs": {
+    "dir": "rtl",
+    "lang": "ar"
+   },
+   "inline_event_handlers": [
+    "button.btn onclick=print()"
+   ],
+   "inline_styles_with_motion_props": [],
+   "pathLength_in_static_html": 2,
+   "skeletons": {
+    "app": "div.app(aside.rail(div.brand nav.nav#nav div.rail-foot) div.main(header.top section.view#v-overview section.view#v-map section.view#v-alerts section.view#v-causes section.view#v-contractors section.view#v-materials section.view#v-recs section.view#v-model section.view#v-about))",
+    "brand": "div.brand(svg(path[pathlength=1] path[pathlength=1] circle) div(b span))",
+    "flow": "div.flow(div.col(h3 ul(li li li li)) div.arr(svg.ic(path)) div.col.mid(h3 ul(li li li)) div.arr(svg.ic(path)) div.col(h3 ul(li li li li)))",
+    "nav": "nav.nav#nav",
+    "pitch": "div.pitch(div(h2 p a.btn[href=#overview]) div.shift(div(s svg(path) b) div(s svg(path) b) div(s svg(path) b) div(s svg(path) b)))",
+    "rail": "aside.rail(div.brand nav.nav#nav div.rail-foot)",
+    "themeBtn": "button.btn#themeBtn(svg.ic(path) span)",
+    "title": "h1#title",
+    "toast": "div.toast#toast"
+   },
+   "views": [
+    {
+     "children": [
+      "dl.figs#figs",
+      "div.sec(div.head-row(h2 a.more[href=#alerts]) p.sub div.arcade#arc1 div.legend(span span span))",
+      "div.cols(div.sec(div.head-row p.sub ul.rows#topAlerts) div.sec(div.head-row p.sub#topDistS div.fbars#topDist))",
+      "div.sec#pciSec[hidden](h2 p.sub#pciSub div.fbars#pciBars)"
+     ],
+     "view": "section.view#v-overview"
+    },
+    {
+     "children": [
+      "p.lede",
+      "div.filters#mapChips",
+      "div.mapwrap(div.sec(div.map#map div.legend) div.sec.dp#dp)"
+     ],
+     "view": "section.view#v-map"
+    },
+    {
+     "children": [
+      "p.lede",
+      "div.sec(div.arcade#arc2 div.filters(input#q select#fType select#fSev span#wkTag span.cnt#aCnt) div.tw(table))",
+      "div.cols(div.sec(h2 p.sub ul.rows#volT) div.sec(h2 p.sub ol.am-steps h3.am-h3 p p.am-cite))"
+     ],
+     "view": "section.view#v-alerts"
+    },
+    {
+     "children": [
+      "p.lede",
+      "div.filters#cChips",
+      "div.cols(div.sec(h2#cTitle p.sub div.fbars#cBars) div.sec(h2 p.sub ul.pat#cPat))"
+     ],
+     "view": "section.view#v-causes"
+    },
+    {
+     "children": [
+      "p.lede",
+      "div.sec(div.tw(table) p)",
+      "div.cols#survSec[hidden](div.sec(h2 p.sub div#survType) div.sec(h2 p.sub div#survK))",
+      "div.sec(h2 p.sub div.tw(table) p(button.btn#kCsv) p.am-cite)"
+     ],
+     "view": "section.view#v-contractors"
+    },
+    {
+     "children": [
+      "div.synth(svg.ic(path) div(b))",
+      "div.cols(div.sec(h2 p.sub div#matSurv) div.sec(h2 p.sub div.fbars#matMix h2 div.fbars#matBase))",
+      "div.cols(div.sec(h2 p.sub div.tw div.legend) div.sec(h2 p.sub div.tw))",
+      "div.sec(h2 p.sub(span))"
+     ],
+     "view": "section.view#v-materials"
+    },
+    {
+     "children": [
+      "p.lede",
+      "div.sec(div.sim(div div.simout))",
+      "div.sec(h2 p.sub p.sub#optNote div.tw(table))",
+      "div.sec(h2 p.sub div.simout(div.g div.g div) p.am-cite)"
+     ],
+     "view": "section.view#v-recs"
+    },
+    {
+     "children": [
+      "p.lede",
+      "dl.figs#mFigs",
+      "div.cols(div.sec(h2 p.sub#mSub div.tw p) div.sec(h2 p.sub div.fbars#mLift))",
+      "div.cols(div.sec(h2 p.sub div.fbars#mImp) div.sec(h2 p.sub div.tw))",
+      "div.sec(h2 p.sub div.tw(table))",
+      "div.sec(h2 p.sub div.tw(table))",
+      "div.sec(h2 p.sub div.tw(table))",
+      "div.sec(h2 p.sub div.tw(table))"
+     ],
+     "view": "section.view#v-model"
+    },
+    {
+     "children": [
+      "div.pitch(div(h2 p a.btn[href=#overview]) div.shift(div div div div))",
+      "div.sec(h2 p.sub div.flow(div.col div.arr div.col.mid div.arr div.col))",
+      "div.sec(h2 p.sub div.caps#caps)",
+      "div.sec(h2 p.sub div.tw(table) p.am-cite)",
+      "div.sec(h2 p.sub p.am-pick#pilotHood div.am-phases(div div div) div.tw(table) h3.am-h3 div.tw(table) p.am-cite)",
+      "div.sec(h2 p.goal(em em em))"
+     ],
+     "view": "section.view#v-about"
+    }
+   ]
+  },
+  "js": {
+   "call_sites": {
+    "IntersectionObserver": [
+     "new IntersectionObserver(es=>{let i=0; es.forEach(e=>{ if(!e.isIntersecting) return; io.unobserve(e.target); const el=e.target; setTimeout(()=>play(el),i++*120) })},{threshold:.06})",
+     "new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target)}}),{threshold:.3})"
+    ],
+    "addEventListener": [
+     "document.addEventListener('pointerdown',e=>{const v=e.target.closest('.play'); if(v&&e.target.closest('button,tr,g,input,select')) v.classList.remove('play')})",
+     "addEventListener('hashchange',()=>route())",
+     "addEventListener('resize',pill)",
+     "document.addEventListener('click',e=>{ const b=e.target.closest('.bay'); if(!b) return; const w=+b.dataset.w; wk=wk===w?null:w; arcade('#arc1'); arcade('#arc2'); alerts(); if(b.closest('#arc1')&&wk) location.hash='alerts'; })",
+     "addEventListener('input',alerts)",
+     "addEventListener('click',e=>{ if(e.target.id==='wkX'){wk=null;arcade('#arc1');arcade('#arc2');return alerts()} const go=e.target.closest('[data-go]'); if(go){const a=A.find(x=>x.id===go.dataset.go);a.done=true;alerts();overview();badge(true);map();toast(`صدر أمر عمل وقائي لـ «${a.t}». وفر متوقع ${SAR(a.rc-a.pc)}.`);return} if(e.target.closest('a')) return; const r=e.target.closest('tr.r'); if(r){aOpen=aOpen===r.dataset.id?null:r.dataset.id;alerts();openAnim('#aBody')} })",
+     "addEventListener('keydown',e=>{const r=e.target.closest('tr.r');if(r&&e.target===r&&(e.key==='Enter'||e.key===' ')){e.preventDefault();const id=r.dataset.id;aOpen=aOpen===id?null:id;alerts();$(`#aBody tr[data-id=\"${id}\"]`).focus()}})",
+     "addEventListener('click',e=>{ const b=e.target.closest('th button'); if(b){const k=b.dataset.k;kSort=kSort[0]===k?[k,-kSort[1]]:[k,k==='n'?1:-1];return contractors()} const r=e.target.closest('tr.r'); if(r){kOpen=kOpen===r.dataset.n?null:r.dataset.n;contractors();openAnim('#kBody')} })",
+     "addEventListener('keydown',e=>{const r=e.target.closest('tr.r');if(r&&(e.key==='Enter'||e.key===' ')){e.preventDefault();const n=r.dataset.n;kOpen=kOpen===n?null:n;contractors();$(`#kBody tr[data-n=\"${n}\"]`).focus()}})",
+     "addEventListener('input',recs)",
+     "addEventListener('click',e=>{ const next=document.documentElement.dataset.theme==='dark'?'light':'dark', r=e.currentTarget.getBoundingClientRect(), x=r.left+r.width/2, y=r.top+r.height/2; if(RM||!document.startViewTransition) return setTheme(next,true); const vt=document.startViewTransition(()=>setTheme(next,true)); vt.ready.then(()=>{const R=Math.hypot(Math.max(x,innerWidth-x),Math.max(y,innerHeight-y)); document.documentElement.animate({clipPath:[`circle(0px at ${x}px ${y}px)`,`circle(${R}px at ${x}px ${y}px)`]},{duration:750,easing:EASE,pseudoElement:'::view-transition-new(root)'})}).catch(()=>{}); vt.finished.catch(()=>{}); })",
+     "addEventListener('pointermove',e=>{const r=e.currentTarget.getBoundingClientRect();e.currentTarget.style.setProperty('--mx',(e.clientX-r.left)/r.width*100+'%');e.currentTarget.style.setProperty('--my',(e.clientY-r.top)/r.height*100+'%')})"
+    ],
+    "anim": [
+     "anim(c,[{opacity:0,transform:'translateY(-12px)'},{opacity:1,transform:'none'}],500,i*90)",
+     "anim($('#title'),[{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],500,180)",
+     "anim(c,[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],480,i*60)"
+    ],
+    "animate": [
+     "el.animate(kf,{duration:dur,delay,easing:EASE,fill:'backwards'})",
+     "cur.animate([{opacity:1,transform:'none'},{opacity:0,transform:'translateY(-12px)'}],{duration:180,easing:'ease-in',fill:'forwards'})",
+     "document.documentElement.animate({clipPath:[`circle(0px at ${x}px ${y}px)`,`circle(${R}px at ${x}px ${y}px)`]},{duration:750,easing:EASE,pseudoElement:'::view-transition-new(root)'})"
+    ],
+    "classList": [
+     "document.documentElement.classList.add('js')",
+     "b.classList.remove('bump')",
+     "b.classList.add('bump')",
+     "el.classList.remove('pre')",
+     "el.classList.add('play')",
+     "el.classList.remove('play')",
+     "c.classList.remove('play')",
+     "c.classList.add('pre')",
+     "v.classList.remove('play')",
+     "e.classList.toggle('on',e.id==='v-'+v)",
+     "t.classList.add('on')",
+     "t.classList.remove('on')",
+     "el.classList.add('geo')",
+     ".classList.toggle('off',!on)",
+     "e.target.classList.add('in')"
+    ],
+    "clearTimeout": [
+     "clearTimeout(el._pt)",
+     "clearTimeout(rt)",
+     "clearTimeout(tt)"
+    ],
+    "fonts.ready": [
+     "document.fonts.ready.then(pill)"
+    ],
+    "matchMedia": [
+     "matchMedia('(prefers-reduced-motion:reduce)')"
+    ],
+    "observe": [
+     "io.unobserve(e.target)",
+     "io.unobserve(c)",
+     "io.observe(c)",
+     "o.unobserve(e.target)",
+     ".observe($('.flow'))"
+    ],
+    "openAnim": [
+     "openAnim('#aBody')",
+     "openAnim('#kBody')"
+    ],
+    "requestAnimationFrame": [
+     "requestAnimationFrame(step)",
+     "requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelectorAll('#cBars .fb').forEach(e=>e.style.setProperty('--w',e.dataset.w+'%'))))",
+     "requestAnimationFrame(()=>document.querySelectorAll('#cBars .fb').forEach(e=>e.style.setProperty('--w',e.dataset.w+'%')))"
+    ],
+    "scrollIntoView": [
+     ".scrollIntoView({block:'nearest',inline:'nearest'})"
+    ],
+    "scrollTo": [
+     "scrollTo(0,0)"
+    ],
+    "setProperty": [
+     "e.style.setProperty('--w',e.dataset.w+'%')",
+     "d.style.setProperty('--i',i)",
+     "e.currentTarget.style.setProperty('--mx',(e.clientX-r.left)/r.width*100+'%')",
+     "e.currentTarget.style.setProperty('--my',(e.clientY-r.top)/r.height*100+'%')"
+    ],
+    "setTimeout": [
+     "setTimeout(()=>{ if(el._t===t0) el.textContent=N(to)+suf },dur+80)",
+     "setTimeout(()=>play(el),i++*120)",
+     "setTimeout(()=>el.classList.remove('play'),3400)",
+     "setTimeout(leafFit,60)",
+     "setTimeout(()=>{an.cancel();go()},180)",
+     "setTimeout(()=>t.classList.remove('on'),3200)"
+    ],
+    "startViewTransition": [
+     "document.startViewTransition(()=>setTheme(next,true))"
+    ],
+    "tween": [
+     "tween(x,+x.dataset.to,1500)",
+     "tween(sp,saved)",
+     "tween($('#sF'),f,500)",
+     "tween($('#sS'),s,500)"
+    ]
+   },
+   "class_attr_templates": [
+    "arch",
+    "b",
+    "bay",
+    "btn pri",
+    "chip",
+    "clegend",
+    "d ${d.n===dSel?'sel':''}",
+    "delta",
+    "delta ${up}",
+    "empty",
+    "fb",
+    "fig",
+    "fund",
+    "grid",
+    "head-row",
+    "hist",
+    "ic",
+    "id",
+    "kv",
+    "m",
+    "more",
+    "n",
+    "note",
+    "num ${['high','med'].includes(riskLv(d.risk))?'dk':''}",
+    "ok",
+    "pbar",
+    "pill",
+    "pin ${lv}${d.n===dSel?' sel':''}${d.risk>=75?' pulse':''}",
+    "r",
+    "ring",
+    "road",
+    "road2",
+    "roi",
+    "rows",
+    "s ${T[k][0]}",
+    "save",
+    "sec empty",
+    "sev s-${sv}",
+    "sev s-${s}",
+    "sev s-high",
+    "sev s-low",
+    "sev s-med",
+    "stackbar",
+    "t",
+    "tag",
+    "v",
+    "x",
+    "xact",
+    "xg"
+   ],
+   "classes_referenced": [
+    "arch",
+    "b",
+    "bay",
+    "btn",
+    "bump",
+    "chip",
+    "clegend",
+    "curve",
+    "d",
+    "delta",
+    "dk",
+    "empty",
+    "fb",
+    "fig",
+    "flow",
+    "fund",
+    "geo",
+    "grid",
+    "head-row",
+    "high",
+    "hist",
+    "ic",
+    "id",
+    "in",
+    "js",
+    "kv",
+    "m",
+    "med",
+    "more",
+    "n",
+    "note",
+    "num",
+    "off",
+    "ok",
+    "on",
+    "pbar",
+    "pill",
+    "pin",
+    "pitch",
+    "play",
+    "pre",
+    "pri",
+    "pulse",
+    "r",
+    "ring",
+    "road",
+    "road2",
+    "roi",
+    "rows",
+    "s",
+    "s-",
+    "s-${}",
+    "s-high",
+    "s-low",
+    "s-med",
+    "save",
+    "sec",
+    "sel",
+    "sev",
+    "shift",
+    "srcline",
+    "stackbar",
+    "t",
+    "tag",
+    "v",
+    "view",
+    "x",
+    "xact",
+    "xg"
+   ],
+   "counts": {
+    "IntersectionObserver": 2,
+    "addEventListener": 12,
+    "anim": 3,
+    "animate": 3,
+    "classList": 15,
+    "clearTimeout": 3,
+    "fonts.ready": 1,
+    "functions": 29,
+    "matchMedia": 1,
+    "motion_functions": 21,
+    "observe": 5,
+    "openAnim": 2,
+    "requestAnimationFrame": 3,
+    "scrollIntoView": 1,
+    "scrollTo": 1,
+    "setProperty": 4,
+    "setTimeout": 6,
+    "startViewTransition": 1,
+    "tween": 4
+   },
+   "css_tokens_referenced_from_js": [
+    "--brand",
+    "--crit",
+    "--crit-f",
+    "--gold",
+    "--high",
+    "--high-f",
+    "--ink-2",
+    "--low",
+    "--low-f",
+    "--med",
+    "--med-f",
+    "--teal"
+   ],
+   "css_vars_set_from_js": [
+    "--c",
+    "--h",
+    "--hc",
+    "--i",
+    "--mx",
+    "--my",
+    "--s",
+    "--w"
+   ],
+   "data_attributes_referenced": [
+    "data-d",
+    "data-go",
+    "data-id",
+    "data-k",
+    "data-n",
+    "data-to",
+    "data-v",
+    "data-w",
+    "dataset.d",
+    "dataset.go",
+    "dataset.id",
+    "dataset.k",
+    "dataset.n",
+    "dataset.suf",
+    "dataset.theme",
+    "dataset.to",
+    "dataset.v",
+    "dataset.w"
+   ],
+   "function_names_in_order": [
+    "anim",
+    "tween",
+    "step",
+    "openAnim",
+    "nav",
+    "badge",
+    "pill",
+    "play",
+    "enter",
+    "route",
+    "toast",
+    "figs",
+    "arcade",
+    "overview",
+    "chips",
+    "dCount",
+    "map",
+    "leafFit",
+    "leaf",
+    "alerts",
+    "causes",
+    "contractors",
+    "recs",
+    "modelView",
+    "curves",
+    "roadsExtras",
+    "materialsView",
+    "fourTypes",
+    "setTheme"
+   ],
+   "head_inline_scripts": [
+    "(function(){var t;try{t=localStorage.getItem(\"istibaq-theme\")}catch(e){}document.documentElement.dataset.theme=t||(matchMedia(\"(prefers-color-scheme:dark)\").matches?\"dark\":\"light\")})()"
+   ],
+   "ids_referenced": [
+    "aBody",
+    "aCnt",
+    "arc1",
+    "badge",
+    "bud",
+    "budOut",
+    "cBars",
+    "cChips",
+    "cPat",
+    "cTitle",
+    "caps",
+    "dp",
+    "eN",
+    "eR",
+    "eX",
+    "fSev",
+    "fType",
+    "figs",
+    "kBody",
+    "kCsv",
+    "kHead",
+    "mCm",
+    "mCmp",
+    "mFigs",
+    "mFour",
+    "mImp",
+    "mLift",
+    "mSrc",
+    "mSub",
+    "mSup",
+    "map",
+    "mapNote",
+    "matK",
+    "matS",
+    "nav",
+    "optNote",
+    "pciBars",
+    "pciSec",
+    "pciSub",
+    "pilotHood",
+    "q",
+    "rBody",
+    "sF",
+    "sN",
+    "sS",
+    "survSec",
+    "themeBtn",
+    "title",
+    "toast",
+    "topAlerts",
+    "topDist",
+    "topDistH",
+    "topDistS",
+    "v-",
+    "v-alerts",
+    "v-contractors",
+    "v-materials",
+    "v-model",
+    "volT",
+    "wkTag",
+    "wkX"
+   ],
+   "inline_style_templates_with_css_vars": [
+    "--i:${i}",
+    "--hc:${['var(--high-f)','var(--gold)','var(--low-f)','var(--teal)'][i]}",
+    "--i:${i}",
+    "--h:${h}%;--c:${c}",
+    "--w:${d.risk}%;--c:${col[riskLv(d.risk)]}",
+    "--w:${d.risk}%;--c:${col[riskLv(d.risk)]}",
+    "--i:${i}",
+    "--s:${size}px;opacity:${dim?.4:1}",
+    "--w:${a.p}%;--c:${col[s]}",
+    "--w:0%;--c:${i?'var(--teal)':'var(--gold)'}",
+    "--w:${k.s}%;--c:${col[s]}",
+    "--w:${v/mx*100}%;--c:${i<1?'var(--crit-f)':i<3?'var(--high-f)':'var(--low-f)'}",
+    "--w:${v/im*100}%;--c:${i?'var(--teal)':'var(--gold)'}",
+    "--w:${k/mx*100}%;--c:${bc[i]}",
+    "--w:${r.rate/mx*100}%;--c:${i===rows.length-1?'var(--crit-f)':i?'var(--high-f)':'var(--low-f)'}",
+    "--w:${r.test}%;--c:${r.test>=65?'var(--low-f)':'var(--crit-f)'}"
+   ],
+   "motion_functions": {
+    "anim": "function anim(el,kf,dur=450,delay=0){ if(!RM&&el) el.animate(kf,{duration:dur,delay,easing:EASE,fill:'backwards'}) }",
+    "arcade": "function arcade(id){ const m=Math.max(...WEEKS), avg=WEEKS.reduce((a,b)=>a+b,0)/WEEKS.length, base=new Date(2026,10,22); $(id).innerHTML=WEEKS.map((n,i)=>{ const dt=new Date(base);dt.setDate(dt.getDate()+i*7); const c=n>=avg*1.3?'var(--crit-f)':n>=avg*1.08?'var(--high-f)':'var(--low-f)', h=Math.round(n/m*88); return `<button class=\"bay\" style=\"--i:${i}\" aria-pressed=\"${wk===i+1}\" data-w=\"${i+1}\" aria-label=\"الأسبوع ${i+1}: ${n} عطلاً متوقعاً\"><div class=\"arch\" style=\"--h:${h}%;--c:${c}\"><i></i><b>${n}</b></div><span>أسبوع ${i+1}<br>${dt.getDate()}/${dt.getMonth()+1}</span></button>`}).join(''); }",
+    "badge": "function badge(bump){ const n=A.filter(a=>!a.done&&['crit','high'].includes(sevOf(a.p)[0])).length, b=$('#badge'); b.textContent=n; b.hidden=!n; if(bump){b.classList.remove('bump');void b.offsetWidth;b.classList.add('bump')} }",
+    "causes": "function causes(){ if(ROADS) $('#cChips').hidden=true; else chips('#cChips',cType,[['طرق','الطرق'],['إنارة','الإنارة'],['أرصفة','الأرصفة']],v=>{cType=v;causes()}); const c=CAUSES[cType], m=c.f[0][1]; $('#cTitle').textContent='العوامل المؤثرة في أعطال '+{'طرق':'الطرق','إنارة':'الإنارة','أرصفة':'الأرصفة'}[cType]; $('#cBars').innerHTML=c.f.map(([n,v],i)=>`<div class=\"fb\" style=\"--w:0%;--c:${i?'var(--teal)':'var(--gold)'}\" data-w=\"${v/m*100}\"><span>${n}</span><i></i><b>${v}%</b></div>`).join(''); requestAnimationFrame(()=>requestAnimationFrame(()=>document.querySelectorAll('#cBars .fb').forEach(e=>e.style.setProperty('--w',e.dataset.w+'%')))); $('#cPat').innerHTML=c.pat.map(([p,s])=>`<li><p>${p}</p><span>${s}</span></li>`).join(''); }",
+    "chips": "function chips(id,cur,opts,fn){ $(id).innerHTML=opts.map(([v,l])=>`<button class=\"chip\" aria-pressed=\"${cur===v}\" data-v=\"${v}\">${l}</button>`).join(''); $(id).onclick=e=>{const c=e.target.closest('.chip'); if(c) fn(c.dataset.v)}; }",
+    "curves": "function curves(el,series,pal){ const Wd=520,H=250,l=34,r=10,t=10,b=26,n=series[0].s.length-1, X=i=>l+i/n*(Wd-l-r), Y=v=>t+(1-v)*(H-t-b); const col=pal||['<COLOR>','<COLOR>','<COLOR>','<COLOR>','<COLOR>','<COLOR>']; $(el).className='curve'; $(el).innerHTML=`<svg viewBox=\"0 0 ${Wd} ${H}\" role=\"img\" aria-label=\"منحنيات صمود الإصلاح\"> ${[0,.25,.5,.75,1].map(v=>`<line class=\"grid\" x1=\"${l}\" x2=\"${Wd-r}\" y1=\"${Y(v)}\" y2=\"${Y(v)}\"/><text x=\"${l-6}\" y=\"${Y(v)+4}\" text-anchor=\"end\">${v*100}%</text>`).join('')} ${[0,3,6,9,12,15,18].filter(m=>m<=n).map(m=>`<text x=\"${X(m)}\" y=\"${H-8}\" text-anchor=\"middle\">${m}</text>`).join('')} ${series.map((c,i)=>`<path pathLength=\"1\" stroke=\"${col[i%6]}\" d=\"${c.s.map((v,j)=>(j?'L':'M')+X(j).toFixed(1)+' '+Y(v).toFixed(1)).join('')}\"/>`).join('')} </svg><div class=\"clegend\">${series.map((c,i)=>`<div><i style=\"background:${col[i%6]}\"></i><b style=\"font-weight:500\">${c.n}</b> <span>${c.s12}% يصمد سنة${c.med?'، نصفه يعود خلال '+c.med+' أشهر':''}</span></div>`).join('')}</div> <p style=\"font-size:12px;color:var(--ink-2);margin-top:8px\">المحور الأفقي: أشهر بعد الإصلاح.</p>`; }",
+    "enter": "function enter(view){ if(RM) return; [...view.children].forEach(c=>{c.classList.remove('play');c.classList.add('pre');io.unobserve(c);io.observe(c)}); }",
+    "figs": "function figs(){ const open=A.filter(a=>!a.done).length, saved=A.filter(a=>a.done).reduce((s,a)=>s+a.rc-a.pc,0); const kp=MD?MD.kpi:{pred30:86,pred_hist:[52,61,58,66,70,64,77,86],last_actual:77,repeat:27,repeat_prev:34,repeat_hist:[36,35,34,33,31,30,28,27],recall5:null}; const dl=Math.round((kp.pred30-kp.last_actual)/kp.last_actual*100), rup=kp.repeat>kp.repeat_prev; const F=[ ['أعطال متوقعة خلال 30 يوماً',kp.pred30,'',(dl>=0?'أعلى بـ ':'أقل بـ ')+Math.abs(dl)+'% من الشهر الماضي',dl>0?'up':'',kp.pred_hist], ['تنبيهات بانتظار قرار',open,'من '+A.length,kp.recall5?'النموذج يلتقط '+kp.recall5+'% من الأعطال ضمن أعلى 5% خطورة':'متوسط الإنذار المبكر 19 يوماً','',[9,11,10,13,12,14,13,open]], ['بلاغات متكررة',kp.repeat,'%',(rup?'ارتفعت من ':'انخفضت من ')+kp.repeat_prev+'% قبل ستة أشهر',rup?'up':'',kp.repeat_hist], ['وفر من أوامر العمل الصادرة',saved,'ر.س',saved?'مقارنة بتكلفة الإصلاح بعد العطل':'أصدر أمر عمل وقائياً ليظهر الوفر','',[0,0,0,0,0,0,0,Math.max(4,saved/8000)]] ]; $('#figs').innerHTML=F.map(([l,v,u,d,up,h],i)=>{const m=Math.max(...h,1);return `<div class=\"fig\"><dt>${l}</dt><dd><span data-to=\"${v}\">${N(v)}</span><small>${u}</small></dd><div class=\"hist\" style=\"--hc:${['var(--high-f)','var(--gold)','var(--low-f)','var(--teal)'][i]}\" aria-hidden=\"true\">${h.map(x=>`<i style=\"height:${Math.max(3,x/m*34)}px\"></i>`).join('')}</div><div class=\"delta ${up}\">${d}</div></div>`}).join(''); if(saved!==figSaved){const sp=$('#figs').querySelectorAll('[data-to]')[3];sp._v=figSaved;tween(sp,saved);figSaved=saved} }",
+    "leaf": "function leaf(){ const el=$('#map'); if(!LM){ el.innerHTML=''; el.classList.add('geo'); $('#mapNote').textContent=window.SEGS?'خطوط الطرق حقيقية من OpenStreetMap. مستوى الخطورة ناتج النموذج على بيانات محاكاة، وهو ترتيب نسبي داخل الشبكة.':'مواقع المناطق تقريبية، ومواقع التنبيهات توضيحية.'; LM=L.map(el,{zoomControl:true}).setView([25.45,49.65],11); LM.attributionControl.setPrefix(false); LT=L.tileLayer(tileUrl(),{maxZoom:19,attribution:'&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'}).addTo(LM); if(window.SEGS){ const cv=L.canvas({padding:.4}), hi=L.layerGroup(); LLow=L.layerGroup(); const pop=r=>`<b>${SEGS.names[r[4]]}</b>${SEGS.areas?SEGS.areas[r[6]]+'<br>':''}مستوى الخطورة: ${SEGN[r[1]]}<br>احتمالية العطل خلال 90 يوماً ${r[2]}%<br>حالة الرصف PCI ${r[3]} من 100 · الطول ${r[5]} م${r[7]!=null?'<br>الارتفاع '+r[7]+' م':''}`; [...SEGS.rows].sort((a,b)=>a[1]-b[1]).forEach(r=>{ L.polyline(r[0],{renderer:cv,color:SEGC[r[1]],weight:r[1]>=2?4.5:2.6,opacity:r[1]?.95:.6}).bindPopup(()=>pop(r)).addTo(r[1]>=2?hi:LLow)}); LLow.addTo(LM); hi.addTo(LM); } LG=L.layerGroup().addTo(LM); leafFit(); } if(LLow){ segF?LM.removeLayer(LLow):LLow.addTo(LM) } LG.clearLayers(); A.filter(a=>!mapType||a.ty===mapType).forEach(a=>{ const g=GEO[a.d]; if(!g) return; let h=7; for(const ch of a.id) h=(h*31+ch.charCodeAt(0))%9973; const ang=h/9973*6.283, r=.011+(h%7)*.0022, s=sevOf(a.p); L.circleMarker(a.ll||[g[0]+Math.sin(ang)*r,g[1]+Math.cos(ang)*r*1.1],{radius:7,color:'<COLOR>',weight:2,fillColor:HEX[s[0]],fillOpacity:1}) .bindPopup(`<b>${a.t}</b>${a.cls||a.ty} · ${a.issue}<br>احتمالية العطل ${a.p}%${a.pci!=null?' · PCI '+a.pci:''}${a.done?'<br>تمت جدولة أمر العمل':''}`).addTo(LG); }); D.forEach(d=>{ const lv=riskLv(d.risk), size=ROADS?34:Math.round(28+Math.sqrt(d.a)*.85), dim=mapType&&!dCount(d); const icon=L.divIcon({className:'',iconSize:[size,size],iconAnchor:[size/2,size/2],html:`<div class=\"pin ${lv}${d.n===dSel?' sel':''}${d.risk>=75?' pulse':''}\" style=\"--s:${size}px;opacity:${dim?.4:1}\"><b>${d.risk}</b><span>${d.n}</span></div>`}); L.marker(GEO[d.n],{icon,title:d.n,alt:d.n+'، مؤشر الخطورة '+d.risk,zIndexOffset:d.n===dSel?1000:d.risk}).on('click',()=>{dSel=d.n;map()}).addTo(LG); }); }",
+    "leafFit": "function leafFit(){ if(!LM) return; LM.invalidateSize(); if(!LFit&&$('#map').offsetWidth){ LM.fitBounds(D.filter(d=>d.n!=='العقير').map(d=>GEO[d.n]),{padding:[46,46]}); LFit=true } }",
+    "map": "function map(){ if(ROADS) chips('#mapChips',segF,[['','كل المقاطع'],['hi','الحرجة والمرتفعة فقط']],v=>{segF=v;map()}); else chips('#mapChips',mapType,[['','كل الأصول'],['طرق','الطرق'],['إنارة','الإنارة'],['أرصفة','الأرصفة']],v=>{mapType=v;map()}); const P=n=>D.find(d=>d.n===n); if(window.L) leaf(); else { const Ln=(a,b)=>`M${P(a).x} ${P(a).y}L${P(b).x} ${P(b).y}`; const roads=[['العيون','المبرز'],['المبرز','الهفوف'],['الهفوف','المنيزلة'],['المنيزلة','الجشة'],['الجشة','العقير'],['المبرز','الشعبة'],['الشعبة','العمران'],['العمران','الجشة'],['الهفوف','الطرف'],['المنيزلة','الجفر'],['الجفر','الطرف']]; $('#map').innerHTML=`<svg viewBox=\"150 20 450 350\" role=\"img\" aria-label=\"مخطط توضيحي لمناطق الأحساء حسب مستوى الخطورة\"> ${roads.map(r=>`<path class=\"road\" pathLength=\"1\" d=\"${Ln(...r)}\"/>`).join('')}${roads.map(r=>`<path class=\"road2\" d=\"${Ln(...r)}\"/>`).join('')} <text class=\"note\" x=\"548\" y=\"52\">الخليج العربي</text> ${D.map((d,i)=>{const r=12+Math.sqrt(d.a)*.95, c=dCount(d), dim=mapType&&!c; return `<g class=\"d ${d.n===dSel?'sel':''}\" data-d=\"${d.n}\" style=\"--i:${i}\" tabindex=\"0\" role=\"button\" aria-label=\"${d.n}، مؤشر الخطورة ${d.risk}\" opacity=\"${dim?.35:1}\">${d.n===dSel||d.risk>=75?`<circle class=\"ring\" style=\"color:${d.n===dSel?'var(--brand)':col[riskLv(d.risk)]}\" cx=\"${d.x}\" cy=\"${d.y}\" r=\"${r}\"/>`:''}<circle class=\"b\" cx=\"${d.x}\" cy=\"${d.y}\" r=\"${r}\" fill=\"${col[riskLv(d.risk)]}\"/><text class=\"num ${['high','med'].includes(riskLv(d.risk))?'dk':''}\" x=\"${d.x}\" y=\"${d.y+4.500}\">${d.risk}</text><text x=\"${d.x}\" y=\"${d.y+r+15}\">${d.n}</text></g>`}).join('')} </svg>`; $('#map').onclick=e=>{const g=e.target.closest('g.d'); if(g){dSel=g.dataset.d;map()}}; $('#map').onkeydown=e=>{const g=e.target.closest('g.d'); if(g&&(e.key==='Enter'||e.key===' ')){e.preventDefault();dSel=g.dataset.d;map();$(`#map g[data-d=\"${dSel}\"]`).focus()}}; } const d=P(dSel), [sv,sl]=[riskLv(d.risk),{crit:'حرج',high:'مرتفع',med:'متوسط',low:'منخفض'}[riskLv(d.risk)]]; const la=A.filter(a=>a.d===d.n&&(!mapType||a.ty===mapType)); $('#dp').innerHTML=`<div class=\"head-row\"><h3>${d.n}</h3><span class=\"sev s-${sv}\">${sl}</span></div> <div class=\"kv\"><div><b>${d.risk}</b>مؤشر الخطورة</div><div><b>${d.p}</b>عطل متوقع، 30 يوماً</div><div><b>${d.pci!=null?d.pci:N(d.a)}</b>${d.pci!=null?'متوسط PCI':'أصل مرصود'}</div></div>${d.km?`<p style=\"font-size:14px;margin-bottom:6px\"><span style=\"color:var(--ink-2)\">الشبكة: </span>${N(d.a)} مقطعاً بطول ${N(d.km)} كم</p>`:''} <p style=\"font-size:14px\"><span style=\"color:var(--ink-2)\">العامل الأبرز: </span>${d.c}</p> <h4>تنبيهات المنطقة${mapType?' ('+mapType+')':''}</h4> ${la.length?`<ul class=\"rows\">${la.map(a=>`<li><span class=\"t\">${a.t}</span><span class=\"m\">${a.cls||a.ty} · ${a.issue}</span><span class=\"v\" style=\"color:${tcol[sevOf(a.p)[0]]}\">${a.p}%<small>${a.done?'تمت الجدولة':'خلال '+a.days+' يوماً'}</small></span></li>`).join('')}</ul>`:`<p class=\"empty\"><b>لا تنبيهات هنا</b>لا يتوقع النموذج أعطالاً من هذا النوع خلال 12 أسبوعاً.</p>`}`; if(dpLast!==dSel+mapType){ if(dpLast) [...$('#dp').children].forEach((c,i)=>anim(c,[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],480,i*60)); dpLast=dSel+mapType } }",
+    "nav": "function nav(){ $('#nav').innerHTML='<i class=\"pill\"></i>'+VIEWS.map(([k,l],i)=>`<a href=\"#${k}\" data-v=\"${k}\" style=\"--i:${i}\">${ic(k)}<span>${l}</span>${k==='alerts'?'<span class=\"n\" id=\"badge\"></span>':''}</a>`).join(''); badge(); route(false); }",
+    "openAnim": "function openAnim(sel){ const x=$(sel+' tr.x td'); if(x) [...x.children].forEach((c,i)=>anim(c,[{opacity:0,transform:'translateY(-12px)'},{opacity:1,transform:'none'}],500,i*90)) }",
+    "pill": "function pill(){ const a=$('#nav a[aria-current]'), p=$('#nav .pill'); if(!a) return; p.style.width=a.offsetWidth+'px'; p.style.height=a.offsetHeight+'px'; p.style.transform=`translate(${a.offsetLeft}px,${a.offsetTop}px)`; }",
+    "play": "function play(el){ el.classList.remove('pre'); el.classList.add('play'); el.querySelectorAll('[data-to]').forEach(x=>{x._v=0;tween(x,+x.dataset.to,1500)}); clearTimeout(el._pt); el._pt=setTimeout(()=>el.classList.remove('play'),3400); }",
+    "recs": "function recs(){ let b=+$('#bud').value, n=0,f=0,s=0; const rows=$('#rBody').rows; $('#budOut').textContent=SAR(b); R.forEach((r,i)=>{const on=r.c<=b; if(on){b-=r.c;n++;f+=r.f;s+=r.s-r.c} rows[i].classList.toggle('off',!on); rows[i].querySelector('.fund').textContent=on?'ممول':'خارج الميزانية'}); $('#sN').textContent=n+' من '+R.length; tween($('#sF'),f,500); tween($('#sS'),s,500); }",
+    "route": "function route(scroll=true){ let v=location.hash.slice(1); if(!VIEWS.some(x=>x[0]===v)) v='overview'; const go=()=>{ document.querySelectorAll('.view').forEach(e=>e.classList.toggle('on',e.id==='v-'+v)); document.querySelectorAll('#nav a').forEach(a=>a.dataset.v===v?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current')); $('#title').textContent=VIEWS.find(x=>x[0]===v)[1]; if(scroll) scrollTo(0,0); pill(); $('#nav a[aria-current]').scrollIntoView({block:'nearest',inline:'nearest'}); enter($('#v-'+v)); if(v==='map') setTimeout(leafFit,60); }; const cur=$('.view.on'); clearTimeout(rt); if(scroll&&!RM&&cur&&cur.id!=='v-'+v){ const an=cur.animate([{opacity:1,transform:'none'},{opacity:0,transform:'translateY(-12px)'}],{duration:180,easing:'ease-in',fill:'forwards'}); anim($('#title'),[{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],500,180); rt=setTimeout(()=>{an.cancel();go()},180); } else go(); }",
+    "setTheme": "function setTheme(t,save){ document.documentElement.dataset.theme=t; if(save) try{localStorage.setItem('istibaq-theme',t)}catch(e){} const b=$('#themeBtn'), dark=t==='dark'; b.querySelector('path').setAttribute('d',dark?SUN:MOON); b.querySelector('span').textContent=dark?'الوضع الفاتح':'الوضع الداكن'; b.setAttribute('aria-pressed',dark); }",
+    "step": "function step(t){ if(el._t!==t0) return; const p=Math.min(1,Math.max(0,(t-t0)/dur)), e=1-Math.pow(1-p,4); el.textContent=N(Math.round(from+(to-from)*e))+suf; if(p<1) requestAnimationFrame(step) }",
+    "toast": "function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),3200)}",
+    "tween": "function tween(el,to,dur=1000){ const from=el._v||0, t0=performance.now(), suf=el.dataset.suf||''; el._v=to; el._t=t0; if(RM||from===to){el.textContent=N(to)+suf;return} setTimeout(()=>{ if(el._t===t0) el.textContent=N(to)+suf },dur+80); (function step(t){ if(el._t!==t0) return; const p=Math.min(1,Math.max(0,(t-t0)/dur)), e=1-Math.pow(1-p,4); el.textContent=N(Math.round(from+(to-from)*e))+suf; if(p<1) requestAnimationFrame(step) })(t0); }"
+   },
+   "pathLength_in_js_templates": 2,
+   "selectors_referenced": [
+    "#",
+    "#aBody",
+    "#aBody tr[data-id=\"${}\"]",
+    "#aCnt",
+    "#arc1",
+    "#badge",
+    "#bud",
+    "#budOut",
+    "#cBars",
+    "#cBars .fb",
+    "#cChips",
+    "#cPat",
+    "#cTitle",
+    "#caps",
+    "#dp",
+    "#eN",
+    "#eR",
+    "#eX",
+    "#fSev",
+    "#fType",
+    "#figs",
+    "#kBody",
+    "#kBody tr[data-n=\"${}\"]",
+    "#kCsv",
+    "#kHead",
+    "#mCm",
+    "#mCmp",
+    "#mFigs",
+    "#mFour",
+    "#mImp",
+    "#mLift",
+    "#mSrc",
+    "#mSub",
+    "#mSup",
+    "#map",
+    "#map g[data-d=\"${}\"]",
+    "#mapNote",
+    "#matK",
+    "#matS",
+    "#nav",
+    "#nav .pill",
+    "#nav a",
+    "#nav a[aria-current]",
+    "#optNote",
+    "#pciBars",
+    "#pciSec",
+    "#pciSub",
+    "#pilotHood",
+    "#q",
+    "#rBody",
+    "#sF",
+    "#sN",
+    "#sS",
+    "#survSec",
+    "#themeBtn",
+    "#title",
+    "#toast",
+    "#topAlerts",
+    "#topDist",
+    "#topDistH",
+    "#topDistS",
+    "#v-",
+    "#v-alerts",
+    "#v-contractors",
+    "#v-materials",
+    "#v-model",
+    "#volT",
+    "#wkTag",
+    ".bay",
+    ".chip",
+    ".flow",
+    ".fund",
+    ".pitch",
+    ".play",
+    ".shift div",
+    ".view",
+    ".view.on",
+    "[data-go]",
+    "[data-to]",
+    "a",
+    "button,tr,g,input,select",
+    "g.d",
+    "path",
+    "span",
+    "th button",
+    "tr.r"
+   ],
+   "timing_numbers_per_call": [
+    {
+     "call": "el.animate(kf,{duration:dur,delay,easing:EASE,fill:'backwards'})",
+     "kind": "animate",
+     "numbers": []
+    },
+    {
+     "call": "cur.animate([{opacity:1,transform:'none'},{opacity:0,transform:'translateY(-12px)'}],{dura",
+     "kind": "animate",
+     "numbers": [
+      "1",
+      "0",
+      "180"
+     ]
+    },
+    {
+     "call": "document.documentElement.animate({clipPath:[`circle(0px at ${x}px ${y}px)`,`circle(${R}px ",
+     "kind": "animate",
+     "numbers": [
+      "750"
+     ]
+    },
+    {
+     "call": "anim(c,[{opacity:0,transform:'translateY(-12px)'},{opacity:1,transform:'none'}],500,i*90)",
+     "kind": "anim",
+     "numbers": [
+      "0",
+      "1",
+      "500",
+      "90"
+     ]
+    },
+    {
+     "call": "anim($('#title'),[{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],50",
+     "kind": "anim",
+     "numbers": [
+      "0",
+      "1",
+      "500",
+      "180"
+     ]
+    },
+    {
+     "call": "anim(c,[{opacity:0,transform:'translateY(10px)'},{opacity:1,transform:'none'}],480,i*60)",
+     "kind": "anim",
+     "numbers": [
+      "0",
+      "1",
+      "480",
+      "60"
+     ]
+    },
+    {
+     "call": "tween(x,+x.dataset.to,1500)",
+     "kind": "tween",
+     "numbers": [
+      "1500"
+     ]
+    },
+    {
+     "call": "tween(sp,saved)",
+     "kind": "tween",
+     "numbers": []
+    },
+    {
+     "call": "tween($('#sF'),f,500)",
+     "kind": "tween",
+     "numbers": [
+      "500"
+     ]
+    },
+    {
+     "call": "tween($('#sS'),s,500)",
+     "kind": "tween",
+     "numbers": [
+      "500"
+     ]
+    },
+    {
+     "call": "openAnim('#aBody')",
+     "kind": "openAnim",
+     "numbers": []
+    },
+    {
+     "call": "openAnim('#kBody')",
+     "kind": "openAnim",
+     "numbers": []
+    },
+    {
+     "call": "setTimeout(()=>{ if(el._t===t0) el.textContent=N(to)+suf },dur+80)",
+     "kind": "setTimeout",
+     "numbers": [
+      "80"
+     ]
+    },
+    {
+     "call": "setTimeout(()=>play(el),i++*120)",
+     "kind": "setTimeout",
+     "numbers": [
+      "120"
+     ]
+    },
+    {
+     "call": "setTimeout(()=>el.classList.remove('play'),3400)",
+     "kind": "setTimeout",
+     "numbers": [
+      "3400"
+     ]
+    },
+    {
+     "call": "setTimeout(leafFit,60)",
+     "kind": "setTimeout",
+     "numbers": [
+      "60"
+     ]
+    },
+    {
+     "call": "setTimeout(()=>{an.cancel();go()},180)",
+     "kind": "setTimeout",
+     "numbers": [
+      "180"
+     ]
+    },
+    {
+     "call": "setTimeout(()=>t.classList.remove('on'),3200)",
+     "kind": "setTimeout",
+     "numbers": [
+      "3200"
+     ]
+    },
+    {
+     "call": "new IntersectionObserver(es=>{let i=0; es.forEach(e=>{ if(!e.isIntersecting) return; io.un",
+     "kind": "IntersectionObserver",
+     "numbers": [
+      "0",
+      "120",
+      ".06"
+     ]
+    },
+    {
+     "call": "new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.ad",
+     "kind": "IntersectionObserver",
+     "numbers": [
+      ".3"
+     ]
+    }
+   ],
+   "timing_numbers_sorted": [
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    ".06",
+    ".3",
+    "1",
+    "1",
+    "1",
+    "1",
+    "60",
+    "60",
+    "80",
+    "90",
+    "120",
+    "120",
+    "180",
+    "180",
+    "180",
+    "480",
+    "500",
+    "500",
+    "500",
+    "500",
+    "750",
+    "1500",
+    "3200",
+    "3400"
+   ],
+   "top_level_motion_lines": [
+    "const VIEWS=[['overview','نظرة عامة'],['map','خريطة المخاطر'],['alerts','التنبيهات المبكرة'],['causes','الأسباب الجذرية'],['contractors','أداء المقاولين'],['materials','المواد المستخدمة'],['recs','التوصيات الاستباقية'],['model','النموذج والبيانات'],['about','عن المنظومة']];",
+    "const RM=matchMedia('(prefers-reduced-motion:reduce)').matches, EASE='cubic-bezier(.16,1,.3,1)';",
+    "document.documentElement.classList.add('js');",
+    "const io=new IntersectionObserver(es=>{let i=0; es.forEach(e=>{ if(!e.isIntersecting) return; io.unobserve(e.target); const el=e.target; setTimeout(()=>play(el),i++*120) })},{threshold:.06});",
+    "document.addEventListener('pointerdown',e=>{const v=e.target.closest('.play'); if(v&&e.target.closest('button,tr,g,input,select')) v.classList.remove('play')});",
+    "addEventListener('hashchange',()=>route());",
+    "addEventListener('resize',pill);",
+    "let tt; function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('on');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('on'),3200)}",
+    "document.addEventListener('click',e=>{",
+    "['q','fType','fSev'].forEach(i=>$('#'+i).addEventListener('input',alerts));",
+    "$('#v-alerts').addEventListener('click',e=>{",
+    "const r=e.target.closest('tr.r'); if(r){aOpen=aOpen===r.dataset.id?null:r.dataset.id;alerts();openAnim('#aBody')}",
+    "$('#aBody').addEventListener('keydown',e=>{const r=e.target.closest('tr.r');if(r&&e.target===r&&(e.key==='Enter'||e.key===' ')){e.preventDefault();const id=r.dataset.id;aOpen=aOpen===id?null:id;alerts();$(`#aBody tr[data-id=\"${id}\"]`).focus()}});",
+    "$('#v-contractors').addEventListener('click',e=>{",
+    "const r=e.target.closest('tr.r'); if(r){kOpen=kOpen===r.dataset.n?null:r.dataset.n;contractors();openAnim('#kBody')}",
+    "$('#kBody').addEventListener('keydown',e=>{const r=e.target.closest('tr.r');if(r&&(e.key==='Enter'||e.key===' ')){e.preventDefault();const n=r.dataset.n;kOpen=kOpen===n?null:n;contractors();$(`#kBody tr[data-n=\"${n}\"]`).focus()}});",
+    "$('#bud').addEventListener('input',recs);",
+    "document.querySelectorAll('.shift div').forEach((d,i)=>d.style.setProperty('--i',i));",
+    "overview(); map(); alerts(); causes(); contractors(); recs(); modelView(); roadsExtras(); materialsView(); fourTypes(); nav();",
+    "new IntersectionObserver((es,o)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target)}}),{threshold:.3}).observe($('.flow'));",
+    "document.fonts&&document.fonts.ready.then(pill);",
+    "setTheme(document.documentElement.dataset.theme);",
+    "$('#themeBtn').addEventListener('click',e=>{",
+    "const next=document.documentElement.dataset.theme==='dark'?'light':'dark', r=e.currentTarget.getBoundingClientRect(), x=r.left+r.width/2, y=r.top+r.height/2;",
+    "if(RM||!document.startViewTransition) return setTheme(next,true);",
+    "const vt=document.startViewTransition(()=>setTheme(next,true));",
+    "document.documentElement.animate({clipPath:[`circle(0px at ${x}px ${y}px)`,`circle(${R}px at ${x}px ${y}px)`]},{duration:750,easing:EASE,pseudoElement:'::view-transition-new(root)'})}).catch(()=>{});",
+    "$('.pitch').addEventListener('pointermove',e=>{const r=e.currentTarget.getBoundingClientRect();e.currentTarget.style.setProperty('--mx',(e.clientX-r.left)/r.width*100+'%');e.currentTarget.style.setProperty('--my',(e.clientY-r.top)/r.height*100+'%')});"
+   ]
+  }
+ },
+ "strict_sha256": "09f6549e9000f22bf5035242a2ac7c2893205099bf26e3628ad9b064e41c1eb2"
+}
