@@ -532,12 +532,6 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
 .nav a svg.ic{stroke-width:var(--sh-icon-stroke)}
 @media (max-width:1180px){.top{padding-inline:20px;gap:8px}.top .btn{padding-inline:12px}.top>span:not(.demo){font-size:12px!important}.top h1{font-size:19px}}
 @media (max-width:820px){a.more{min-height:44px;display:inline-flex;align-items:center}input[type=range]{min-height:44px}.leaflet-bar a{width:44px!important;height:44px!important;line-height:44px!important}}
-/* qasr photograph: closing band of the about view, untouched artwork on its measured ground */
-.qasr{display:none;background:var(--sh-qasr-ground)}
-body:has(#v-about.on) .qasr{display:block}
-.qasr-img{max-width:1600px;min-width:320px;margin-inline:auto;aspect-ratio:1600/780;background:url(brand/assets/qasr-light-1600.jpg) center/100% 100% no-repeat;background-image:image-set(url(brand/assets/qasr-light-1600.webp) type("image/webp"),url(brand/assets/qasr-light-1600.jpg) type("image/jpeg"))}
-[data-theme=dark] .qasr-img{background-image:url(brand/assets/qasr-dark-1600.jpg);background-image:image-set(url(brand/assets/qasr-dark-1600.webp) type("image/webp"),url(brand/assets/qasr-dark-1600.jpg) type("image/jpeg"))}
-@media (max-width:820px){.qasr-img{background-image:image-set(url(brand/assets/qasr-light-800.webp) type("image/webp"),url(brand/assets/qasr-light-800.jpg) type("image/jpeg"))}[data-theme=dark] .qasr-img{background-image:image-set(url(brand/assets/qasr-dark-800.webp) type("image/webp"),url(brand/assets/qasr-dark-800.jpg) type("image/jpeg"))}}
 @media (max-width:820px){
   .rail{border-inline-end:0;border-bottom:1px solid var(--line)}
   .figs .fig{padding:14px 16px}
@@ -846,9 +840,6 @@ body:has(#v-about.on) .qasr{display:block}
   </div>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<!-- qasr photograph (raster artwork extracted from the guide). It closes the «عن المنظومة» view: it is shown only while #v-about is on
-     and sits right under that view in the main column. It lives outside .app because the view's markup is frozen by the motion signature. -->
-<div class="qasr"><div class="qasr-img" role="img" aria-label="قصر صاهود في المبرز بإضاءته الأرضية الدافئة"></div></div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="data/model_output.js"></script>
