@@ -2,6 +2,7 @@
  "advisory": {
   "css": {
    "hardcoded_color_counts_css": {
+    "#ffffff": 1,
     "rgba(255,255,255,.3)": 1
    },
    "js_var_usages_full": [
@@ -200,7 +201,7 @@
    },
    "token_usage_counts": {
     "--brand": 6,
-    "--crit": 2,
+    "--crit": 3,
     "--crit-f": 10,
     "--crit-soft": 1,
     "--date": 6,
@@ -214,9 +215,9 @@
     "--high-f": 9,
     "--high-soft": 1,
     "--hover": 1,
-    "--ink": 17,
-    "--ink-2": 46,
-    "--line": 26,
+    "--ink": 18,
+    "--ink-2": 49,
+    "--line": 27,
     "--low": 7,
     "--low-f": 7,
     "--low-soft": 2,
@@ -226,7 +227,7 @@
     "--med-f": 5,
     "--med-soft": 2,
     "--off": 2,
-    "--r": 10,
+    "--r": 11,
     "--rail": 15,
     "--rail-2": 6,
     "--rail-bg": 1,
@@ -234,10 +235,10 @@
     "--rail-mute": 2,
     "--road": 2,
     "--road2": 2,
-    "--shadow": 1,
+    "--shadow": 2,
     "--spring": 14,
     "--sunk": 5,
-    "--surface": 12,
+    "--surface": 13,
     "--teal": 8,
     "--topbg": 2,
     "--xbg": 1
@@ -472,7 +473,7 @@
     "https://fonts.googleapis.com",
     "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Inter:wght@400;600&display=swap"
    ],
-   "header_skeleton": "header.top(h1#title span.demo span button.btn#themeBtn(svg.ic(path) span) button.btn(svg.ic(path)))",
+   "header_skeleton": "header.top(h1#title span.demo span button.btn#tourBtn(svg.ic(path)) button.btn#themeBtn(svg.ic(path) span) button.btn(svg.ic(path)))",
    "inline_styles_with_color_in_static_html": [
     "span {font-size:13px;color:var(--ink-2)}",
     "p {font-size:14px;color:var(--ink-2);margin:0}",
@@ -488,16 +489,21 @@
    ],
    "static_class_counts": {
     "am-cite": 5,
-    "am-h3": 2,
+    "am-h3": 3,
     "am-hint": 6,
     "am-phases": 1,
     "am-pick": 1,
+    "am-qr": 1,
     "am-steps": 1,
+    "am-tour": 1,
+    "am-tour-f": 1,
+    "am-tour-h": 1,
+    "am-up": 1,
     "app": 1,
     "arcade": 2,
     "arr": 2,
     "brand": 1,
-    "btn": 4,
+    "btn": 9,
     "caps": 1,
     "cnt": 1,
     "col": 3,
@@ -505,13 +511,13 @@
     "demo": 1,
     "dp": 1,
     "fbars": 7,
-    "figs": 2,
+    "figs": 3,
     "filters": 3,
     "flow": 1,
     "g": 3,
     "goal": 1,
     "head-row": 3,
-    "ic": 5,
+    "ic": 6,
     "lede": 6,
     "legend": 3,
     "lockup": 1,
@@ -524,28 +530,27 @@
     "mk-high": 2,
     "mk-low": 2,
     "mk-med": 1,
-    "more": 9,
+    "more": 10,
     "nav": 1,
     "pat": 1,
     "pitch": 1,
-    "qasr": 1,
-    "qasr-img": 1,
+    "pri": 2,
     "rail": 1,
     "rail-foot": 1,
     "rows": 2,
     "s-high": 5,
     "s-low": 3,
-    "s-med": 1,
-    "sec": 36,
-    "sev": 9,
+    "s-med": 3,
+    "sec": 38,
+    "sev": 11,
     "shift": 1,
     "sim": 1,
     "simout": 2,
-    "sub": 31,
+    "sub": 33,
     "synth": 1,
     "toast": 1,
     "top": 1,
-    "tw": 15,
+    "tw": 16,
     "view": 9
    },
    "static_ids": [
@@ -593,6 +598,8 @@
     "pciSec",
     "pciSub",
     "pilotHood",
+    "probFigs",
+    "probSec",
     "q",
     "rBody",
     "sF",
@@ -608,6 +615,16 @@
     "topDist",
     "topDistH",
     "topDistS",
+    "tour",
+    "tourBtn",
+    "tourN",
+    "tourNext",
+    "tourP",
+    "tourPrev",
+    "tourT",
+    "tourX",
+    "upFile",
+    "upOut",
     "v-about",
     "v-alerts",
     "v-causes",
@@ -629,97 +646,97 @@
     {
      "code": "const HEX={crit:'#E5484D',high:'#C8600F',med:'#AD7A05',lo",
      "color": "#E5484D",
-     "line": 1077
+     "line": 1104
     },
     {
      "code": "const HEX={crit:'#E5484D',high:'#C8600F',med:'#AD7A05',low:'#8B8070'};",
      "color": "#C8600F",
-     "line": 1077
+     "line": 1104
     },
     {
      "code": "const HEX={crit:'#E5484D',high:'#C8600F',med:'#AD7A05',low:'#8B8070'};",
      "color": "#AD7A05",
-     "line": 1077
+     "line": 1104
     },
     {
      "code": "{crit:'#E5484D',high:'#C8600F',med:'#AD7A05',low:'#8B8070'};",
      "color": "#8B8070",
-     "line": 1077
+     "line": 1104
     },
     {
      "code": "const SEGC=['#7A6F60','#AD7A05','#C8600F','#E5484D'],",
      "color": "#7A6F60",
-     "line": 1079
+     "line": 1106
     },
     {
      "code": "const SEGC=['#7A6F60','#AD7A05','#C8600F','#E5484D'], SEGN=['من",
      "color": "#AD7A05",
-     "line": 1079
+     "line": 1106
     },
     {
      "code": "const SEGC=['#7A6F60','#AD7A05','#C8600F','#E5484D'], SEGN=['منخفض','متوس",
      "color": "#C8600F",
-     "line": 1079
+     "line": 1106
     },
     {
      "code": "const SEGC=['#7A6F60','#AD7A05','#C8600F','#E5484D'], SEGN=['منخفض','متوسط','مرتفع'",
      "color": "#E5484D",
-     "line": 1079
+     "line": 1106
     },
     {
      "code": "ang)*r,g[1]+Math.cos(ang)*r*1.1],{radius:7,color:'#F1E8D7',weight:2,fillColor:HEX[s[0]],fi",
      "color": "#F1E8D7",
-     "line": 1102
+     "line": 1129
     },
     {
      "code": "const col=pal||['#2A1F17','#6F4E33','#A99A6E','#5B5141','",
      "color": "#2A1F17",
-     "line": 1219
+     "line": 1246
     },
     {
      "code": "const col=pal||['#2A1F17','#6F4E33','#A99A6E','#5B5141','#8B8070','",
      "color": "#6F4E33",
-     "line": 1219
+     "line": 1246
     },
     {
      "code": "const col=pal||['#2A1F17','#6F4E33','#A99A6E','#5B5141','#8B8070','#9A7450'];",
      "color": "#A99A6E",
-     "line": 1219
+     "line": 1246
     },
     {
      "code": "const col=pal||['#2A1F17','#6F4E33','#A99A6E','#5B5141','#8B8070','#9A7450'];",
      "color": "#5B5141",
-     "line": 1219
+     "line": 1246
     },
     {
      "code": "ol=pal||['#2A1F17','#6F4E33','#A99A6E','#5B5141','#8B8070','#9A7450'];",
      "color": "#8B8070",
-     "line": 1219
+     "line": 1246
     },
     {
      "code": "#2A1F17','#6F4E33','#A99A6E','#5B5141','#8B8070','#9A7450'];",
      "color": "#9A7450",
-     "line": 1219
+     "line": 1246
     },
     {
      "code": "curves('#matSurv',mt.repair,['#2A1F17','#6F4E33','#A99A6E']);",
      "color": "#2A1F17",
-     "line": 1242
+     "line": 1269
     },
     {
      "code": "curves('#matSurv',mt.repair,['#2A1F17','#6F4E33','#A99A6E']);",
      "color": "#6F4E33",
-     "line": 1242
+     "line": 1269
     },
     {
      "code": "curves('#matSurv',mt.repair,['#2A1F17','#6F4E33','#A99A6E']);",
      "color": "#A99A6E",
-     "line": 1242
+     "line": 1269
     },
     {
      "code": "دّلة بالبوليمر'], C=['var(--gold)','var(--teal)','#A99A6E'];",
      "color": "#A99A6E",
-     "line": 1245
+     "line": 1272
     }
    ],
    "icon_constants_sha256": {
@@ -729,67 +746,67 @@
    },
    "inline_styles_with_color_in_js_templates": [
     {
-     "line": 1032,
+     "line": 1059,
      "style": "color:${tcol[sevOf(a.p)[0]]}"
     },
     {
-     "line": 1034,
+     "line": 1061,
      "style": "color:var(--ink-2);font-size:12.5px"
     },
     {
-     "line": 1060,
+     "line": 1087,
      "style": "color:${d.n===dSel?'var(--brand)':col[riskLv(d.risk)]}"
     },
     {
-     "line": 1068,
+     "line": 1095,
      "style": "color:var(--ink-2)"
     },
     {
-     "line": 1069,
+     "line": 1096,
      "style": "color:var(--ink-2)"
     },
     {
-     "line": 1071,
+     "line": 1098,
      "style": "color:${tcol[sevOf(a.p)[0]]}"
     },
     {
-     "line": 1119,
+     "line": 1146,
      "style": "font-size:13px;color:var(--ink-2)"
     },
     {
-     "line": 1119,
+     "line": 1146,
      "style": "font-size:12.5px;color:var(--ink-2)"
     },
     {
-     "line": 1119,
+     "line": 1146,
      "style": "color:var(--ink-2);font-size:13px"
     },
     {
-     "line": 1162,
+     "line": 1189,
      "style": "font-size:13px;color:var(--ink-2)"
     },
     {
-     "line": 1181,
+     "line": 1208,
      "style": "color:var(--low)"
     },
     {
-     "line": 1187,
+     "line": 1214,
      "style": "color:var(--low)"
     },
     {
-     "line": 1225,
+     "line": 1252,
      "style": "background:${col[i%6]}"
     },
     {
-     "line": 1226,
+     "line": 1253,
      "style": "font-size:12px;color:var(--ink-2);margin-top:8px"
     },
     {
-     "line": 1243,
+     "line": 1270,
      "style": "color:var(--ink-2);font-size:12.5px"
     },
     {
-     "line": 1246,
+     "line": 1273,
      "style": "width:${c[k]}%;background:${C[i]}"
     }
    ],
@@ -803,7 +820,7 @@
     "overview": "83d6cf126c86884e30aa302229e689e51ed77a7fbc8452b6f0ffe2950ce6de67",
     "roadsExtras": "d18872ede08194e75eaf1b51e86a25c2c78c653b45926f04ef34fa71ba037797"
    },
-   "script_sha256_color_masked": "03e31fa08175c9fa60567c00792629c19ad4f7968b81687cede9a94d73862242"
+   "script_sha256_color_masked": "67a1b8524b49033f00e301ee598801f384b76294b9fc934d10f4b762eb836fd0"
   }
  },
  "signature_version": 1,
@@ -2431,12 +2448,15 @@
     "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
    ],
    "hook_class_counts_in_static_html": {
+    "am-cite": 5,
+    "am-err": 0,
+    "am-up-res": 0,
     "arch": 0,
     "arr": 2,
     "b": 0,
     "bay": 0,
     "brand": 1,
-    "btn": 4,
+    "btn": 9,
     "bump": 0,
     "caps": 1,
     "chip": 0,
@@ -2450,7 +2470,7 @@
     "empty": 0,
     "fb": 0,
     "fig": 0,
-    "figs": 2,
+    "figs": 3,
     "filters": 3,
     "flow": 1,
     "fund": 0,
@@ -2459,7 +2479,7 @@
     "head-row": 3,
     "high": 0,
     "hist": 0,
-    "ic": 5,
+    "ic": 6,
     "id": 0,
     "in": 0,
     "js": 0,
@@ -2467,7 +2487,7 @@
     "m": 0,
     "map": 1,
     "med": 0,
-    "more": 9,
+    "more": 10,
     "n": 0,
     "nav": 1,
     "note": 0,
@@ -2481,7 +2501,7 @@
     "pitch": 1,
     "play": 0,
     "pre": 0,
-    "pri": 0,
+    "pri": 2,
     "pulse": 0,
     "r": 0,
     "rail": 1,
@@ -2494,17 +2514,18 @@
     "s-": 0,
     "s-high": 5,
     "s-low": 3,
-    "s-med": 1,
+    "s-med": 3,
     "save": 0,
-    "sec": 36,
+    "sec": 38,
     "sel": 0,
-    "sev": 9,
+    "sev": 11,
     "shift": 1,
     "srcline": 0,
     "stackbar": 0,
     "t": 0,
     "tag": 0,
     "toast": 1,
+    "tw": 16,
     "v": 0,
     "view": 9,
     "x": 0,
@@ -2554,6 +2575,8 @@
     "pciSec": "div",
     "pciSub": "p",
     "pilotHood": "p",
+    "probFigs": "dl",
+    "probSec": "div",
     "q": "input",
     "rBody": "tbody",
     "sF": "b",
@@ -2567,6 +2590,16 @@
     "topDist": "div",
     "topDistH": "h2",
     "topDistS": "p",
+    "tour": "div",
+    "tourBtn": "button",
+    "tourN": "span",
+    "tourNext": "button",
+    "tourP": "p",
+    "tourPrev": "button",
+    "tourT": "b",
+    "tourX": "button",
+    "upFile": "input",
+    "upOut": "div",
     "v-": null,
     "v-alerts": "section",
     "v-contractors": "section",
@@ -2590,7 +2623,7 @@
     "brand": "div.brand(svg(path[pathlength=1] path[pathlength=1] circle) div(b span))",
     "flow": "div.flow(div.col(h3 ul(li li li li)) div.arr(svg.ic(path)) div.col.mid(h3 ul(li li li)) div.arr(svg.ic(path)) div.col(h3 ul(li li li li)))",
     "nav": "nav.nav#nav",
-    "pitch": "div.pitch(div(h2 p a.btn[href=#overview]) div.shift(div(s svg(path) b) div(s svg(path) b) div(s svg(path) b) div(s svg(path) b)))",
+    "pitch": "div.pitch(div(h2 p a.btn[href=#overview] div.am-qr(img span(b span))) div.shift(div(s svg(path) b) div(s svg(path) b) div(s svg(path) b) div(s svg(path) b)))",
     "rail": "aside.rail(div.brand nav.nav#nav div.rail-foot)",
     "themeBtn": "button.btn#themeBtn(svg.ic(path) span)",
     "title": "h1#title",
@@ -2665,6 +2698,7 @@
       "div.cols(div.sec(h2 p.sub div.fbars#mImp) div.sec(h2 p.sub div.tw))",
       "div.sec(h2 p.sub div.tw(table))",
       "div.sec(h2 p.sub div.tw(table))",
+      "div.sec(h2 p.sub div.am-up(label.btn.pri input#upFile[hidden] a.more) div#upOut)",
       "div.sec(h2 p.sub div.tw(table))",
       "div.sec(h2 p.sub div.tw(table))"
      ],
@@ -2672,11 +2706,12 @@
     },
     {
      "children": [
-      "div.pitch(div(h2 p a.btn[href=#overview]) div.shift(div div div div))",
+      "div.pitch(div(h2 p a.btn[href=#overview] div.am-qr) div.shift(div div div div))",
+      "div.sec#probSec[hidden](h2 p.sub(span.sev.s-med) dl.figs#probFigs)",
       "div.sec(h2 p.sub div.flow(div.col div.arr div.col.mid div.arr div.col))",
       "div.sec(h2 p.sub div.caps#caps)",
       "div.sec(h2 p.sub div.tw(table) p.am-cite)",
-      "div.sec(h2 p.sub p.am-pick#pilotHood div.am-phases(div div div) div.tw(table) h3.am-h3 div.tw(table) p.am-cite)",
+      "div.sec(h2 p.sub p.am-pick#pilotHood div.am-phases(div div div) div.tw(table) h3.am-h3(span.sev.s-med) div.tw(table) h3.am-h3 div.tw(table) p.am-cite)",
       "div.sec(h2 p.goal(em em em))"
      ],
      "view": "section.view#v-about"
@@ -2788,6 +2823,9 @@
     ]
    },
    "class_attr_templates": [
+    "am-cite",
+    "am-err",
+    "am-up-res",
     "arch",
     "b",
     "bay",
@@ -2800,6 +2838,7 @@
     "empty",
     "fb",
     "fig",
+    "figs",
     "fund",
     "grid",
     "head-row",
@@ -2833,12 +2872,16 @@
     "stackbar",
     "t",
     "tag",
+    "tw",
     "v",
     "x",
     "xact",
     "xg"
    ],
    "classes_referenced": [
+    "am-cite",
+    "am-err",
+    "am-up-res",
     "arch",
     "b",
     "bay",
@@ -2853,6 +2896,7 @@
     "empty",
     "fb",
     "fig",
+    "figs",
     "flow",
     "fund",
     "geo",
@@ -2903,6 +2947,7 @@
     "stackbar",
     "t",
     "tag",
+    "tw",
     "v",
     "view",
     "x",
@@ -3049,6 +3094,8 @@
     "pciSec",
     "pciSub",
     "pilotHood",
+    "probFigs",
+    "probSec",
     "q",
     "rBody",
     "sF",
@@ -3062,6 +3109,16 @@
     "topDist",
     "topDistH",
     "topDistS",
+    "tour",
+    "tourBtn",
+    "tourN",
+    "tourNext",
+    "tourP",
+    "tourPrev",
+    "tourT",
+    "tourX",
+    "upFile",
+    "upOut",
     "v-",
     "v-alerts",
     "v-contractors",
@@ -3162,6 +3219,8 @@
     "#pciSec",
     "#pciSub",
     "#pilotHood",
+    "#probFigs",
+    "#probSec",
     "#q",
     "#rBody",
     "#sF",
@@ -3175,6 +3234,16 @@
     "#topDist",
     "#topDistH",
     "#topDistS",
+    "#tour",
+    "#tourBtn",
+    "#tourN",
+    "#tourNext",
+    "#tourP",
+    "#tourPrev",
+    "#tourT",
+    "#tourX",
+    "#upFile",
+    "#upOut",
     "#v-",
     "#v-alerts",
     "#v-contractors",
@@ -3411,5 +3480,5 @@
    ]
   }
  },
- "strict_sha256": "09f6549e9000f22bf5035242a2ac7c2893205099bf26e3628ad9b064e41c1eb2"
+ "strict_sha256": "e8a0c0df8e932ab72f852488d5cd95bf9aea8cba6775f3bffb401a7f734fbeba"
 }

@@ -567,7 +567,23 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
 .am-phases li,.am-steps li{margin-bottom:6px}
 .am-pick{font-size:14px;margin:0 0 14px}
 .am-h3{font-size:15px;margin:18px 0 10px}
-@media (max-width:820px){.am-phases{grid-template-columns:1fr}}
+.am-qr{display:flex;align-items:center;gap:14px;margin-top:22px}
+.am-qr img{background:#FFFFFF;border-radius:var(--sh-radius-sm,6px);padding:6px;border:1px solid var(--line)}
+.am-qr b{display:block;font-weight:600;margin-bottom:2px}.am-qr span span{font-size:13px;color:var(--ink-2)}
+.am-up{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin:6px 0 4px}
+.am-up label{cursor:pointer}
+.am-up-res{margin-top:16px}
+.am-up-res .figs{margin-bottom:14px}
+.am-err{margin-top:14px;font-size:14px;color:var(--crit)}
+.am-tour{position:fixed;z-index:1200;inset-inline:0;margin-inline:auto;bottom:24px;width:min(460px,calc(100vw - 32px));background:var(--surface);color:var(--ink);border:1px solid var(--sh-border-strong);border-radius:var(--r);box-shadow:var(--shadow);padding:16px 18px}
+.am-tour-h{display:flex;justify-content:space-between;align-items:center;font-size:var(--sh-caption-size);color:var(--ink-2);margin-bottom:8px}
+.am-tour-h .btn,.am-tour-f .btn{min-height:36px;padding-block:4px}
+.am-tour>b{display:block;font-size:17px;font-weight:600;margin-bottom:6px}
+.am-tour p{margin:0 0 14px;font-size:14.5px;color:var(--ink-2)}
+.am-tour-f{display:flex;justify-content:space-between;gap:10px}
+@media (max-width:820px){.am-phases{grid-template-columns:1fr}.am-qr{display:none}.am-tour{bottom:12px}}
+@media (max-width:1180px){.top .am-tl{display:none}.top #tourBtn,.top .btn[onclick]{padding-inline:10px}.top .btn[onclick]{font-size:0;gap:0}.top .btn[onclick] svg{width:18px;height:18px}}
+@media print{.am-tour,#tourBtn{display:none}}
 @media (prefers-reduced-motion:reduce){*,*::after{animation:none!important;transition:none!important}.brand path,.map .road,.curve path{stroke-dashoffset:0!important}.js .flow:not(.in)>*,.js .pre{opacity:1}}
 @media print{.js .flow:not(.in)>*,.js .pre{opacity:1}.rail,.top .btn,.toast{display:none}.app{display:block}.view{padding:0}.top{position:static}}
 </style>
@@ -588,8 +604,9 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
       <h1 id="title"></h1>
       <span class="demo">بيانات تجريبية</span>
       <span style="font-size:13px;color:var(--ink-2)">آخر تحديث للنموذج: 19 نوفمبر 2026</span>
+      <button class="btn" id="tourBtn" type="button" aria-label="جولة العرض" title="جولة العرض"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg><span class="am-tl">جولة العرض</span></button>
       <button class="btn" id="themeBtn" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path/></svg><span></span></button>
-      <button class="btn" onclick="print()"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>تصدير التقرير</button>
+      <button class="btn" onclick="print()" aria-label="تصدير التقرير" title="تصدير التقرير"><svg class="ic" viewBox="0 0 24 24"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>تصدير التقرير</button>
     </header>
 
     <!-- ============ OVERVIEW ============ -->
@@ -746,6 +763,11 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
       <div class="sec" style="margin-top:18px"><h2>أنواع البيانات الأربعة</h2><p class="sub">ما يقوم عليه النظام، ومن أين يأتي كل نوع، ووضعه في هذا النموذج الأولي.</p>
         <div class="tw"><table><thead><tr><th>النوع</th><th>المصدر المعتمد</th><th>الوضع الحالي</th><th>ما يلزم للاكتمال</th></tr></thead><tbody id="mFour"></tbody></table></div>
       </div>
+      <div class="sec" style="margin-top:18px"><h2>اختبر النموذج على بلاغات البلدية</h2>
+        <p class="sub">ارفع ملف البلاغات بأعمدة القالب. تُربط كل بلاغ بأقرب مقطع، ثم تظهر نسبة البلاغات التي وقعت على مقاطع صنّفها النموذج مرتفعة أو حرجة، مقارنة بحصة هذه المقاطع من الشبكة. الملف يُقرأ داخل المتصفح ولا يُرسل إلى أي جهة.</p>
+        <div class="am-up"><label class="btn pri" for="upFile">اختيار ملف البلاغات (CSV)</label><input type="file" id="upFile" accept=".csv,text/csv" hidden><a class="more" href="data/templates/reports.csv" download>تنزيل القالب</a></div>
+        <div id="upOut" aria-live="polite"></div>
+      </div>
       <div class="sec" style="margin-top:18px"><h2>تفاصيل المصادر</h2><p class="sub">ما استُخدم في هذا النموذج الأولي، والجهة التي يُفترض أن تأتي منها البيانات عند التشغيل الفعلي. لم نحصل بعد على بيانات من هذه الجهات.</p>
         <div class="tw"><table><thead><tr><th>البيانات</th><th>في النموذج الأولي</th><th>المصدر المستهدف عند التشغيل</th><th>الحجم</th></tr></thead><tbody id="mSrc"></tbody></table></div>
       </div>
@@ -769,6 +791,7 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
           <h2>من إغلاق البلاغات إلى منع تكرارها.</h2>
           <p>«استباق» منظومة ذكاء اصطناعي وتحليل بيانات تساعد أمانة الأحساء وبلدياتها على التنبؤ بأعطال الطرق مقطعاً مقطعاً، ومعالجة أسبابها الجذرية قبل أن تتحول إلى بلاغ.</p>
           <a class="btn" href="#overview">ادخل المنصة</a>
+          <div class="am-qr"><img src="brand/assets/qr-istibaq.svg" width="92" height="92" alt="رمز QR لفتح استباق على الجوال"><span><b>جرّبه من جوالك</b><span dir="ltr">mobhim.github.io/ES</span></span></div>
         </div>
         <div class="shift" aria-label="التحول المستهدف">
           <div><s>صيانة بعد وقوع العطل</s><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><b>صيانة تنبؤية ووقائية</b></div>
@@ -776,6 +799,11 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
           <div><s>تقييم المقاول بالانطباع</s><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><b>تقييم بمؤشرات فعلية</b></div>
           <div><s>بيانات متفرقة</s><svg viewBox="0 0 24 24"><path d="M19 12H5M11 6l-6 6 6 6"/></svg><b>قاعدة بيانات مركزية</b></div>
         </div>
+      </div>
+
+      <div class="sec" style="margin-top:18px" id="probSec" hidden>
+        <h2>حجم المشكلة في أرقام</h2><p class="sub">طول الشبكة حقيقي من OpenStreetMap. بقية الأرقام <span class="sev s-med">تقديرية</span> من النموذج على بيانات المحاكاة، وتُستبدل بأرقام الأمانة عند توفرها.</p>
+        <dl class="figs" id="probFigs" style="margin:0"></dl>
       </div>
 
       <div class="sec" style="margin-top:18px">
@@ -821,6 +849,14 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
           <tr><td>البلاغات المتكررة في الحي</td><td>أقل من الربع نفسه في العام السابق</td></tr>
           <tr><td>العائد الاقتصادي المباشر</td><td>يُحسب بالريال من أوامر العمل الفعلية</td></tr>
         </tbody></table></div>
+        <h3 class="am-h3">تكلفة التشغيل التقريبية <span class="sev s-med">تقديري</span></h3>
+        <div class="tw"><table style="min-width:420px"><thead><tr><th>البند</th><th>التكلفة الشهرية</th><th>الافتراض</th></tr></thead><tbody>
+          <tr><td>واجهة المنصة</td><td>بلا تكلفة</td><td>صفحة ثابتة على GitHub Pages خلال التجربة</td></tr>
+          <tr><td>خادم النموذج وإعادة التدريب الشهرية</td><td>نحو 500 ر.س</td><td>خادم سحابي صغير (وحدتا معالجة و8 جيجابايت ذاكرة)</td></tr>
+          <tr><td>التحقق الميداني</td><td>بلا تكلفة مباشرة</td><td>متطوعو الأمانة وطلاب الكلية التقنية</td></tr>
+          <tr><td>مشرف الصيانة في الحي</td><td>من الكادر الحالي</td><td>ساعتان أسبوعياً لمراجعة التنبيهات</td></tr>
+          <tr><td><b style="font-weight:500">المجموع لثلاثة أشهر</b></td><td><b style="font-weight:500">نحو 1,500 ر.س</b></td><td>دون تكلفة أوامر العمل الوقائية نفسها</td></tr>
+        </tbody></table></div>
         <h3 class="am-h3">الشركاء وأدوارهم</h3>
         <div class="tw"><table><thead><tr><th>الشريك</th><th>دوره في التجربة</th><th>علاقته القائمة بالأمانة</th></tr></thead><tbody>
           <tr><td><b style="font-weight:500">أمانة الأحساء</b></td><td>تملك البيانات والقرار، وتصدر أوامر العمل.</td><td>الجهة المستفيدة</td></tr>
@@ -840,6 +876,7 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
   </div>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<div class="am-tour" id="tour" role="dialog" aria-label="جولة العرض" hidden><div class="am-tour-h"><span id="tourN"></span><button class="btn" id="tourX" type="button" aria-label="إنهاء الجولة">إنهاء</button></div><b id="tourT"></b><p id="tourP"></p><div class="am-tour-f"><button class="btn" id="tourPrev" type="button">السابق</button><button class="btn pri" id="tourNext" type="button">التالي</button></div></div>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="data/model_output.js"></script>
@@ -1297,6 +1334,80 @@ $('#volT').innerHTML=[...A].sort((a,b)=>b.p-a.p).slice(0,5).map(a=>{const [s,l]=
 
 {const ph=$('#pilotHood'), h=MD&&MD.hoods&&MD.hoods[0];
  ph.innerHTML=h?`الحي المرشح من النموذج: <b>${h.n}</b>، الأعلى خطورة بمؤشر ${h.risk} من 100 على ${h.km} كم. الاختيار النهائي لفريق الأمانة.`:'اختيار الحي لفريق الأمانة.'}
+
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const figRow=F=>F.map(([l,v,u,d])=>`<div class="fig"><dt>${l}</dt><dd>${v}<small>${u}</small></dd><div></div><div class="delta">${d}</div></div>`).join('');
+
+/* problem size: network length is real (OSM); the rest are estimates from the model on simulated data */
+{const nw=MD&&MD.network;
+ if(nw&&window.SEGS){
+  const hiKm=Math.round(SEGS.rows.filter(r=>r[1]>=2).reduce((a,r)=>a+r[5],0)/1000), rc=A.reduce((s,a)=>s+a.rc,0), pc=A.reduce((s,a)=>s+a.pc,0);
+  $('#probFigs').innerHTML=figRow([
+   ['طول شبكة الطرق المرصودة',N(nw.km),'كم',N(nw.segments)+' مقطعاً من OpenStreetMap'],
+   ['مقاطع مرتفعة أو حرجة الآن',N(hiKm),'كم',Math.round(hiKm/nw.km*100)+'% من الشبكة · تقديري'],
+   ['تنزل تحت حد الإصلاح المكلف خلال 12 شهراً',N(Math.round(nw.below55_in_12m_km)),'كم','مؤشر PCI أقل من 55 · تقديري'],
+   ['الإصلاح بعد العطل مقابل الوقاية',pc?(rc/pc).toFixed(1):'—','x','متوسط تنبيهات النموذج · تكاليف افتراضية']]);
+  $('#probSec').hidden=false }}
+
+/* guided demo tour: navigates with the existing router, adds no motion of its own */
+const TOUR=[
+ ['about','الفكرة في جملة','«استباق» ينقل صيانة طرق الأحساء من انتظار البلاغ إلى التنبؤ بالعطل قبل وقوعه، ويخدم أهداف الأمانة الستة.'],
+ ['overview','ماذا سيتعطل ومتى','كل قوس أسبوع قادم، وامتلاؤه عدد الأعطال المتوقعة. تحته التنبيهات التي تحتاج قراراً الآن والأحياء الأعلى خطورة.'],
+ ['map','أين بالضبط',`${window.SEGS?N(SEGS.rows.length)+' مقطعاً حقيقياً':'مقاطع'} من شبكة طرق الأحساء، كل مقطع ملوّن بخطورته المتوقعة. اضغط أي مقطع لتفاصيله.`],
+ ['alerts','من التنبيه إلى أمر العمل','كل تنبيه معه احتمالية العطل وسببه الجذري والإجراء الوقائي. اضغط صفاً ثم «إصدار أمر عمل وقائي».'],
+ ['contractors','من ينفّذ بجودة','تقييم المقاولين بنتائج الميدان: هل عاد العطل بعد الإصلاح؟ وبطاقة جودة مربوطة باتفاقية الأمانة مع الهيئة السعودية للمقاولين.'],
+ ['recs','أين تُصرف الميزانية','حرّك الميزانية: يموّل النظام الإجراءات الأعلى عائداً أولاً، ويحسب العائد الاقتصادي المباشر بالريال.'],
+ ['model','هل نثق بالنموذج','أداؤه على أشهر لم يرها مقابل القاعدة البسيطة، ومبادئ حوكمته، واختبار مباشر على بلاغات البلدية.'],
+ ['about','كيف نبدأ','تجربة 3 أشهر في حي واحد بالشراكة مع الكلية التقنية ومتطوعي الأمانة، بتكلفة تشغيل تقديرية نحو 1,500 ر.س. التفاصيل في «خطة التجربة» أسفل هذه الصفحة.']
+];
+let tI=-1;
+const tourShow=i=>{
+  const t=$('#tour'); tI=i;
+  if(i<0||i>=TOUR.length){ t.hidden=true; tI=-1; $('#tourBtn').focus(); return }
+  const [v,h,p]=TOUR[i]; t.hidden=false;
+  $('#tourN').textContent=`${i+1} من ${TOUR.length}`; $('#tourT').textContent=h; $('#tourP').textContent=p;
+  $('#tourPrev').disabled=!i; $('#tourNext').textContent=i===TOUR.length-1?'إنهاء الجولة':'التالي';
+  if(location.hash.slice(1)!==v) location.hash=v;
+  $('#tourNext').focus();
+};
+$('#tourBtn').onclick=()=>tourShow(0); $('#tourNext').onclick=()=>tourShow(tI+1); $('#tourPrev').onclick=()=>tourShow(tI-1); $('#tourX').onclick=()=>tourShow(-1);
+document.onkeydown=e=>{ if(tI<0) return; if(e.key==='Escape') tourShow(-1); else if(e.key==='ArrowLeft') tourShow(tI+1); else if(e.key==='ArrowRight'&&tI>0) tourShow(tI-1) };
+
+/* test the model on the municipality's reports (reports.csv template); runs in the browser only */
+const csvParse=t=>{const rows=[];let row=[],f='',q=false;
+  for(let i=0;i<t.length;i++){const c=t[i];
+    if(q){ if(c==='"'){ if(t[i+1]==='"'){f+='"';i++} else q=false } else f+=c }
+    else if(c==='"') q=true; else if(c===','){row.push(f);f=''}
+    else if(c==='\n'||c==='\r'){ if(c==='\r'&&t[i+1]==='\n') i++; row.push(f); rows.push(row); row=[]; f='' }
+    else f+=c }
+  if(f||row.length){row.push(f);rows.push(row)}
+  return rows.filter(r=>r.some(x=>x.trim()))};
+let PTS=null;
+const nearSeg=(la,lo)=>{
+  if(!PTS){ PTS=[]; SEGS.rows.forEach((r,i)=>r[0].forEach(p=>PTS.push(p[0],p[1],i))) }
+  const k=Math.cos(la*Math.PI/180); let best=-1, bd=Infinity;
+  for(let j=0;j<PTS.length;j+=3){ const dy=PTS[j]-la, dx=(PTS[j+1]-lo)*k, d=dy*dy+dx*dx; if(d<bd){bd=d;best=PTS[j+2]} }
+  return Math.sqrt(bd)*111320<=150?best:-1 };
+const upRun=(txt,name)=>{
+  const out=$('#upOut');
+  if(!window.SEGS){ out.innerHTML='<p class="am-err">شبكة الطرق غير محمّلة.</p>'; return }
+  const rows=csvParse(txt), h=(rows.shift()||[]).map(x=>x.trim().toLowerCase()), iLa=h.indexOf('latitude'), iLo=h.indexOf('longitude');
+  if(iLa<0||iLo<0){ out.innerHTML='<p class="am-err">لم أجد عمودَي latitude وlongitude في الملف. استخدم أعمدة القالب.</p>'; return }
+  const body=rows.slice(0,20000); let noXY=0, off=0; const hit=[];
+  body.forEach(r=>{ const la=parseFloat(r[iLa]), lo=parseFloat(r[iLo]); if(!isFinite(la)||!isFinite(lo)){noXY++;return} const s=nearSeg(la,lo); if(s<0){off++;return} hit.push(s) });
+  if(!hit.length){ out.innerHTML=`<p class="am-err">لم يطابق أي بلاغ مقطعاً في الشبكة: ${N(body.length)} صفاً، ${N(off)} خارج الشبكة، ${N(noXY)} بلا إحداثيات.</p>`; return }
+  const len=r=>r[5], totKm=SEGS.rows.reduce((a,r)=>a+len(r),0), share=SEGS.rows.filter(r=>r[1]>=2).reduce((a,r)=>a+len(r),0)/totKm;
+  const onHi=hit.filter(s=>SEGS.rows[s][1]>=2).length, pHi=onHi/hit.length, lift=pHi/share, by={};
+  hit.forEach(s=>{ const n=SEGS.names[SEGS.rows[s][4]]; by[n]=by[n]||{n,c:0,hi:0}; by[n].c++; if(SEGS.rows[s][1]>=2) by[n].hi++ });
+  const top=Object.values(by).sort((a,b)=>b.c-a.c).slice(0,6);
+  out.innerHTML=`<div class="am-up-res"><dl class="figs">${figRow([
+    ['بلاغات طابقت مقطعاً',N(hit.length),'',`من ${N(body.length)} صفاً · ${N(off)} خارج الشبكة · ${N(noXY)} بلا إحداثيات`],
+    ['على مقاطع مرتفعة أو حرجة',Math.round(pHi*100),'%',`وهذه المقاطع ${Math.round(share*100)}% من طول الشبكة`],
+    ['تركيز النموذج',lift.toFixed(1),'x',lift>=1.5?'يلتقط مواقع البلاغات أكثر من الصدفة':'تركيز ضعيف: يلزم إعادة التدريب على بيانات البلدية']])}</dl>
+    <div class="tw"><table style="min-width:420px"><thead><tr><th>الشارع</th><th>بلاغات الملف</th><th>منها على مقاطع مرتفعة أو حرجة</th></tr></thead><tbody>${top.map(t=>`<tr><td>${esc(t.n)}</td><td>${N(t.c)}</td><td>${N(t.hi)}</td></tr>`).join('')}</tbody></table></div>
+    <p class="am-cite">الملف: ${esc(name)}. كل بلاغ يُطابق بأقرب مقطع ضمن 150 م. التصنيف من النموذج الحالي المدرّب على بيانات المحاكاة.</p></div>`;
+};
+$('#upFile').onchange=e=>{ const f=e.target.files[0]; if(!f) return; const rd=new FileReader(); rd.onload=()=>upRun(String(rd.result).replace(/^﻿/,''),f.name); rd.readAsText(f,'utf-8'); e.target.value='' };
 </script>
 </body>
 </html>
