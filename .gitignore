@@ -6,8 +6,5 @@ istibaq.zip
 __pycache__/
 *.pyc
 
-# Thmanyah font: licence forbids hosting or redistributing the file; keep it local only
-brand/fonts/
-
 # SAHOOD guide page renders used only for matching during the re-skin (21MB); the site uses brand/assets/
 brand/reference/
