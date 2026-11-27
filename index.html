@@ -567,6 +567,28 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
 .am-phases li,.am-steps li{margin-bottom:6px}
 .am-pick{font-size:14px;margin:0 0 14px}
 .am-h3{font-size:15px;margin:18px 0 10px}
+.am-hero{display:flex;align-items:center;justify-content:space-between;gap:24px;background:var(--surface);border:1px solid var(--sh-border-strong);border-radius:var(--r);padding:20px 24px;margin-bottom:18px}
+.am-hero-t{font-size:19px;line-height:1.6;margin:0 0 8px}
+.am-hero-t b{font-weight:600}
+.am-hero-d{font-size:14.5px;color:var(--ink-2);margin:0 0 12px}
+.am-hero-n{display:flex;flex-wrap:wrap;gap:8px 22px;list-style:none;margin:0;padding:0;font-size:13.5px;color:var(--ink-2)}
+.am-hero-n b{font-size:18px;font-weight:600;color:var(--ink);margin-inline-end:4px}
+.am-hero>.btn{flex:none;min-height:48px;padding-inline:20px}
+.am-more{margin-top:14px;border-top:1px solid var(--line)}
+.am-more>summary{cursor:pointer;min-height:44px;display:flex;align-items:center;font-weight:600;font-size:15px}
+.am-more>summary::marker{color:var(--ink-2)}
+.am-mark{outline:2px dashed var(--sh-border-strong);outline-offset:6px;border-radius:var(--r);scroll-margin-top:104px;scroll-margin-bottom:200px}
+.am-flow{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin:6px 0 4px}
+.am-flow>div{border:1px solid var(--line);border-radius:var(--r);padding:10px 12px;font-size:13.5px;background:var(--surface)}
+.am-flow b{display:block;font-weight:600;font-size:14px;margin-bottom:2px}
+.am-flow span{color:var(--ink-2)}
+.am-flow i{display:block;font-style:normal;font-size:12px;color:var(--ink-2);margin-top:6px;border-top:1px solid var(--line);padding-top:6px}
+.am-range{font-size:13px;color:var(--ink-2);margin:10px 0 0}
+.am-range b{color:var(--ink);font-weight:600}
+.am-sens{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;align-items:center;margin:14px 0 4px;font-size:14px}
+.am-sens input{grid-column:1/-1;width:100%}
+@media (max-width:1180px){.am-flow{grid-template-columns:1fr 1fr}}
+@media (max-width:820px){.am-hero{flex-direction:column;align-items:stretch;padding:16px}.am-hero-t{font-size:17px}.am-flow{grid-template-columns:1fr}}
 .am-qr{display:flex;align-items:center;gap:14px;margin-top:22px}
 .am-qr img{background:#FFFFFF;border-radius:var(--sh-radius-sm,6px);padding:6px;border:1px solid var(--line)}
 .am-qr b{display:block;font-weight:600;margin-bottom:2px}.am-qr span span{font-size:13px;color:var(--ink-2)}
@@ -611,6 +633,14 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
 
     <!-- ============ OVERVIEW ============ -->
     <section class="view" id="v-overview">
+      <div class="am-hero" id="hero">
+        <div>
+          <p class="am-hero-t"><b>استباق</b> يتنبأ بأعطال طرق الأحساء مقطعاً مقطعاً قبل أن يصل البلاغ، ويقول لماذا، وما الإجراء الأعلى عائداً، ومن ينفّذه بجودة تصمد.</p>
+          <p class="am-hero-d">ما لا تفعله الأنظمة المستوردة: يقرأ أرض الأحساء ومناخها، مثل تجمّع الأمطار في المقاطع المنخفضة والحرارة، ويقيّم المقاول بصمود إصلاحه لا بإغلاق البلاغ، ويتعلّم من تحقق المتطوعين في الميدان.</p>
+          <ul class="am-hero-n" id="heroN"></ul>
+        </div>
+        <button class="btn pri" id="tourGo" type="button"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>ابدأ الجولة · دقيقتان</button>
+      </div>
       <dl class="figs" id="figs" style="margin:0"></dl>
       <div class="sec" style="margin-top:18px">
         <div class="head-row"><h2>الأعطال المتوقعة خلال 12 أسبوعاً</h2><a class="more" href="#alerts">كل التنبيهات</a></div>
@@ -653,7 +683,8 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
       </div>
       <div class="cols">
         <div class="sec"><h2>مهام تحقق للمتطوعين</h2><p class="sub">أعلى المقاطع احتمالاً. المتطوع يصوّر المقطع ويؤكد حالته، فتعود النتيجة للنموذج تصحيحاً له.</p><ul class="rows" id="volT"></ul></div>
-        <div class="sec"><h2>كيف تدخل بلاغات المجتمع في النموذج</h2><p class="sub"><span class="sev s-high">مخطط</span> يُفعَّل مع بيانات الأمانة.</p>
+        <div class="sec"><h2>كيف تدخل بلاغات المجتمع في النموذج</h2><p class="sub"><span class="sev s-high">مخطط</span> كل تحقق ميداني يعود للنموذج تصحيحاً له.</p>
+          <details class="am-more"><summary>الخطوات والمهام الخفيفة</summary>
           <ol class="am-steps">
             <li>المتطوع أو المواطن يرسل صورة وموقعاً بأسلوب «صوّر وأرسل».</li>
             <li>يُربط البلاغ بأقرب مقطع في الشبكة.</li>
@@ -663,6 +694,7 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
           <h3 class="am-h3">مهام خفيفة للمتطوعين</h3>
           <p style="font-size:14px;color:var(--ink-2);margin:0">صبغ المطبات والأرصفة وإرشاد السائقين في المقاطع المنبَّه عليها. الإصلاح الإنشائي يبقى للمقاول.</p>
           <p class="am-cite">سابقة في الأمانة: مبادرة «بيدك» أنجزت 600 بلاغ عن التشوه البصري بـ 13,000 ساعة تطوعية مع STC، ومبادرة صبغ المطبات والأرصفة (التقرير السنوي 2023).</p>
+          </details>
         </div>
       </div>
     </section>
@@ -689,12 +721,14 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
         <div class="sec"><h2>كم يصمد الإصلاح؟ حسب المقاول</h2><p class="sub">المنحنى الأعلى يعني إصلاحاً يصمد أطول.</p><div id="survK"></div></div>
       </div>
       <div class="sec" style="margin-top:18px">
-        <h2>بطاقة جودة المقاول</h2><p class="sub">وقّعت الأمانة اتفاقية تعاون مع الهيئة السعودية للمقاولين لرفع معايير الجودة في تنفيذ مشاريع الطرق ولدى متعهدي الصيانة. استباق يحوّل أهداف الاتفاقية إلى مؤشرات تُقاس من الميدان لكل مقاول.</p>
+        <h2>بطاقة جودة المقاول</h2><p class="sub">تحوّل اتفاقية الأمانة مع الهيئة السعودية للمقاولين إلى مؤشرات تُقاس من الميدان لكل مقاول.</p>
+        <details class="am-more"><summary>أهداف الاتفاقية ومؤشراتها</summary>
         <div class="tw"><table style="min-width:360px"><thead><tr><th>هدف الاتفاقية</th><th>المؤشر في استباق</th></tr></thead><tbody>
           <tr><td>رفع الجودة في تنفيذ مشاريع الطرق</td><td>جودة المعالجة، وكم يصمد الإصلاح شهراً بعد شهر</td></tr>
           <tr><td>رفع معايير الجودة لدى متعهدي الصيانة</td><td>عودة العطل بعد الصيانة، وتكرار المشكلات في الموقع نفسه</td></tr>
           <tr><td>خدمات عالية التأثير والإنتاجية</td><td>سرعة الاستجابة بالساعات، وعدد الأعمال المنفذة</td></tr>
         </tbody></table></div>
+        </details>
         <p style="margin:14px 0 0"><button class="btn" id="kCsv" type="button">تنزيل بطاقات الجودة (CSV)</button></p>
         <p class="am-cite">المصدر: اتفاقية التعاون مع الهيئة السعودية للمقاولين، التقرير السنوي 2022. أسماء المقاولين مرمّزة والأرقام من بيانات المحاكاة.</p>
       </div>
@@ -735,8 +769,10 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
       </div>
       <div class="sec" style="margin-top:18px">
         <h2>العائد الاقتصادي المباشر المتوقع</h2><p class="sub">بالصيغة التي تقيس بها الأمانة عائد مبادراتها بالريال. يتغير مع الميزانية أعلاه.</p>
+        <div class="am-sens"><label for="capR">كم يتحقق من توقعات النموذج على أرض الواقع؟</label><output id="capOut"></output><input type="range" id="capR" min="25" max="100" step="5" value="75"></div>
         <div class="simout"><div class="g">العائد المباشر خلال 12 شهراً<b id="eR"></b></div><div class="g">صافي العائد بعد تكلفة الوقاية<b id="eN"></b></div><div>كل ريال وقاية يعيد<b id="eX"></b></div></div>
-        <p class="am-cite">العائد المباشر = تكلفة الإصلاح بعد العطل التي تتجنبها الأمانة خلال 12 شهراً بالإجراءات الممولة. التكاليف افتراضية والأعطال من بيانات المحاكاة، وتُستبدل بأسعار عقود الأمانة وسجلاتها. للمقارنة: قدّرت الأمانة العائد الاقتصادي المباشر لجهود التطوع في 2025 بـ 42,195,085 ريالاً (التقرير السنوي 2025).</p>
+        <p class="am-range" id="ecoRange"></p>
+        <p class="am-cite">العائد المباشر = تكلفة الإصلاح بعد العطل التي تتجنبها الأمانة خلال 12 شهراً بالإجراءات الممولة، مضروبة في نسبة تحقق التوقعات. النموذج مدرَّب على محاكاة، فالأساسي يفترض أنه يبالغ بالربع. التكاليف افتراضية، وتُستبدل بأسعار عقود الأمانة وسجلاتها. للمقارنة: قدّرت الأمانة العائد الاقتصادي المباشر لجهود التطوع في 2025 بـ 42,195,085 ريالاً (التقرير السنوي 2025).</p>
       </div>
     </section>
 
@@ -746,7 +782,7 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
       <dl class="figs" id="mFigs" style="margin:0"></dl>
       <div class="cols">
         <div class="sec"><h2>النموذج مقابل القاعدة البسيطة</h2><p class="sub" id="mSub"></p>
-          <div class="tw"><table style="min-width:420px"><thead><tr><th>المقياس</th><th>نموذج استباق</th><th>القاعدة البسيطة</th></tr></thead><tbody id="mCmp"></tbody></table></div>
+          <div class="tw"><table style="min-width:420px"><thead><tr><th>المقياس</th><th>نموذج استباق</th><th>القاعدة البسيطة</th><th>الصدفة</th></tr></thead><tbody id="mCmp"></tbody></table></div>
           <p style="font-size:13px;color:var(--ink-2);margin-top:12px">القاعدة البسيطة: «الأصل الذي تعطّل أكثر سابقاً هو الأقرب للعطل». هذا ما يفعله أي مشرف بلا نموذج.</p>
         </div>
         <div class="sec"><h2>هل الأصول التي يرفعها النموذج تتعطل فعلاً؟</h2><p class="sub">نسبة العطل الفعلية في كل شريحة خطورة خلال أشهر الاختبار. الشريحة 1 هي أعلى 10% حسب النموذج.</p><div class="fbars" id="mLift"></div></div>
@@ -771,7 +807,24 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
       <div class="sec" style="margin-top:18px"><h2>تفاصيل المصادر</h2><p class="sub">ما استُخدم في هذا النموذج الأولي، والجهة التي يُفترض أن تأتي منها البيانات عند التشغيل الفعلي. لم نحصل بعد على بيانات من هذه الجهات.</p>
         <div class="tw"><table><thead><tr><th>البيانات</th><th>في النموذج الأولي</th><th>المصدر المستهدف عند التشغيل</th><th>الحجم</th></tr></thead><tbody id="mSrc"></tbody></table></div>
       </div>
-      <div class="sec" style="margin-top:18px"><h2>حوكمة النموذج</h2><p class="sub">مبادئ تشغيل استباق، وحالة كل مبدأ في هذا النموذج الأولي.</p>
+      <div class="sec" style="margin-top:18px"><h2>ماذا يثبت هذا النموذج الأولي، وماذا لا يثبت</h2><p class="sub">البلاغات والأعطال هنا ولّدتها محاكاة، فالأرقام أعلاه تقيس قدرة النموذج على التقاط أنماط المحاكاة، لا أداءه على طرق الأحساء.</p>
+        <div class="cols" style="margin-top:0">
+          <div><h3 class="am-h3" style="margin-top:0">يثبت</h3><ul class="am-steps">
+            <li>خط المعالجة كاملاً يعمل على شبكة الأحساء الحقيقية: من البيانات إلى التنبؤ إلى أمر العمل.</li>
+            <li>طقس الأحساء الحقيقي وارتفاع كل مقطع يدخلان في التنبؤ.</li>
+            <li>النموذج يتفوق على القاعدة البسيطة وعلى الصدفة بمنهجية اختبار صحيحة: تدريب على الماضي واختبار على أشهر لاحقة لم يرها.</li>
+            <li>استبدال المحاكاة ببلاغات البلدية يتم بأمر واحد <span dir="ltr">ml/ingest_reports.py</span>، وقد اختُبر ذهاباً وإياباً.</li>
+          </ul></div>
+          <div><h3 class="am-h3" style="margin-top:0">لا يثبت بعد</h3><ul class="am-steps">
+            <li>دقة التنبؤ على طرق الأحساء الفعلية. هذا يُقاس فقط على بلاغات الأمانة.</li>
+            <li>أوزان الأسباب الجذرية، لأن المحاكاة بُنيت بافتراضات عنها.</li>
+            <li>أرقام العائد بالريال، لأن التكاليف افتراضية.</li>
+          </ul></div>
+        </div>
+        <p class="am-cite">الاختبار الحاسم: زر «اختبر النموذج على بلاغات البلدية» أدناه، ثم إعادة التدريب على البيانات نفسها خلال الشهر الأول من التجربة.</p>
+      </div>
+      <div class="sec" style="margin-top:18px"><h2>حوكمة النموذج</h2><p class="sub">القرار للإنسان دائماً، والنموذج يقترح ويفسّر. سبعة مبادئ وحالة كل مبدأ.</p>
+        <details class="am-more"><summary>عرض المبادئ السبعة</summary>
         <div class="tw"><table><thead><tr><th>المبدأ</th><th>الحالة</th><th>كيف يُطبَّق</th></tr></thead><tbody>
           <tr><td><b style="font-weight:500">الإنسان يقرر</b></td><td style="white-space:nowrap"><span class="sev s-low">منفَّذ</span></td><td>النموذج يقترح، ومشرف الصيانة وحده يصدر أمر العمل من شاشة التنبيهات.</td></tr>
           <tr><td><b style="font-weight:500">الشفافية والتفسير</b></td><td style="white-space:nowrap"><span class="sev s-low">منفَّذ</span> <span class="sev s-med">على بيانات محاكاة</span></td><td>كل تنبيه معه سببه الجذري وأبرز عوامله، وأداء النموذج معروض أعلاه مقابل القاعدة البسيطة.</td></tr>
@@ -781,6 +834,7 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
           <tr><td><b style="font-weight:500">المراجعة الدورية</b></td><td style="white-space:nowrap"><span class="sev s-high">مخطط</span></td><td>إعادة تدريب شهرية، ويُوقف النموذج إذا نزل أداؤه عن القاعدة البسيطة.</td></tr>
           <tr><td><b style="font-weight:500">مراجعة مستقلة</b></td><td style="white-space:nowrap"><span class="sev s-high">مخطط</span></td><td>عرض النموذج على جمعية حوكمة الذكاء الاصطناعي، شريكة الأمانة منذ 2024، قبل التوسع.</td></tr>
         </tbody></table></div>
+        </details>
       </div>
     </section>
 
@@ -804,6 +858,7 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
       <div class="sec" style="margin-top:18px" id="probSec" hidden>
         <h2>حجم المشكلة في أرقام</h2><p class="sub">طول الشبكة حقيقي من OpenStreetMap. بقية الأرقام <span class="sev s-med">تقديرية</span> من النموذج على بيانات المحاكاة، وتُستبدل بأرقام الأمانة عند توفرها.</p>
         <dl class="figs" id="probFigs" style="margin:0"></dl>
+        <p class="am-cite">رقم منشور: عالجت أمانة الأحساء «أكثر 15000 بلاغٍ بلدي» في ربع سنة واحد، لكل أنواع البلاغات لا الطرق وحدها (<a class="more" href="https://www.spa.gov.sa/2368510" target="_blank" rel="noopener">وكالة الأنباء السعودية</a>). لم نجد رقماً منشوراً لبلاغات الطرق وحدها.</p>
       </div>
 
       <div class="sec" style="margin-top:18px">
@@ -843,6 +898,16 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
           <div><h3>الشهر الثاني: التشغيل والتحقق</h3><ul><li>تنبيهات أسبوعية لمشرف الصيانة في الحي.</li><li>تحقق ميداني من المقاطع المنبَّه عليها: طلاب الكلية التقنية ومتطوعو الأمانة.</li></ul></div>
           <div><h3>الشهر الثالث: القياس والقرار</h3><ul><li>مقارنة التنبيهات بما تعطّل فعلاً.</li><li>قرار التوسع لبقية الأحياء.</li></ul></div>
         </div>
+        <h3 class="am-h3">تدفق البيانات من الأمانة إلى أمر العمل</h3>
+        <div class="am-flow" role="list">
+          <div role="listitem"><b>1. بلدي و940</b><span>البلاغات بموقعها ونوعها</span><i>تصدير CSV أسبوعياً</i></div>
+          <div role="listitem"><b>2. GIS الأمانة</b><span>طبقة الطرق والأحياء</span><i>GeoJSON عند كل تحديث</i></div>
+          <div role="listitem"><b>3. قوالب الاستلام</b><span>reports.csv وcontractors.csv</span><i>تحقق آلي من الأعمدة</i></div>
+          <div role="listitem"><b>4. <span dir="ltr">ingest_reports.py</span></b><span>ربط كل بلاغ بمقطعه وإعادة التدريب</span><i>أسبوعياً، وتدريب كامل شهرياً</i></div>
+          <div role="listitem"><b>5. أمر العمل</b><span>تنبيهات لمشرف الصيانة</span><i>يومياً</i></div>
+        </div>
+        <p class="am-cite">الربط في التجربة بملفات CSV، دون ربط برمجي مباشر بأنظمة الأمانة. الربط البرمجي (API) مرحلة لاحقة.</p>
+        <details class="am-more"><summary>مؤشرات النجاح، وتكلفة التشغيل، والشركاء</summary>
         <div class="tw"><table style="min-width:360px"><thead><tr><th>مؤشر النجاح</th><th>المستهدف المقترح</th></tr></thead><tbody>
           <tr><td>الأعطال التي سبقها تنبيه من النموذج</td><td>60% فأكثر</td></tr>
           <tr><td>أداء النموذج مقابل القاعدة البسيطة</td><td>أعلى منها في التقاط الأعطال ودقة التنبيه</td></tr>
@@ -865,6 +930,7 @@ svg.ic{stroke-width:calc(var(--sh-icon-stroke) * 24 / 20)}
           <tr><td><b style="font-weight:500">الهيئة السعودية للمقاولين</b></td><td>مواءمة بطاقة جودة المقاول مع معاييرها.</td><td>اتفاقية تعاون لرفع الجودة في مشاريع الطرق (تقرير 2022)</td></tr>
           <tr><td><b style="font-weight:500">جمعية حوكمة الذكاء الاصطناعي</b></td><td>مراجعة حوكمة النموذج قبل التوسع.</td><td>شراكة مع الأمانة (تقرير 2024)</td></tr>
         </tbody></table></div>
+        </details>
         <p class="am-cite">بعد التجربة: مسار مقترح عبر برنامج «التطوع الابتكاري» الذي نفذته إدارة التطوع مع وزارة البلديات للخروج بمبادرات نوعية لتطوير المدن (تقرير 2023).</p>
       </div>
 
@@ -1205,8 +1271,8 @@ function modelView(){
   $('#mFigs').innerHTML=[['التقاط الأعطال ضمن أعلى 5%',P(x.model.rec),'%','مقابل '+P(x.baseline.rec)+'% للقاعدة البسيطة'],['دقة التنبيه',P(x.model.prec),'%','المعدل العام للعطل '+(x.base_rate*100).toFixed(1)+'% شهرياً'],['تركيز الخطورة',lift,'x','الشريحة العليا تتعطل '+lift+' مرة أكثر من المعدل'],['ROC-AUC',x.roc.toFixed(2),'','من 1.00، والعشوائي 0.50']]
     .map(([l,v,u,d])=>`<div class="fig"><dt>${l}</dt><dd>${v}<small>${u}</small></dd><div></div><div class="delta">${d}</div></div>`).join('');
   $('#mSub').textContent=`${mt.algo}. ${mt.n_features} سمة. تدريب على ${N(mt.train_rows)} صفاً حتى نهاية 2025، واختبار على ${N(mt.test_rows)} صفاً من ${mt.test_from} إلى ${mt.period[1]}.`;
-  $('#mCmp').innerHTML=[['التقاط الأعطال (Recall) ضمن أعلى 5%',P(x.model.rec)+'%',P(x.baseline.rec)+'%'],['دقة التنبيه (Precision) ضمن أعلى 5%',P(x.model.prec)+'%',P(x.baseline.prec)+'%'],['ROC-AUC',x.roc.toFixed(3),x.baseline.roc.toFixed(3)],['PR-AUC',x.pr.toFixed(3),x.baseline.pr.toFixed(3)]]
-    .map(r=>`<tr><td>${r[0]}</td><td><b style="color:var(--low)">${r[1]}</b></td><td>${r[2]}</td></tr>`).join('');
+  $('#mCmp').innerHTML=[['التقاط الأعطال (Recall) ضمن أعلى 5%',P(x.model.rec)+'%',P(x.baseline.rec)+'%','5%'],['دقة التنبيه (Precision) ضمن أعلى 5%',P(x.model.prec)+'%',P(x.baseline.prec)+'%',(x.base_rate*100).toFixed(1)+'%'],['ROC-AUC',x.roc.toFixed(3),x.baseline.roc.toFixed(3),'0.500'],['PR-AUC',x.pr.toFixed(3),x.baseline.pr.toFixed(3),x.base_rate.toFixed(3)]]
+    .map(r=>`<tr><td>${r[0]}</td><td><b style="color:var(--low)">${r[1]}</b></td><td>${r[2]}</td><td>${r[3]}</td></tr>`).join('');
   const mx=x.lift[0];
   $('#mLift').innerHTML=x.lift.map((v,i)=>`<div class="fb" style="--w:${v/mx*100}%;--c:${i<1?'var(--crit-f)':i<3?'var(--high-f)':'var(--low-f)'}"><span>الشريحة ${i+1}</span><i></i><b>${(v*100).toFixed(1)}%</b></div>`).join('');
   const im=MD.importance[0][1];
@@ -1314,12 +1380,16 @@ $('.pitch').addEventListener('pointermove',e=>{const r=e.currentTarget.getBoundi
 </script>
 <script>
 /* ---------- Amanah alignment: requirements drawn from the Amanah annual reports 2022-2025 (no motion) ---------- */
+/* impact as a range: scenarios scale the model's avoided cost by how much of it materialises */
+const SCN=[['متحفظ',.5],['أساسي',.75],['متفائل',1]];
 const ecoCalc=()=>{
-  let b=+$('#bud').value, s=0, c=0;
+  let b=+$('#bud').value, s=0, c=0; const f=+$('#capR').value/100;
   R.forEach(r=>{ if(r.c<=b){ b-=r.c; s+=r.s; c+=r.c } });
-  $('#eR').textContent=SAR(s); $('#eN').textContent=SAR(s-c); $('#eX').textContent=c?(s/c).toFixed(1)+' ر.س':'—';
+  $('#capOut').textContent=Math.round(f*100)+'%';
+  $('#eR').textContent=SAR(Math.round(s*f)); $('#eN').textContent=SAR(Math.round(s*f-c)); $('#eX').textContent=c?(s*f/c).toFixed(1)+' ر.س':'—';
+  $('#ecoRange').innerHTML='صافي العائد حسب السيناريو: '+SCN.map(([n,k])=>`${n} (${k*100}%) <b>${SAR(Math.round(s*k-c))}</b>`).join(' · ');
 };
-ecoCalc(); $('#bud').oninput=ecoCalc;
+ecoCalc(); $('#bud').oninput=ecoCalc; $('#capR').oninput=ecoCalc;
 
 $('#kCsv').onclick=()=>{
   const rows=[['المقاول','التقييم العام','جودة المعالجة %','تكرار المشكلات %','سرعة الاستجابة بالساعات','عودة العطل بعد الصيانة %','أعمال منفذة'],...[...K].sort((a,b)=>b.s-a.s).map(k=>[k.n,k.s,k.q,k.rep,k.resp,k.ret,k.pr])];
@@ -1346,31 +1416,40 @@ const figRow=F=>F.map(([l,v,u,d])=>`<div class="fig"><dt>${l}</dt><dd>${v}<small
    ['طول شبكة الطرق المرصودة',N(nw.km),'كم',N(nw.segments)+' مقطعاً من OpenStreetMap'],
    ['مقاطع مرتفعة أو حرجة الآن',N(hiKm),'كم',Math.round(hiKm/nw.km*100)+'% من الشبكة · تقديري'],
    ['تنزل تحت حد الإصلاح المكلف خلال 12 شهراً',N(Math.round(nw.below55_in_12m_km)),'كم','مؤشر PCI أقل من 55 · تقديري'],
-   ['الإصلاح بعد العطل مقابل الوقاية',pc?(rc/pc).toFixed(1):'—','x','متوسط تنبيهات النموذج · تكاليف افتراضية']]);
-  $('#probSec').hidden=false }}
+   ['الإصلاح بعد العطل مقابل الوقاية',pc?`<span dir="ltr">${(rc*.6/pc).toFixed(1)}–${(rc/pc).toFixed(1)}</span>`:'—','x',pc?'أساسي '+(rc*.8/pc).toFixed(1)+'x. النطاق إن كانت تكلفة الإصلاح بعد العطل أقل من الافتراض بـ 40% أو كما هي':'']]);
+  $('#probSec').hidden=false;
+  $('#heroN').innerHTML=[[N(nw.km)+' كم','شبكة طرق حقيقية'],[N(hiKm)+' كم','مرتفعة أو حرجة الآن (تقديري)'],[pc?`<span dir="ltr">${(rc*.6/pc).toFixed(1)}–${(rc/pc).toFixed(1)}x</span>`:'—','الإصلاح بعد العطل مقابل الوقاية (تقديري)']].map(([v,l])=>`<li><b>${v}</b>${l}</li>`).join('') }
+ else $('#heroN').hidden=true }
+$('#v-overview').prepend($('#hero'));
 
 /* guided demo tour: navigates with the existing router, adds no motion of its own */
+/* each step: view, element to point at, title, one or two sentences (the whole tour reads in about two minutes) */
 const TOUR=[
- ['about','الفكرة في جملة','«استباق» ينقل صيانة طرق الأحساء من انتظار البلاغ إلى التنبؤ بالعطل قبل وقوعه، ويخدم أهداف الأمانة الستة.'],
- ['overview','ماذا سيتعطل ومتى','كل قوس أسبوع قادم، وامتلاؤه عدد الأعطال المتوقعة. تحته التنبيهات التي تحتاج قراراً الآن والأحياء الأعلى خطورة.'],
- ['map','أين بالضبط',`${window.SEGS?N(SEGS.rows.length)+' مقطعاً حقيقياً':'مقاطع'} من شبكة طرق الأحساء، كل مقطع ملوّن بخطورته المتوقعة. اضغط أي مقطع لتفاصيله.`],
- ['alerts','من التنبيه إلى أمر العمل','كل تنبيه معه احتمالية العطل وسببه الجذري والإجراء الوقائي. اضغط صفاً ثم «إصدار أمر عمل وقائي».'],
- ['contractors','من ينفّذ بجودة','تقييم المقاولين بنتائج الميدان: هل عاد العطل بعد الإصلاح؟ وبطاقة جودة مربوطة باتفاقية الأمانة مع الهيئة السعودية للمقاولين.'],
- ['recs','أين تُصرف الميزانية','حرّك الميزانية: يموّل النظام الإجراءات الأعلى عائداً أولاً، ويحسب العائد الاقتصادي المباشر بالريال.'],
- ['model','هل نثق بالنموذج','أداؤه على أشهر لم يرها مقابل القاعدة البسيطة، ومبادئ حوكمته، واختبار مباشر على بلاغات البلدية.'],
- ['about','كيف نبدأ','تجربة 3 أشهر في حي واحد بالشراكة مع الكلية التقنية ومتطوعي الأمانة، بتكلفة تشغيل تقديرية نحو 1,500 ر.س. التفاصيل في «خطة التجربة» أسفل هذه الصفحة.']
+ ['overview','#hero','الفكرة','نتنبأ بعطل الطريق قبل البلاغ، من أرض الأحساء ومناخها، ونقيّم المقاول بصمود إصلاحه لا بإغلاق البلاغ.'],
+ ['overview','#arc1','ماذا سيتعطل ومتى','كل قوس أسبوع قادم، وامتلاؤه عدد الأعطال التي يتوقعها النموذج.'],
+ ['map','#map','أين بالضبط',`${window.SEGS?N(SEGS.rows.length)+' مقطعاً حقيقياً':'مقاطع'} من شبكة الأحساء، كل مقطع بلون خطورته المتوقعة.`],
+ ['alerts','#aBody','من التنبيه إلى أمر العمل','لكل تنبيه احتمالية وسبب جذري وإجراء وقائي، والقرار لمشرف الصيانة.'],
+ ['contractors','#kBody','من ينفّذ بجودة','المقاول يُقيَّم بعودة العطل بعد إصلاحه، لا بسرعة إغلاق البلاغ.'],
+ ['recs','.sim','أين تُصرف الميزانية','الميزانية تذهب للإجراء الأعلى عائداً أولاً، والعائد يُعرض بنطاق متحفظ وأساسي ومتفائل.'],
+ ['model','#mCmp','هل نثق بالنموذج','يتفوق على القاعدة البسيطة وعلى الصدفة، لكنه مدرَّب على محاكاة. الحكم النهائي على بلاغات الأمانة، وندخلها بأمر واحد.'],
+ ['about','#pilotHood','كيف نبدأ','تجربة 3 أشهر في حي واحد مع الكلية التقنية ومتطوعي الأمانة، بتكلفة تشغيل تقديرية نحو 1,500 ر.س.']
 ];
-let tI=-1;
+let tI=-1, tMark=null;
+const tourMark=sel=>{
+  if(tMark) tMark.classList.remove('am-mark');
+  tMark=sel?($(sel)&&($(sel).closest('.sec,.am-hero,.mapwrap')||$(sel))):null;
+  if(tMark){ tMark.classList.add('am-mark'); setTimeout(()=>tMark&&tMark.scrollIntoView({block:tMark.offsetHeight>innerHeight*.6?'start':'center'}),400) }
+};
 const tourShow=i=>{
   const t=$('#tour'); tI=i;
-  if(i<0||i>=TOUR.length){ t.hidden=true; tI=-1; $('#tourBtn').focus(); return }
-  const [v,h,p]=TOUR[i]; t.hidden=false;
+  if(i<0||i>=TOUR.length){ t.hidden=true; tI=-1; tourMark(null); $('#tourBtn').focus(); return }
+  const [v,sel,h,p]=TOUR[i]; t.hidden=false; tourMark(sel);
   $('#tourN').textContent=`${i+1} من ${TOUR.length}`; $('#tourT').textContent=h; $('#tourP').textContent=p;
   $('#tourPrev').disabled=!i; $('#tourNext').textContent=i===TOUR.length-1?'إنهاء الجولة':'التالي';
   if(location.hash.slice(1)!==v) location.hash=v;
   $('#tourNext').focus();
 };
-$('#tourBtn').onclick=()=>tourShow(0); $('#tourNext').onclick=()=>tourShow(tI+1); $('#tourPrev').onclick=()=>tourShow(tI-1); $('#tourX').onclick=()=>tourShow(-1);
+$('#tourBtn').onclick=()=>tourShow(0); $('#tourGo').onclick=()=>tourShow(0); $('#tourNext').onclick=()=>tourShow(tI+1); $('#tourPrev').onclick=()=>tourShow(tI-1); $('#tourX').onclick=()=>tourShow(-1);
 document.onkeydown=e=>{ if(tI<0) return; if(e.key==='Escape') tourShow(-1); else if(e.key==='ArrowLeft') tourShow(tI+1); else if(e.key==='ArrowRight'&&tI>0) tourShow(tI-1) };
 
 /* test the model on the municipality's reports (reports.csv template); runs in the browser only */
