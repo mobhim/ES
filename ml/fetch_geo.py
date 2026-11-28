@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-استباق: جلب البيانات الجغرافية الحقيقية المساندة (يُشغَّل مرة واحدة، والنتائج تُخزَّن في data/)
+صاهود: جلب البيانات الجغرافية الحقيقية المساندة (يُشغَّل مرة واحدة، والنتائج تُخزَّن في data/)
 1) أسماء الأحياء والبلدات: OpenStreetMap عبر Overpass  -> data/neighbourhoods_raw.json
 2) ارتفاع منتصف كل مقطع: Open-Meteo Elevation (نموذج Copernicus DEM 90m) -> data/elevation.csv
 يُشغَّل بعد generate_data.py (يحتاج assets.csv)، ثم يُعاد تشغيل generate_data.py ليستخدم النتائج.
@@ -9,7 +9,7 @@ import json, os, time, urllib.parse, urllib.request
 import pandas as pd
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__))); DATA = os.path.join(ROOT, "data")
-UA = {"User-Agent": "istibaq-hackathon-prototype/1.0"}
+UA = {"User-Agent": "sahood-hackathon-prototype/1.0"}
 
 def neighbourhoods():
     path = os.path.join(DATA, "neighbourhoods_raw.json")

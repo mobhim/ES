@@ -488,9 +488,9 @@
     "#291F16"
    ],
    "static_class_counts": {
-    "am-cite": 8,
+    "am-cite": 10,
     "am-flow": 1,
-    "am-h3": 6,
+    "am-h3": 7,
     "am-hero": 1,
     "am-hero-d": 1,
     "am-hero-n": 1,
@@ -498,7 +498,7 @@
     "am-hint": 6,
     "am-more": 4,
     "am-phases": 1,
-    "am-pick": 1,
+    "am-pick": 2,
     "am-qr": 1,
     "am-range": 1,
     "am-sens": 1,
@@ -539,7 +539,7 @@
     "mk-high": 2,
     "mk-low": 2,
     "mk-med": 1,
-    "more": 11,
+    "more": 14,
     "nav": 1,
     "pat": 1,
     "pitch": 1,
@@ -548,18 +548,18 @@
     "rail-foot": 1,
     "rows": 2,
     "s-high": 5,
-    "s-low": 3,
+    "s-low": 5,
     "s-med": 3,
-    "sec": 39,
-    "sev": 11,
+    "sec": 40,
+    "sev": 13,
     "shift": 1,
     "sim": 1,
     "simout": 2,
-    "sub": 34,
+    "sub": 35,
     "synth": 1,
     "toast": 1,
     "top": 1,
-    "tw": 16,
+    "tw": 18,
     "view": 9
    },
    "static_ids": [
@@ -584,6 +584,7 @@
     "fSev",
     "fType",
     "figs",
+    "gisSec",
     "hero",
     "heroN",
     "kBody",
@@ -661,97 +662,97 @@
     {
      "code": "const HEX={crit:'#E5484D',high:'#C8600F',med:'#AD7A05',lo",
      "color": "#E5484D",
-     "line": 1171
+     "line": 1191
     },
     {
      "code": "const HEX={crit:'#E5484D',high:'#C8600F',med:'#AD7A05',low:'#8B8070'};",
      "color": "#C8600F",
-     "line": 1171
+     "line": 1191
     },
     {
      "code": "const HEX={crit:'#E5484D',high:'#C8600F',med:'#AD7A05',low:'#8B8070'};",
      "color": "#AD7A05",
-     "line": 1171
+     "line": 1191
     },
     {
      "code": "{crit:'#E5484D',high:'#C8600F',med:'#AD7A05',low:'#8B8070'};",
      "color": "#8B8070",
-     "line": 1171
+     "line": 1191
     },
     {
      "code": "const SEGC=['#7A6F60','#AD7A05','#C8600F','#E5484D'],",
      "color": "#7A6F60",
-     "line": 1173
+     "line": 1193
     },
     {
      "code": "const SEGC=['#7A6F60','#AD7A05','#C8600F','#E5484D'], SEGN=['من",
      "color": "#AD7A05",
-     "line": 1173
+     "line": 1193
     },
     {
      "code": "const SEGC=['#7A6F60','#AD7A05','#C8600F','#E5484D'], SEGN=['منخفض','متوس",
      "color": "#C8600F",
-     "line": 1173
+     "line": 1193
     },
     {
      "code": "const SEGC=['#7A6F60','#AD7A05','#C8600F','#E5484D'], SEGN=['منخفض','متوسط','مرتفع'",
      "color": "#E5484D",
-     "line": 1173
+     "line": 1193
     },
     {
      "code": "ang)*r,g[1]+Math.cos(ang)*r*1.1],{radius:7,color:'#F1E8D7',weight:2,fillColor:HEX[s[0]],fi",
      "color": "#F1E8D7",
-     "line": 1196
+     "line": 1216
     },
     {
      "code": "const col=pal||['#2A1F17','#6F4E33','#A99A6E','#5B5141','",
      "color": "#2A1F17",
-     "line": 1313
+     "line": 1333
     },
     {
      "code": "const col=pal||['#2A1F17','#6F4E33','#A99A6E','#5B5141','#8B8070','",
      "color": "#6F4E33",
-     "line": 1313
+     "line": 1333
     },
     {
      "code": "const col=pal||['#2A1F17','#6F4E33','#A99A6E','#5B5141','#8B8070','#9A7450'];",
      "color": "#A99A6E",
-     "line": 1313
+     "line": 1333
     },
     {
      "code": "const col=pal||['#2A1F17','#6F4E33','#A99A6E','#5B5141','#8B8070','#9A7450'];",
      "color": "#5B5141",
-     "line": 1313
+     "line": 1333
     },
     {
      "code": "ol=pal||['#2A1F17','#6F4E33','#A99A6E','#5B5141','#8B8070','#9A7450'];",
      "color": "#8B8070",
-     "line": 1313
+     "line": 1333
     },
     {
      "code": "#2A1F17','#6F4E33','#A99A6E','#5B5141','#8B8070','#9A7450'];",
      "color": "#9A7450",
-     "line": 1313
+     "line": 1333
     },
     {
      "code": "curves('#matSurv',mt.repair,['#2A1F17','#6F4E33','#A99A6E']);",
      "color": "#2A1F17",
-     "line": 1336
+     "line": 1356
     },
     {
      "code": "curves('#matSurv',mt.repair,['#2A1F17','#6F4E33','#A99A6E']);",
      "color": "#6F4E33",
-     "line": 1336
+     "line": 1356
     },
     {
      "code": "curves('#matSurv',mt.repair,['#2A1F17','#6F4E33','#A99A6E']);",
      "color": "#A99A6E",
-     "line": 1336
+     "line": 1356
     },
     {
      "code": "دّلة بالبوليمر'], C=['var(--gold)','var(--teal)','#A99A6E'];",
      "color": "#A99A6E",
-     "line": 1339
+     "line": 1359
     }
    ],
    "icon_constants_sha256": {
@@ -761,67 +762,67 @@
    },
    "inline_styles_with_color_in_js_templates": [
     {
-     "line": 1126,
+     "line": 1146,
      "style": "color:${tcol[sevOf(a.p)[0]]}"
     },
     {
-     "line": 1128,
+     "line": 1148,
      "style": "color:var(--ink-2);font-size:12.5px"
     },
     {
-     "line": 1154,
+     "line": 1174,
      "style": "color:${d.n===dSel?'var(--brand)':col[riskLv(d.risk)]}"
     },
     {
-     "line": 1162,
+     "line": 1182,
      "style": "color:var(--ink-2)"
     },
     {
-     "line": 1163,
+     "line": 1183,
      "style": "color:var(--ink-2)"
     },
     {
-     "line": 1165,
+     "line": 1185,
      "style": "color:${tcol[sevOf(a.p)[0]]}"
     },
     {
-     "line": 1213,
+     "line": 1233,
      "style": "font-size:13px;color:var(--ink-2)"
     },
     {
-     "line": 1213,
+     "line": 1233,
      "style": "font-size:12.5px;color:var(--ink-2)"
     },
     {
-     "line": 1213,
+     "line": 1233,
      "style": "color:var(--ink-2);font-size:13px"
     },
     {
-     "line": 1256,
+     "line": 1276,
      "style": "font-size:13px;color:var(--ink-2)"
     },
     {
-     "line": 1275,
+     "line": 1295,
      "style": "color:var(--low)"
     },
     {
-     "line": 1281,
+     "line": 1301,
      "style": "color:var(--low)"
     },
     {
-     "line": 1319,
+     "line": 1339,
      "style": "background:${col[i%6]}"
     },
     {
-     "line": 1320,
+     "line": 1340,
      "style": "font-size:12px;color:var(--ink-2);margin-top:8px"
     },
     {
-     "line": 1337,
+     "line": 1357,
      "style": "color:var(--ink-2);font-size:12.5px"
     },
     {
-     "line": 1340,
+     "line": 1360,
      "style": "width:${c[k]}%;background:${C[i]}"
     }
    ],
@@ -835,7 +836,7 @@
     "overview": "83d6cf126c86884e30aa302229e689e51ed77a7fbc8452b6f0ffe2950ce6de67",
     "roadsExtras": "d18872ede08194e75eaf1b51e86a25c2c78c653b45926f04ef34fa71ba037797"
    },
-   "script_sha256_color_masked": "2ece78052e4db56632615a76928e42fec26e5af72d99753303ebe8de41d1642d"
+   "script_sha256_color_masked": "218a010342e939184cf2a862128d064eb6c1391cba4b017308da5b1699044cf2"
   }
  },
  "signature_version": 1,
@@ -2463,8 +2464,9 @@
     "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
    ],
    "hook_class_counts_in_static_html": {
-    "am-cite": 8,
+    "am-cite": 10,
     "am-err": 0,
+    "am-gis": 0,
     "am-hero": 1,
     "am-mark": 0,
     "am-up-res": 0,
@@ -2501,11 +2503,12 @@
     "in": 0,
     "js": 0,
     "kv": 0,
+    "leaflet-popup-content": 0,
     "m": 0,
     "map": 1,
     "mapwrap": 1,
     "med": 0,
-    "more": 11,
+    "more": 14,
     "n": 0,
     "nav": 1,
     "note": 0,
@@ -2531,19 +2534,19 @@
     "s": 0,
     "s-": 0,
     "s-high": 5,
-    "s-low": 3,
+    "s-low": 5,
     "s-med": 3,
     "save": 0,
-    "sec": 39,
+    "sec": 40,
     "sel": 0,
-    "sev": 11,
+    "sev": 13,
     "shift": 1,
     "srcline": 0,
     "stackbar": 0,
     "t": 0,
     "tag": 0,
     "toast": 1,
-    "tw": 16,
+    "tw": 18,
     "v": 0,
     "view": 9,
     "x": 0,
@@ -2725,6 +2728,7 @@
       "div.sec(h2 p.sub div.tw(table))",
       "div.sec(h2 p.sub div.tw(table))",
       "div.sec(h2 p.sub div.am-up(label.btn.pri input#upFile[hidden] a.more) div#upOut)",
+      "div.sec#gisSec(h2(span.sev.s-low) p.sub(a.more) div.tw(table) p.am-pick(a.more) p.am-cite)",
       "div.sec(h2 p.sub div.tw(table))",
       "div.sec(h2 p.sub div.cols(div div) p.am-cite)",
       "div.sec(h2 p.sub details.am-more(summary div.tw))"
@@ -2734,7 +2738,7 @@
     {
      "children": [
       "div.pitch(div(h2 p a.btn[href=#overview] div.am-qr) div.shift(div div div div))",
-      "div.sec#probSec[hidden](h2 p.sub(span.sev.s-med) dl.figs#probFigs p.am-cite(a.more))",
+      "div.sec#probSec[hidden](h2 p.sub(span.sev.s-med) dl.figs#probFigs h3.am-h3(span.sev.s-low) div.tw(table) p.am-cite(a.more) p.am-cite(a.more))",
       "div.sec(h2 p.sub div.flow(div.col div.arr div.col.mid div.arr div.col))",
       "div.sec(h2 p.sub div.caps#caps)",
       "div.sec(h2 p.sub div.tw(table) p.am-cite)",
@@ -2912,6 +2916,7 @@
    "classes_referenced": [
     "am-cite",
     "am-err",
+    "am-gis",
     "am-hero",
     "am-mark",
     "am-up-res",
@@ -2942,6 +2947,7 @@
     "in",
     "js",
     "kv",
+    "leaflet-popup-content",
     "m",
     "mapwrap",
     "med",
@@ -3299,10 +3305,12 @@
     "#v-overview",
     "#volT",
     "#wkTag",
+    ".am-gis",
     ".bay",
     ".chip",
     ".flow",
     ".fund",
+    ".leaflet-popup-content",
     ".pitch",
     ".play",
     ".sec,.am-hero,.mapwrap",
@@ -3541,5 +3549,5 @@
    ]
   }
  },
- "strict_sha256": "0b558be666e7ad9256f4c79fe63c4b011b82a9eca62a193c19fa902fc52e16fe"
+ "strict_sha256": "2ee1bdc70f87f5a10f3e8a0a3dbe63e6d75435691f5e185a433c58048994867a"
 }
